@@ -3,9 +3,14 @@ By the end of the first day you will have deployed a website you can share with 
 ### Topics
 * [HTML Basics](https://github.com/getfutureproof/fp_guides_wiki/wiki/HTML-Basics)
 * [CSS Basics](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Basics)
-* [Deployment 101](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploy-101)
 * [Site Planning & Layout](https://github.com/getfutureproof/fp_guides_wiki/wiki/Site-Planning-and-Layout)
 * [Frameworks](https://github.com/getfutureproof/fp_guides_wiki/wiki/Frameworks)
 * [Responsive Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Responsive-Design)
 * [Just Enough JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Just-Enough-JavaScript)
 * [Intro to TDD](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-TDD)
+
+### Additional Resources
+* [Deployment 101 with Netlify](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploy-101)
+* [CSS Selectors Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Selectors-Cheatsheet)
+* [git CLI Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/git-CLI-Cheatsheet)
+* [Writing READMEs](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
