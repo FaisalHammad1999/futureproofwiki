@@ -1,4 +1,4 @@
-### Netlify is a great hosting tool for many (not all) projects and it's super easy to get going with!
+_Netlify is a great hosting tool for many (not all) projects and it's super easy to get going with!_
 
 ## Pre-requisites for a super-easy HTML/CSS/JS site deploy
 - A project folder containing all the files needed to run your code. 
