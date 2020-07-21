@@ -14,5 +14,5 @@ By the end of the first day you will have deployed a website you can share with 
 * [CSS Selectors Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Selectors-Cheatsheet)
 * [git CLI Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/git-CLI-Cheatsheet)
 * [Writing READMEs](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
-* [MacOS Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
-* [WSL Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
+* [MacOS Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup)
+* [WSL Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/WSL-Setup)
