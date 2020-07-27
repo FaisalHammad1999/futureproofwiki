@@ -12,3 +12,5 @@ This LAP is all about learning programming principles through the use of JavaScr
 * [JavaScript API Frameworks](https://github.com/getfutureproof/fp_guides_wiki/wiki/JavaScript-API-Frameworks)
 
 
+### Additional Resources
+* [Deploying an Express API with Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploy-Express-API-to-Heroku)
