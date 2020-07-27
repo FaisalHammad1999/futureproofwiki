@@ -46,7 +46,7 @@ Heroku will find your package-json.lock and build dependencies for you based on 
 ```
 
 #### Check your port
-You may well have hard coded your Express port. Heroku will ignore this and use its own enviorment variable so make sure your app is ready for this with something like:
+You may well have hard coded your Express port. Heroku will ignore this and use its own environment variable so make sure your app is ready for this with something like:
 ```js
 const port = process.env.PORT || 3000; // if there is no PORT env variable, 3000 will be used
 server.listen(port, () => console.log(`Express is running on port ${port}`))
