@@ -9,3 +9,6 @@ React and building a slick frontend is the main focus of this LAP. We'll cover a
 * Redux
 * TDD in React
 * DevOps
+
+### Additional Resources
+* [Call vs. Apply vs. Bind](https://github.com/getfutureproof/fp_guides_wiki/wiki/Call-vs-Apply-vs-Bind)
