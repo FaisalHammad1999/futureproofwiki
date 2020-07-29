@@ -32,7 +32,7 @@ We use these to add support for various file types.
 
 We use this to tanspile ES6 to ES5.
 
-`npm install @babel/core @babel/preser-env @babel/preset-react`
+`npm install @babel/core @babel/preset-env @babel/preset-react`
 
 ### Folders and FIles
 
