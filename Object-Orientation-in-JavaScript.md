@@ -159,7 +159,7 @@ mochi instanceof Dog; //=> true
 ```
 
 ## Custom Errors using OOP
-OO is useful in all sorts of circumstances and now you now how inheritance works, let's use it to make a custom Error.
+OO is useful in all sorts of circumstances and now you know how inheritance works, let's use it to make a custom Error.
 [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) is a built-in object and a great one to start using OO inheritance to customize.
 
 ```js
