@@ -4,9 +4,9 @@ React and building a slick frontend is the main focus of this LAP. We'll cover a
 * [Object Orientation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
 * [Intro to Webpack](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Webpack)
 * [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
-* React Components & Props
-* React Eventing, Navigation & State
-* React Advanced Components
+* [React State & Eventing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing)
+* [React Props & Component Lifecycle](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props-and-Component-Lifecycle)
+* React Navigation
 * Redux
 * TDD in React
 * DevOps
