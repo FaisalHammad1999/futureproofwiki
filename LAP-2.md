@@ -8,7 +8,7 @@ React and building a slick frontend is the main focus of this LAP. We'll cover a
 * [React Props & Component Lifecycle](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props-and-Component-Lifecycle)
 * React Navigation
 * Redux
-* TDD in React
+* [TDD in React](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React)
 * DevOps
 
 ### Additional Resources
