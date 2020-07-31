@@ -188,3 +188,16 @@ test("clicking on a story triggers a handleStorySelect function", () => {
     expect(handleStorySelect.calledWith(2503)).toBe(true);
 });
 ```
+***
+
+## Running Your Tests
+When running tests, the script CRA uses is configured to `watch` which means your test suite will run on every change. The usage instructions are wonderfully clear with your most commonly used commands likely to be `q` to quit watch mode, `a` to re-run all the tests and `f` to re-run only the failing tests.
+
+***
+
+## Displaying Test Coverage
+For coverage I have set up a new script in the `package.json`:
+```js
+"coverage": "react-scripts test --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
+```
+This can be called with `npm run coverage` and will run the test suite, display the coverage and exit.
