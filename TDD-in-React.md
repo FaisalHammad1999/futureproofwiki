@@ -31,7 +31,7 @@ import sinon from 'sinon';
 
 We'll only be using `configure` and `Adapter` in this file. The others we'll want to make available for the duration of our test runs, across all our test files.
 ```js
-global.React = react;
+global.React = React;
 global.shallow = shallow;
 global.sinon = sinon;
 ```
