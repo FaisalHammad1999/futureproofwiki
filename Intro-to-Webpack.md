@@ -75,6 +75,7 @@ module.exports = {
     contentBase: path.resolve('src'), // location of the source code
     hot: true, // refresh the browser when changes are saved
     open: true, // open the app/project in the browser when the server starts
+    host: 0.0.0.0 // optional: sets host to be accessible on public IP
     port: 8000, // use this port for the server
     watchContentBase: true // watch for changes to static files
   },
@@ -85,6 +86,8 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     })
+  ]
+}
 ```
 
 Finally we should add some scripts to our `package.json`.
