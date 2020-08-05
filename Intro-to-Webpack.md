@@ -66,7 +66,8 @@ module.exports = {
   entry: './src/index.js', // the main JavaScript file of the app/project
   output: { // instructions for compiling the code
     path: path.resolve('dist'), // the file where the compiled code should go
-    filename: 'bundle.js' // the file name of the compiled code
+    filename: 'bundle.js', // the file name of the compiled code
+    publicPath: '/' // redirect incoming requests to '/'
   },
   devtool: 'source-maps', // a tool to find errors in the compiled code, but show them against the source code for easier debugging
   module: { // modules/helpers we want Webpack to use
