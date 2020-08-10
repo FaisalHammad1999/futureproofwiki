@@ -95,7 +95,7 @@ class CatsContainer extends Component  {
     };
 }
 
-export default withRouter(App); // here is where we pass our App component to withRouter. Check out the dev tools to see the result!
+export default withRouter(CatsContainer); // here is where we pass our CatsContainer component to withRouter. Check out the dev tools to see the result!
 ```
 ```jsx
 // rendered on a page with path of `/cats/:name`
