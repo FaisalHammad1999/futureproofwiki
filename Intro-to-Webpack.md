@@ -56,12 +56,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-
 module.exports = {
   entry: './src/index.js', // the main JavaScript file of the app/project
   output: { // instructions for compiling the code
