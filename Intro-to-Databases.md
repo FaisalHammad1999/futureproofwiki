@@ -34,7 +34,7 @@ Relational databases are very useful _if we are certain of the format of the dat
 
 A common type of non-relational database is a document data store, which looks a lot like a JavaScript object, typically stored in JSON. There is no mandatory way that each document is created, allowing for flexibility depending on the data we are storing. Much like a relational database though, each document will have a key so that it can be accessed uniquely.
 
-![Non-Relational Model](https://i.imgur.com/9lzbcgn.png)
+![Non-Relational Model](https://i.imgur.com/5yMWUiY.png)
 
 Non-relational databases are often referred to as **NoSQL**.
 
