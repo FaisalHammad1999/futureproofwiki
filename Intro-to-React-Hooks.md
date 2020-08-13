@@ -4,7 +4,7 @@ The React documentation on Hooks is excellent and we encourage you to work throu
 ## Why?
 Until Hooks, functional components could not have a concept of state nor ability to handle side effects. This can lead to unnecessarily bloated code and, when using Higher Order Components, 'wrapper hell'! Hooks are an OPTIONAL feature of React that are worth getting to know. **HOOKS ARE NOT A REPLACEMENT FOR CLASS COMPONENTS!**
 
-_I recommend a cup of tea and a sit down with Sophie and Dan to get you up to speed on why Hooks were created:_
+***I recommend a cup of tea and a sit down with Sophie and Dan to get you up to speed on why Hooks were created:***
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dpw9EHDh2bM/0.jpg)](https://www.youtube.com/watch?v=dpw9EHDh2bM)
 
@@ -34,8 +34,10 @@ const [ lives, setLives ] = useState(60);
 
 const loseALife = () => setLives(prevLives => prevLives - 1);
 ```
-Read the [useState documentation](https://reactjs.org/docs/hooks-state.html) for more details on the inner workings, things to look out for and more examples.
+***Read the [useState documentation](https://reactjs.org/docs/hooks-state.html) for more details on the inner workings, things to look out for and more examples.***
+
 ***
+
 #### useEffect
 Functional components do not have access to class Component lifecycle methods. We can, however, achieve some similar behaviour with [`useEffect`](https://reactjs.org/docs/hooks-effect.html) which allows us to handle side effects.
 
@@ -80,7 +82,7 @@ useEffect(() => {
 
 ```
 
-Read the [useEffect documentation](https://reactjs.org/docs/hooks-effect.html) for more details on the inner workings, things to look out for and more examples.
+***Read the [useEffect documentation](https://reactjs.org/docs/hooks-effect.html) for more details on the inner workings, things to look out for and more examples.***
 
 ***
 
@@ -159,4 +161,4 @@ const MyFunctionalComponent = ({ theSkyIsGreen }) => {
 
 ```
 
-Read the [Custom Hooks documentation](https://reactjs.org/docs/hooks-custom.html) for more details on the inner workings, things to look out for and more examples.
+***Read the [Custom Hooks documentation](https://reactjs.org/docs/hooks-custom.html) for more details on the inner workings, things to look out for and more examples.***
