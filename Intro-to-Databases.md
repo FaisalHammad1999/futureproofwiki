@@ -18,6 +18,8 @@ Each table will have:
 * Rows named **Records**
 * A unique ID called a **Key**
 
+![Relational Model](https://i.imgur.com/G6f18yM.png)
+
 With a relational database we can place constraints on an attribute to restrict the type of data that we are storing, for example ensuring height is stored as a number and restricting it to be between two realistic figures. We can also put a constraint in place to say if a piece of data is optional or not.
 
 We put constraints in place to ensure that we maintain high quality data which will likely be easier to maintain over time.
@@ -31,6 +33,8 @@ Examples of SQL databases are [SQLite](https://www.sqlite.org/index.html), [Post
 Relational databases are very useful _if we are certain of the format of the data_. However not all data will fit nicely into that kind of structure which has given rise to the non-relational database.
 
 A common type of non-relational database is a document data store, which looks a lot like a JavaScript object, typically stored in JSON. There is no mandatory way that each document is created, allowing for flexibility depending on the data we are storing. Much like a relational database though, each document will have a key so that it can be accessed uniquely.
+
+![Non-Relational Model](https://i.imgur.com/9lzbcgn.png)
 
 Non-relational databases are often referred to as **NoSQL**.
 
