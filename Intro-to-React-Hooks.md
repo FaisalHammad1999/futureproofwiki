@@ -34,7 +34,7 @@ const [ lives, setLives ] = useState(60);
 
 const loseALife = () => setLives(prevLives => prevLives - 1);
 ```
-Read [the documentation](https://reactjs.org/docs/hooks-state.html) for more details on the inner workings, things to look out for and more examples.
+Read the [useState documentation](https://reactjs.org/docs/hooks-state.html) for more details on the inner workings, things to look out for and more examples.
 ***
 #### useEffect
 Functional components do not have access to class Component lifecycle methods. We can, however, achieve some similar behaviour with [`useEffect`](https://reactjs.org/docs/hooks-effect.html) which allows us to handle side effects.
@@ -80,7 +80,7 @@ useEffect(() => {
 
 ```
 
-Read [the documentation](https://reactjs.org/docs/hooks-effect.html) for more details on the inner workings, things to look out for and more examples.
+Read the [useEffect documentation](https://reactjs.org/docs/hooks-effect.html) for more details on the inner workings, things to look out for and more examples.
 
 ***
 
@@ -131,7 +131,7 @@ const MyFunctionalComponent = ({ theSkyIsGreen }) => {
 ```
 ***
 ### 2. "Only call Hooks from React function components [ or ] Custom Hooks"
-Outside of a React functional component, the only other place you can call Hooks from is a custom hook. ***Custom hook names start with `use`**.*
+Outside of a React functional component, the only other place you can call Hooks from is a [custom hook](https://reactjs.org/docs/hooks-custom.html). ***Custom hook names start with `use`**.*
 
 ```js
 // in customHooks.js
@@ -158,3 +158,5 @@ const MyFunctionalComponent = ({ theSkyIsGreen }) => {
 };
 
 ```
+
+Read the [Custom Hooks documentation](https://reactjs.org/docs/hooks-custom.html) for more details on the inner workings, things to look out for and more examples.
