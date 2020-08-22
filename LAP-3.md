@@ -3,7 +3,7 @@ In LAP 3 we bring everything together by looking at databases, both relational a
 ### Topics
 * [Intro to System Architecture](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-System-Architecture)
 * [Intro to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Databases)
-* Internet Protocols & API Design
+* [Internet Protocols & API Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Internet-Protocols-&-API-Design)
 * NoSQL
 * SQL
 * Connecting WebApps to Databases
