@@ -66,8 +66,8 @@ To interact with your MongoDB service you can access via the command line. Alter
 - `db.dropDatabase()`
 
 ### Create a new collection
-- `db.createCollection(<coll-name>, <options>)`
-- eg. `db.createCollection(cats)`
+- `db.createCollection(<coll-name-as-string>, <options-object>)`
+- eg. `db.createCollection('cats')`
 - If you do not need to add any options for eg. max number of documents ('capped') or data validation, then this step is not necessary.
 - For more on these options, see the [documentation](https://docs.mongodb.com/manual/reference/method/db.createCollection/#db.createCollection)
 
@@ -115,13 +115,16 @@ When you make a query, a '[cursor](https://docs.mongodb.com/manual/reference/met
     - `var items = db.cats.find().toArray`
 - You can iterate over a cursor directly with its own `forEach`
     - `db.cats.find().forEach(cat => print(cat.name))`
-See the documentation for more cursor methods
+See the [documentation](https://docs.mongodb.com/manual/reference/method/js-cursor/) for more cursor methods
 
 ### [**U**pdate](https://docs.mongodb.com/v3.4/tutorial/update-documents/)
 When updating a document, if the field to be updated does not exist, it will be created.
 - Update Zelda's age to be 4
     - `db.cats.updateOne({ name: "Zelda" }, { $set: { "age": 4 } })`
-
+- Update Zelda's age to be 4 and return original document
+    - `db.cats.findOneAndUpdate({ name: "Zelda" }, { $set: { "age": 4 } })
+- Update Zelda's age to be 4 and return updated document
+    - `db.cats.findOneAndUpdate({ name: "Zelda" }, { $set: { "age": 4 } }, { returnNewDocument: true })
 - Update all cats older than 2 to have type 'adult'
     - `db.cats.updateMany({ age: { $gt: 2} }, { $set: { "type": "adult" } })`
 
@@ -129,11 +132,20 @@ When updating a document, if the field to be updated does not exist, it will be 
 ### [**D**elete](https://docs.mongodb.com/v3.4/tutorial/remove-documents/)
 - Delete all documents in collection
     - `db.cats.deleteMany({})`
-- Delete first document matching query
+- Delete first document matching query and return confirmation
+    - `db.cats.deleteOne({ name : "Zelda" })`
+- Delete first document matching query and return deleted document
     - `db.cats.deleteOne({ name : "Zelda" })`
 - Delete all documents matching query
     - `db.cats.deleteMany({ age : { $gt: 6 } })`
 ***
+
+## Sorting
+The sort method needs to know what it's sorting on (field name) and in what direction (1 for ascending, -1 for descending)
+Get cats in descending order of age
+    - db.cats.find().sort({ "age" : -1 })
+Get the youngest cat with a name beginning with 'Z'
+    - db.cats.find({"name": /^Z/i}).sort({ "age" : 1 }).limit(1)
 
 ## Aggregation
 [Aggregation](https://docs.mongodb.com/v3.4/reference/method/db.collection.aggregate/) is done in pipeline of actions that can include matching, grouping and more.
@@ -166,6 +178,181 @@ db.list.aggregate([
 ```
 
 ***
+
+## Joins
+Despite not being relational, you can use `$lookup`s as part of the aggregation pipeline to perform a join.
+
+```js
+db.dogs.insertMany([
+    { name: 'Mochi', breed: 'shi-pu', ownerName: 'Naz' },
+    { name: 'Masha', breed: 'shih-tzu', ownerName: 'Vesna' },
+    { name: 'Hendon', breed: 'golden retriever', ownerName: 'Vesna' },
+    { name: 'Zola', breed: 'golden retriever', ownerName: 'Beth' },
+    { name: 'Snip', breed: 'greyhound' }
+])
+
+db.owners.insertMany([
+    { name: 'Beth' },
+    { name: 'Naz' },
+    { name: 'Eric' },
+    { name: 'Vesna' }
+])
+```
+
+To get the full join result:
+```js
+db.owners.aggregate([
+    { $lookup:
+        {
+           from: "dogs",
+           localField: "pet",
+           foreignField: "name",
+           as: "petDetails"
+        }
+    }
+])
+```
+
+Add a match to the pipeline to filter your results:
+```js
+db.owners.aggregate([
+   { $match: { name: 'Beth'} },
+   { 
+        $lookup: {
+             from: 'dogs',
+             as: 'pets',
+             let: { owner: '$name' },
+             pipeline: [{ $match: { $expr: { $eq: ['$ownerName', '$$owner'] } } }]
+        }
+    },
+]).pretty()
+```
+***
+
+## Run [scripts](https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/)
+You can write your queries and operations in a .js file and load them into your mongo shell.
+
+```js
+// in seedDogs.js
+db = db.getSiblingDB('shelter') // make sure we're working in the 'shelter' database (create it if does not exist)
+
+db.dogs.insertMany([ // seed the collection with these dogs
+    { name: 'Mochi', breed: 'shi-pu' },
+    { name: 'Masha', breed: 'shih-tzu' },
+    { name: 'Hendon', breed: 'golden retriever' },
+    { name: 'Zola', breed: 'golden retriever' },
+    { name: 'Snip', breed: 'greyhound' }
+])
+```
+
+```js
+// in mongo shell
+load('seedDogs.js')
+```
+
+We want wish to make a suite of functions to assist us with our regular tasks:
+// in shelterHelpers.js
+db = db.getSiblingDB('shelter') // make sure we're working in the 'shelter' database (create it if does not exist)
+
+function findDogByBreed(b){
+   return db.dogs.find({ breed: { $eq: b }})
+};
+
+function getOldestCat(){
+    db.cats.find().sort({ "age" : -1 }).limit(1)
+}
+```
+
+```js
+// in mongo shell
+load('shelterHelpers.js')
+
+findDogByBreed('golden retriever')
+
+getOldestCat()
+```
+***
+
+## Schema & Validation
+Whilst the forte of NoSQL is flexibility in data types, we may still wish to set some required fields and validation set on our collections. To do this we can pass a `$jsonSchema` value to the `validation` option when using `createCollection`. This is an object that can nest additional objects if required. At each level, we can specify what fields are required, and what data type a field should be.
+
+Consider the setup here:
+```js
+// create food_supplies collection
+db.createCollection("food_supplies", {
+    validator: {
+       $jsonSchema: {
+            bsonType: "object",
+            required: [ "name", "price", "inventory", "supplier" ],
+            properties: {
+                name: {
+                    bsonType: "string",
+                    description: "must be a string and is required"
+                },
+                price: {
+                    bsonType: "number",
+                    minimum: 0,
+                    description: "must be a neutral or positive value and is required"
+                },
+                inventory: {
+                    bsonType: "number",
+                    minimum: 0,
+                    description: "must be a neutral or positive value and is required"
+                },
+                supplier: {
+                    enum: [ "FoodStuffs", "PetsRUs", "FeedUs", "F.O.O.D" ],
+                    description: "must be a registered supplier and is required"
+                }
+            }
+       }
+    }
+ })
+
+
+// create suppliers collection
+ db.createCollection("suppliers", {
+    validator: {
+       $jsonSchema: {
+            bsonType: "object",
+            required: [ "name", "address" ],
+            properties: {
+                name: {
+                    bsonType: "string",
+                    description: "must be a string and is required"
+                },
+                address: {
+                    bsonType: "object",
+                    required: [ "telephone", "city" ],
+                    properties: {
+                        telephone: {
+                            bsonType: "string",
+                            description: "must be a string if the field exists"
+                        },
+                        street: {
+                            bsonType: "string",
+                            description: "must be a string if the field exists"
+                        },
+                        city: {
+                            bsonType: "string",
+                            "description": "must be a string and is required"
+                        }
+                    }
+                }
+            }
+       }
+    }
+ })
+```
+
+You can check your schema with `db.getCollectionInfos({name: '<collection-name>'})`
+
+Based on the schemas above, which of these inserts will be successful?
+```js
+db.suppliers.insertOne({ name: 'FoodStuffs', address: { telephone: '01234567890', city: 'London' }})
+db.suppliers.insertOne({ name: 'FeedUs', address: { telephone: '01987654321' }})
+db.food_supplies.insertOne({ name: "Yummy Scrummy", inventory: 4, supplier: "FeedUs", price: 2.45 })
+db.food_supplies.insertOne({ name: "Yummy Scrummy", inventory: 4, supplier: "Mmm", price: 2.45 })
+```
 
 ## Resources
 [MongoDB Documentation](https://docs.mongodb.com/manual/) \
