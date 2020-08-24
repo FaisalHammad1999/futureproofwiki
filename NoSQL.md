@@ -32,7 +32,7 @@ MongoDB offer several options for running. The Community Server is a great place
 **Optional** Install and connect Compass
 [MongoDB Compass](https://docs.mongodb.com/compass/current/install/) is one of many options for GUI interaction with your MongoDB service. A GUI is not required but can be a nice way to visualise you data whilst working. You can download it [here](https://www.mongodb.com/try/download/compass?tck=docs_compass). Get the most recent stable, full edition. On MacOS, when you first open Compass, if you receive an error, visit your Security & Privacy > General tab and select 'Open Anyway'.
 
-To connect Compass to your local MongoDB service, select 'Fill in connection fields individually' and hit connect. The default details should be correct but you can check by running `mongod` in your terminal to see the connection details.
+To connect Compass to your local MongoDB service, select 'Fill in connection fields individually' and hit connect. The default details should be correct but you can check by running `mongo` in your terminal to see the connection details.
 
 ***
 
