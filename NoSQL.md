@@ -1,4 +1,4 @@
-NoSQL is a great choice for 'denormalized' data, when you don't anticipate needing to do frequent relationship lookups and where the database may need frequent changes. You can, in fact, both normalize and handle relationships in NoSQL options (the 'No' stands for 'not only'!) however if you you anticipate frequent, complex relationship lookups and minimal change in the format of data, SQL may be a better fit.
+NoSQL is a great choice for 'denormalized' data, when you don't anticipate needing to do frequent relationship lookups and where the database may need frequent changes. You can, in fact, both normalize and handle relationships in NoSQL options (the 'No' stands for 'not only'!) however if you you anticipate frequent, complex relationship lookups and minimal change in the format of data, an alternative may be a better fit.
 
 You are more likely to find duplicate data in a NoSQL database since the guidelines are, when planning your NoSQL database, to optimise for your most frequent queries rather than data storage. For example, you may store the most recent 'comments' embedded in a post document and have all of the comments stored in a separate comments collection. This would mean duplication but would avoid cross-collection lookups and loading more data in a query than necessary. 
 
@@ -142,10 +142,10 @@ When updating a document, if the field to be updated does not exist, it will be 
 
 ## Sorting
 The sort method needs to know what it's sorting on (field name) and in what direction (1 for ascending, -1 for descending)
-Get cats in descending order of age
-    - db.cats.find().sort({ "age" : -1 })
-Get the youngest cat with a name beginning with 'Z'
-    - db.cats.find({"name": /^Z/i}).sort({ "age" : 1 }).limit(1)
+- Get cats in descending order of age
+    - `db.cats.find().sort({ "age" : -1 })`
+- Get the youngest cat with a name beginning with 'Z'
+    - `db.cats.find({"name": /^Z/i}).sort({ "age" : 1 }).limit(1)`
 
 ## Aggregation
 [Aggregation](https://docs.mongodb.com/v3.4/reference/method/db.collection.aggregate/) is done in pipeline of actions that can include matching, grouping and more.
@@ -250,7 +250,8 @@ db.dogs.insertMany([ // seed the collection with these dogs
 load('seedDogs.js')
 ```
 
-We want wish to make a suite of functions to assist us with our regular tasks:
+We might wish to make a suite of functions to assist us with our regular tasks:
+```js
 // in shelterHelpers.js
 db = db.getSiblingDB('shelter') // make sure we're working in the 'shelter' database (create it if does not exist)
 
