@@ -84,6 +84,8 @@ A query parameter string starts with a `?` and is followed with `<key>=<value>` 
 - `/cats?age=4&temperement=cuddly&limit=5` \
 The final example here says 'I want to see a maximum of 5 cats who like cuddles'.
 
+When sending data in a non-GET request, we would usually send this in a request body rather than query parameters.
+
 ### Status Codes
 It's good to communicate the status of any HTTP request and there is an [extensive list of standard status codes](https://www.restapitutorial.com/httpstatuscodes.html) which are grouped into 5 categories:
 - 1** Informational
