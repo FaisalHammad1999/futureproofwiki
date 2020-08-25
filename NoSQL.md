@@ -135,7 +135,7 @@ When updating a document, if the field to be updated does not exist, it will be 
 - Delete first document matching query and return confirmation
     - `db.cats.deleteOne({ name : "Zelda" })`
 - Delete first document matching query and return deleted document
-    - `db.cats.deleteOne({ name : "Zelda" })`
+    - `db.cats.findAndDeleteOne({ name : "Zelda" })`
 - Delete all documents matching query
     - `db.cats.deleteMany({ age : { $gt: 6 } })`
 ***
