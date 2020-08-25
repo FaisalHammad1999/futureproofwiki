@@ -38,7 +38,7 @@ REST requests contain:
     - Our HTTP verbs are GET, POST, PUT, PATCH, DELETE
 
 - A header which contains information about the request
-    - Whereas SOAP works exclusivy with XML, REST is more flexible in terms of what data types it can transport. Inside of the header each request contains an accept field which details what type of data the request expects back. This could be images, JSON, text, html, etc…
+    - Whereas SOAP works exclusively with XML, REST is more flexible in terms of what data types it can transport. Inside of the header each request contains an accept field which details what type of data the request expects back. This could be images, JSON, text, html, etc…
 
 - A path
     - The path is the place where we are accepting data from. It normally contains parameters which detail which type of request we expect back these could be query parameters ( after a ?) or in the path itself.
