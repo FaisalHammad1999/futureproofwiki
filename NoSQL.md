@@ -234,7 +234,7 @@ You can write your queries and operations in a .js file and load them into your 
 
 ```js
 // in seedDogs.js
-db = db.getSiblingDB('shelter') // make sure we're working in the 'shelter' database (create it if does not exist)
+db = connect("localhost:27017/shelter"); // update host/port/db as necessary
 
 db.dogs.insertMany([ // seed the collection with these dogs
     { name: 'Mochi', breed: 'shi-pu' },
@@ -253,7 +253,7 @@ load('seedDogs.js')
 We might wish to make a suite of functions to assist us with our regular tasks:
 ```js
 // in shelterHelpers.js
-db = db.getSiblingDB('shelter') // make sure we're working in the 'shelter' database (create it if does not exist)
+db = connect("localhost:27017/shelter"); // update host/port/db as necessary
 
 function findDogByBreed(b){
    return db.dogs.find({ breed: { $eq: b }})
