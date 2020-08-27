@@ -9,3 +9,6 @@ In LAP 3 we bring everything together by looking at databases, both relational a
 * [Connecting WebApps to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Connecting-Webapps-to-Databases)
 * [Performance](https://github.com/getfutureproof/fp_guides_wiki/wiki/Performance)
 * [Intro to Cybersecurity](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Cybersecurity)
+
+### Additional Resources
+* [Deploying a Database](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Database)
