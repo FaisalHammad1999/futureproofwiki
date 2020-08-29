@@ -10,4 +10,4 @@ The final LAP revolves around transferring what you have learned in the previous
 * [Intro to Data Science](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Data-Science)
 
 ### Additonal Resources
-* [Python Environments](https://github.com/getfutureproof/fp_guides_wiki/wiki/Python-Environments)
+* [Installing Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Python-Environments)
