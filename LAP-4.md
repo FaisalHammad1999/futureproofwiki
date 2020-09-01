@@ -9,5 +9,5 @@ The final LAP revolves around transferring what you have learned in the previous
 * [Data Manipulation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Data-Manipulation)
 * [Intro to Data Science](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Data-Science)
 
-### Additonal Resources
+### Additional Resources
 * [Installing Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Installing-Python)
