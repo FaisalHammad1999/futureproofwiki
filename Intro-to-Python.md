@@ -71,3 +71,11 @@ my_ship = {
 }
 ```
 
+## Functions
+
+### Built-in
+
+Python has a range of built in functions available to use, you can find the full list [here](https://docs.python.org/3/library/functions.html#len).
+
+### Writing your own
+
