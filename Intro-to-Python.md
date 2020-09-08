@@ -79,6 +79,81 @@ A set is a collection of values which is unordered and unindexed. Set items are 
 to_do_list = {'Eat', 'Sleep', 'Wash', 'Repeat'}
 ```
 
+## String Formatting
+
+### %-formatting
+
+This is no longer recommended as your code can become unreadable as you increase the amount of parameters. There have been updates to Python since which make formatting strings easier, but it's good to know incase you come across old code which contains %-formatting.
+
+```python
+name = 'Sabrina'
+
+occupation = 'Teenage Witch'
+
+return 'My name is %s and I am a %s.' % (name, occupation)
+
+# My name is Sabrina and I am a Teenage Witch.
+```
+
+### str.format()
+
+Again, avoid using this method as it is outdated and has been replaced. It's is much more readable than code using %-formatting, but can be quite verbose.
+
+```python
+name = 'Salem'
+
+occupation = 'Cat'
+
+return 'My name is {} and I am a {}.'.format(name, occupation)
+
+# My name is Salem and I am a Cat.
+```
+
+or
+
+```python
+person = {'name': 'Hilda', 'Occupation': 'Sabrina\'s Aunt'}
+
+return 'Hello, {name}. You are {age}.'.format(name=person['name'], occupation=person['occupation'])
+
+# My name is Hilda and I am Sabrina's Aunt
+```
+
+### f-Strings
+
+New to Python 3, this is the way to go. The expressions are evaluated at runtime and then formatted, making them much more versatile and way less verbose.
+
+```python
+name = 'Zelda'
+
+occupation = 'Sabrina\'s Other Aunt'
+
+return f'My name is {name} and I am {occupation}.'
+
+# My name is Zelda and I am Sabrina's Other Aunt
+```
+
+As f-strings are evaluated at runtime you can also use them to perform actions, functions or methods
+
+```python
+return f'This potions calls for {3 * 5} eye of newt'
+
+# This potions calls for 15 eye of newt
+```
+
+or 
+
+```python
+def point_finger:
+     return 'Casting spell'
+
+return f'{point_finger()} at you.'
+
+# Casting spell at you.
+```
+
+Check out further examples [here](https://realpython.com/python-f-strings/)
+
 ## Functions
 
 ### Built-in
