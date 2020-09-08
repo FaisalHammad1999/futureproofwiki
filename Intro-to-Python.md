@@ -86,11 +86,11 @@ to_do_list = {'Eat', 'Sleep', 'Wash', 'Repeat'}
 This is no longer recommended as your code can become unreadable as you increase the amount of parameters. There have been updates to Python since which make formatting strings easier, but it's good to know incase you come across old code which contains %-formatting.
 
 ```python
-name = 'Sabrina'
+>>> name = 'Sabrina'
 
-occupation = 'Teenage Witch'
+>>> occupation = 'Teenage Witch'
 
-return 'My name is %s and I am a %s.' % (name, occupation)
+>>> 'My name is %s and I am a %s.' % (name, occupation)
 
 # My name is Sabrina and I am a Teenage Witch.
 ```
@@ -100,11 +100,11 @@ return 'My name is %s and I am a %s.' % (name, occupation)
 Again, avoid using this method as it is outdated and has been replaced. It's is much more readable than code using %-formatting, but can be quite verbose.
 
 ```python
-name = 'Salem'
+>>> name = 'Salem'
 
-occupation = 'Cat'
+>>> occupation = 'Cat'
 
-return 'My name is {} and I am a {}.'.format(name, occupation)
+>>> 'My name is {} and I am a {}.'.format(name, occupation)
 
 # My name is Salem and I am a Cat.
 ```
@@ -112,9 +112,9 @@ return 'My name is {} and I am a {}.'.format(name, occupation)
 or
 
 ```python
-person = {'name': 'Hilda', 'Occupation': 'Sabrina\'s Aunt'}
+>>> person = {'name': 'Hilda', 'Occupation': 'Sabrina\'s Aunt'}
 
-return 'Hello, {name}. You are {age}.'.format(name=person['name'], occupation=person['occupation'])
+>>> 'Hello, {name}. You are {age}.'.format(name=person['name'], occupation=person['occupation'])
 
 # My name is Hilda and I am Sabrina's Aunt
 ```
@@ -124,11 +124,11 @@ return 'Hello, {name}. You are {age}.'.format(name=person['name'], occupation=pe
 New to Python 3, this is the way to go. The expressions are evaluated at runtime and then formatted, making them much more versatile and way less verbose.
 
 ```python
-name = 'Zelda'
+>>> name = 'Zelda'
 
-occupation = 'Sabrina\'s Other Aunt'
+>>> occupation = 'Sabrina\'s Other Aunt'
 
-return f'My name is {name} and I am {occupation}.'
+>>> f'My name is {name} and I am {occupation}.'
 
 # My name is Zelda and I am Sabrina's Other Aunt
 ```
@@ -136,7 +136,7 @@ return f'My name is {name} and I am {occupation}.'
 As f-strings are evaluated at runtime you can also use them to perform actions, functions or methods
 
 ```python
-return f'This potions calls for {3 * 5} eye of newt'
+>>> f'This potions calls for {3 * 5} eye of newt'
 
 # This potions calls for 15 eye of newt
 ```
@@ -144,10 +144,10 @@ return f'This potions calls for {3 * 5} eye of newt'
 or 
 
 ```python
-def point_finger():
-     return 'Casting spell'
+>>> def point_finger():
+        return 'Casting spell'
 
-return f'{point_finger()} at you.'
+>>> return f'{point_finger()} at you.'
 
 # Casting spell at you.
 ```
