@@ -164,7 +164,6 @@ volume, area = shape_measurements(3, 5, 90)
 
 ## Scope
 
-Ask class if we could see what is inside shape_volume if we print it out.
-We expect this to error, as shape_volume is a local variable, that is, only used inside of the function. Arguments can only be used inside of the function in the same way.
-Ask class what they think a global variable is
-Tell class a global variable is a variable defined outside of a function, that can be used anywhere.
+A local variable, that is, a variable written inside of a function for example, can only used inside of that function.
+
+A global variable is a variable defined outside of a function and can be used anywhere.
