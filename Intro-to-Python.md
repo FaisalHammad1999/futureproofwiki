@@ -87,3 +87,84 @@ Python has a range of built in functions available to use, you can find the full
 
 ### Writing your own
 
+We can also create functions of our own.
+
+The basic syntax of a function should look like:
+
+```python
+def function_name (arguments):
+     code
+     return return_value
+```
+
+Take the note of the  indentation. These indents are how Python knows where a specific block of code starts and ends. This enables python to be more readable as we don’t have all the additional punctuation we have in other languages.
+
+### Basic function
+
+```python
+def add_5(number):
+    return number + 5
+```
+
+### Multiple parameters
+
+We can pass in multiple parameters to our functions.
+
+```python
+def buying_confirmation(item_name, number):
+    sentence = ‘You are buying ‘ + number + ‘  ‘ + item_name + ‘s’
+    return sentence
+```
+
+### Default values
+
+We can give our parameters names and default values. When you call a function with keyword arguments you can pass in the arguments in any order.
+
+```python
+def shape_volume(height = 1, width = 1, depth = 1):
+    shape_volume = height * width * depth
+    return shape_volume
+```
+
+Try to:
+
+- Run `shape_volume()` (no arguments)
+- Run `shape_volume(3, 4, 5)` (arguments without their keywords)
+- Run `shape_volume(depth = 3, height = 6, width = 10)` (changed order)
+- Run `shape_volume(width = 9, height = 4)` (missing argument)
+
+We can store the result of calling a function as a new variable to be reused
+
+```python
+volume = shape_volume()
+```
+
+### Return Values
+
+We can return multiple items by separating them with a comma.
+
+```python
+def shape_measurements(height = 1, width = 1, depth = 1):
+    shape_volume = height * width * depth
+    shape_area = height * width
+    return shape_volume, shape_area
+```
+
+We can also store these in a variable but need to match the number of variables we are creating to the number returned by the function. The below would cause an error:
+
+```python
+volume = shape_measurements(4, 5, 6)
+```
+
+Instead we can deconstruct:
+
+```python
+volume, area = shape_measurements(3, 5, 90)
+```
+
+## Scope
+
+Ask class if we could see what is inside shape_volume if we print it out.
+We expect this to error, as shape_volume is a local variable, that is, only used inside of the function. Arguments can only be used inside of the function in the same way.
+Ask class what they think a global variable is
+Tell class a global variable is a variable defined outside of a function, that can be used anywhere.
