@@ -144,7 +144,7 @@ return f'This potions calls for {3 * 5} eye of newt'
 or 
 
 ```python
-def point_finger:
+def point_finger():
      return 'Casting spell'
 
 return f'{point_finger()} at you.'
