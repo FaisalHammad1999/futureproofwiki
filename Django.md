@@ -77,12 +77,13 @@ If you'd prefer to not have /adoption/ as part of your route, you can simply lea
 ### Map out the adoption routes
 Once we get to the adoption app, we can be more specific:
 ```python
+# adoption/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path('', views.index, name='adoption-index'), # route for /adoption/
-    path('about/', views.index, name='adoption-about'), # route for /adoption/about
+    path('about/', views.about, name='adoption-about'), # route for /adoption/about
     # path('<id>/', views.show, name='adoption-show'), # route for /adoption/:id
     path('<int:id>/', views.show, name='adoption-show') # to accept only numbers as id param
 ]
