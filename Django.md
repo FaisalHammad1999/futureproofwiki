@@ -382,7 +382,7 @@ You may have routes that you only wish to be accessible to logged-in users.
 LOGIN_URL = 'login'
 ```
 
-- add login_required decorator to any views you wish to protect
+- add login_required [decorator](https://wiki.python.org/moin/PythonDecorators#What_is_a_Decorator) to any views you wish to protect
 ```python
 # users/views.py
 from django.contrib.auth.decorators import login_required
