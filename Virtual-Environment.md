@@ -41,3 +41,6 @@ It's also possible to uninstall using: `$ pipenv uninstall flask`.
 Now you will see flask has been added to the `Pipfile` and a new `Pipfile.lock` has also appeared. This lets pipenv know which specific version of each package was used when building the app to avoiding the risks of automatically upgrading packages and breaking the project.
 
 > Remember to launch the shell if you have exited the command line and relaunch. Your project may not run if you are not in the shell.
+
+### Pip Freeze
+
