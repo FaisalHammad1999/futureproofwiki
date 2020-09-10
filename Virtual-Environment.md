@@ -51,3 +51,5 @@ Instead we can create a list of requirements by 'freezing' the packages and the 
 We can run: `$ pip freeze > requirements.txt` in the root of our project which will that list.
 
 Now when others go to use our project they can simply activate their virtual environment and run: `$ pipenv install -r requirements.txt` to get the correct dependencies.
+
+## Further Reading
