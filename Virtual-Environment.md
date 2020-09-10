@@ -44,3 +44,10 @@ Now you will see flask has been added to the `Pipfile` and a new `Pipfile.lock` 
 
 ### Pip Freeze
 
+By the time we get to the end of a project our list of packages could be very long indeed. We could allow those using our code to go through our package list and manually install each one to their local virtual environment but that is not going to win you any friends.
+
+Instead we can create a list of requirements by 'freezing' the packages and the version used when building the project into an easy to use file.
+
+We can run: `$ pip freeze > requirements.txt` in the root of our project which will that list.
+
+Now when others go to use our project they can simply activate their virtual environment and run: `$ pipenv install -r requirements.txt` to get the correct dependencies.
