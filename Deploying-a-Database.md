@@ -34,5 +34,5 @@ eb is a one-stop-shop that makes connecting to other AWS services smooth and con
 
 ***
 
-## Test vs Production
-It is highly likely that your development database will not be the same as your production one eg. using a local database just as we have used so far for dev. Just make sure you are connecting to the right one in the right situation - meaning setting your connection string / credentials as appropriate. [Environment variables](https://www.npmjs.com/package/dotenv) are the standard way to handle this.
+## Test vs Dev vs Production
+It is highly likely that your development database will not be the same as your production one eg. using a local database just as we have used so far for dev. Your test environment is also likely to use a different database. Just make sure you are connecting to the right one in the right situation - meaning setting your connection string / credentials as appropriate. [Environment variables](https://www.npmjs.com/package/dotenv) are the standard way to handle this.
