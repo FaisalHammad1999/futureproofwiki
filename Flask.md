@@ -134,11 +134,11 @@ from dragon import name_generator
 @server.route('/name_generator')
 def get_name():
     dragon_name = name_generator(request.args)
-    return render_template('main.html', title='Result', result=dragon_name) 
+    return render_template('result.html', title=f'Hello {dragon_name}!', result=dragon_name) 
 ```
 
 ```html
-<!-- in templates/main.html -->
+<!-- in templates/result.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,9 +171,11 @@ There are many [options](https://flask.palletsprojects.com/en/1.1.x/extensions/)
 ***
 
 
-## Documentation
+
+## Resources
 [Official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/) \
 [Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) \
 [PyPi](https://pypi.org/search/?c=Framework+%3A%3A+Flask) \
 [Jinja Templating](https://jinja.palletsprojects.com/en/2.11.x/) \
-[React SSR with Flask](https://medium.com/swlh/server-side-rendering-ssr-with-react-and-flask-47e589e1051f)
+[React SSR with Flask](https://medium.com/swlh/server-side-rendering-ssr-with-react-and-flask-47e589e1051f) \
+[Testing with pytest-flask](https://pytest-flask.readthedocs.io/en/latest/tutorial.html)
