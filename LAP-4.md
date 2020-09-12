@@ -2,7 +2,8 @@ The final LAP revolves around transferring what you have learned in the previous
 
 ### Topics
 * [Intro to Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Python)
-* [Control Flow in Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Control-Flow-in-Python)
+* [Procedural Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Procedural-Python)
+* [Object Oriented Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/OO-Python)
 * [Python as a Backend: Django](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django)
 * [Python as a Backend: Flask](https://github.com/getfutureproof/fp_guides_wiki/wiki/Flask)
 * [Extending the Backend](https://github.com/getfutureproof/fp_guides_wiki/wiki/Extending-the-Backend)
