@@ -147,7 +147,7 @@ or
 >>> def point_finger():
         return 'Casting spell'
 
->>> return f'{point_finger()} at you.'
+>>> f'{point_finger()} at you.'
 
 # Casting spell at you.
 ```
@@ -225,7 +225,7 @@ def shape_measurements(height = 1, width = 1, depth = 1):
     return shape_volume, shape_area
 ```
 
-We can also store these in a variable but need to match the number of variables we are creating to the number returned by the function. The below would cause an error:
+We can also store these in a variable but need to match the number of variables we are creating to the number returned by the function. The below is not best practice:
 
 ```python
 volume = shape_measurements(4, 5, 6)
