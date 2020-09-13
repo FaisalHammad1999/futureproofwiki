@@ -65,12 +65,12 @@ LAP | Week(s) | Overview |
 ***
 
 * [LAP 4](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-4)
-    + Intro to Python
-    + Control Flow in Python
-    + Python as a Backend: Django
-    + Python as a Backend: Flask
-    + Extending the Backend
-    + Data Manipulation
-    + Intro to Data Science
+    + [Intro to Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Python)
+    + [Procedural Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Procedural-Python)
+    + [Object Oriented Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/OO-Python)
+    + [Python as a Backend: Flask](https://github.com/getfutureproof/fp_guides_wiki/wiki/Flask)
+    + [Python as a Backend: Django](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django)
+    + [Data Manipulation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Data-Manipulation)
+    + [Intro to Data Science](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Data-Science)
 
 ***
