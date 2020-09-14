@@ -65,8 +65,8 @@ These are reminiscent of JavaScript objects, key-value pairs. They are unordered
 
 ```python
 my_ship = {
-    'name': 'USS Enterprise'
-    'registry': 'NCC-1701-D'
+    'name': 'USS Enterprise',
+    'registry': 'NCC-1701-D',
     'class': 'Galaxy'
 }
 ```
