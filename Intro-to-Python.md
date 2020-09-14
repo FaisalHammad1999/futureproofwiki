@@ -73,7 +73,7 @@ my_ship = {
 
 ### Sets
 
-A set is a collection of values which is unordered and unindexed. Set items are unique and while a set itself may be modified (you can add or remove), the elements contained in the set must be of an immutable type. They can only be accessed by reference to the element.
+A set is a collection of values which is unordered and unindexed. Set items are unique and while a set itself may be modified (you can add or remove), the elements contained in the set must be of an immutable type. They cannot be accessed by reference to the element or index, but you can loop through them to see if a value is present.
 
 ```python
 to_do_list = {'Eat', 'Sleep', 'Wash', 'Repeat'}
