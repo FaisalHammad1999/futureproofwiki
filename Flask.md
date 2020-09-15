@@ -10,7 +10,7 @@ Lets make a file for our server to live eg. `server.py`
 - Write the command that will run the server `server.run()` (add argument of `debug=True` for auto restart on file changes)
 
 ## Starting your server
-Now you have a file, run it from your terminal with `python server.js`
+Now you have a file, run it from your terminal with `python server.py`
 - Visit the given port (usually 5000 by default with flask)
 - Note that 'the requested URL was not found on the server'
 - So the server is running, but it does not have any routes
