@@ -19,7 +19,7 @@ Now you have a file, run it from your terminal with `python server.py`
 To add a basic, GET route, start with the `route` decorator called on your server (this will be the variable you set to `Flask(__name)`). Pass the route decorator a string of the path you are writing a rule for.
 Directly underneath this you can write the method that will run when this endpoint is requested.
 ```python
-@sever.route('/') # @<var-you-set-to-Flask(__name__)>
+@server.route('/') # @<var-you-set-to-Flask(__name__)>
 def home(): # this will run when a GET request to '/' is made
     return 'Hello from Flask!' # this plain-text will be sent in the response
 ```
