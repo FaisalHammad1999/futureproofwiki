@@ -27,7 +27,7 @@ def home(): # this will run when a GET request to '/' is made
 ## CORS config
 For basic CORS configuration, use the [flask_cors](https://pypi.org/project/Flask-Cors/1.10.3/) library and wrap your server before running it. This will enable cross origin access on all routes, from any origin. To get more specific, check the [documentation](https://flask-cors.readthedocs.io/en/latest/)!
 - `pip install flask-cors`
-- `from flask-cors import CORS`
+- `from flask_cors import CORS`
 - `CORS(server)`
 
 ## Handling JSON
