@@ -1,4 +1,4 @@
-What comes to your mind when you think about data science? Data science uses business intelligence along with algorithms and statistics to gain actionable insights into data. Python is a very popular language because it ismulti use. We can use it for backend programming, but it is also used in data science.
+What comes to your mind when you think about data science? Data science uses business intelligence along with algorithms and statistics to gain actionable insights into data. Python is a very popular language because it is multi-use. We can use it for backend programming, but it is also used in data science.
 
 ## Data Science Process
 In a given data science project the following steps may be observed:
