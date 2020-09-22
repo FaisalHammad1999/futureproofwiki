@@ -79,7 +79,7 @@ class DogList(APIView):
 * remove `path('dogs/new/', views.create, name='dog-create'),` from urls
 * insert screenshot
 ***
-* add detail view
+* add detail view get
 ```
 class DogDetail(APIView):
 
@@ -117,4 +117,23 @@ def not_found_404(request, exception):
 ```
 # shelter/urls.py
 handler404 = 'adoption.views.not_found_404'
+```
+* add put and delete
+```
+class DogDetail(APIView):
+
+...
+
+    def put(self, request, dog_id, format=None):
+        dog = self.get_object(dog_id)
+        serializer = DogSerializer(dog, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, dog_id, format=None):
+        dog = self.get_object(dog_id)
+        dog.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 ```
