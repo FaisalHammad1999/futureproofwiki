@@ -79,3 +79,37 @@ class DogList(APIView):
 * remove `path('dogs/new/', views.create, name='dog-create'),` from urls
 * insert screenshot
 ***
+* add detail view
+```
+class DogDetail(APIView):
+
+    def get_object(self, dog_id):
+        try:
+            return Dog.objects.get(pk=dog_id)
+        except Dog.DoesNotExist:
+            raise Http404
+```
+* make sure you have `from django.http import Http40`
+* change url
+```
+from django.urls import path
+from .views import DogList, DogDetail
+
+urlpatterns = [
+    path('', DogList.as_view()),
+    path('<int:dog_id>/', DogDetail.as_view())
+    # path('about/', views.about, name='adoption-about'),
+    
+]
+```
+* remove 
+```
+def not_found_404(request, exception):
+    data = { 'err': exception }
+    return render(request, 'adoption/404.html', data)
+```
+&&
+```
+# shelter/urls.py
+handler404 = 'adoption.views.not_found_404'
+```
