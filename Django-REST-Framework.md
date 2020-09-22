@@ -137,3 +137,14 @@ class DogDetail(APIView):
         dog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
+***
+* Add urlpatterns
+```
+from rest_framework.urlpatterns import format_suffix_patterns
+
+urlpatterns = [
+...
+]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
+```
