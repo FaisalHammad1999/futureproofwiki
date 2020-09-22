@@ -88,6 +88,11 @@ class DogDetail(APIView):
             return Dog.objects.get(pk=dog_id)
         except Dog.DoesNotExist:
             raise Http404
+
+    def get(self, request, dog_id, format=None):
+        dog = self.get_object(dog_id)
+        serializer = DogSerializer(dog)
+        return Response(serializer.data)
 ```
 * make sure you have `from django.http import Http40`
 * change url
