@@ -40,10 +40,9 @@ from .serializers import DogSerializer
 ```
 class DogList(APIView):
 
-    def get(self, _request):
+    def get(self, request, format=None):
         dogs = Dog.objects.all()
         serializer = DogSerializer(dogs, many=True)
-
         return Response(serializer.data)
 ```
 * change shelter/urls
@@ -59,4 +58,24 @@ urlpatterns = [
 ]
 ```
 * runserver, go to http://127.0.0.1:8000/api/dogs/
+* insert screenshot
+***
+* add create route and status
+```
+...
+from rest_framework import status
+...
+
+class DogList(APIView):
+...
+
+    def post(self, request, format=None):
+        serializer = DogSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+```
+* remove `path('dogs/new/', views.create, name='dog-create'),` from urls
+* insert screenshot
 ***
