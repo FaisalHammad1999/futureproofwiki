@@ -1,21 +1,33 @@
 So far you've learned how to make a Django app entirely in Python using templating to display your data on HTML pages with Django's template language. This is a great way to build an app but what if we want to make this project into an API, which can be called upon for data to be displayed in a different front-end such as React.js? 
 
-Introducing [Django REST framework](https://www.django-rest-framework.org/). 📣
+📣 Introducing [Django REST framework](https://www.django-rest-framework.org/). 📣
 
 Please do take a look at the documentation to familiarise yourself with all the amazing features, but read on for a quick start guide to turn the Shelter Project into an easily accessible API.
 
-* `pipenv install djangorestframework`
-* add to installed apps
-* remove templates from shelter
-* remove forms from shelter
-* change main urls (comment out auth for now)
+## Installation and Setup
+
+Make sure you are in the root of your project folder and run: `pipenv install djangorestframework`.
+
+You should then add it to your installed apps:
+
+```python
+INSTALLED_APPS = [
+...
+    'rest_framework',
+...
+]
 ```
+
+_I like to add it between my custom apps and those that come with Django but feel free to add it anywhere, it doesn't matter._
+
+Next we are going to remove files that we will no longer be needing which includes any `templates` and `forms`.
+
+Finally let's alter our urls to reflect those of an API and remove the existing auth routes for now, which we will add back in later. 
+
+```python
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/dogs/', include('adoption.urls')),
-    # path('signup/', user_views.signup, name='signup'),
-    # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
 ]
 ```
 * create `shelter/serializers.py`
