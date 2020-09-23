@@ -162,46 +162,50 @@ Don't forget to add this new view to the urls!
 ```python
 # shelter/urls.py
 
+from rest_framework.urlpatterns import format_suffix_patterns
+
 from .views import DogList, DogDetail
 
 urlpatterns = [
     path('', DogList.as_view()),
     path('<int:dog_id>/', DogDetail.as_view())
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
 ```
+
+At this point we can also add in the `format_suffix_patterns` method. All this does is allow users to receive the data in a format they want by adding a suffix such as `.json` to the endpoint.
+
+Have a look at the documentation [here](https://www.django-rest-framework.org/api-guide/format-suffixes/).
 
 Once again let's check if it works, this time at `http://127.0.0.1:8000/api/dogs/16`
 
 ![DogDetail](https://i.imgur.com/2o2FDTZ.png)
 
-***
-* Add urlpatterns
-```
-from rest_framework.urlpatterns import format_suffix_patterns
+## Authentication
+
+One of the ways in which Django can help speed up development is by giving us some frequently used functionality for free, such as authentication.
+
+We are going to take advantage of this situation by using Django's built in auth views for Login and Logout. It's as simple as adding the below to the list of urls - you can make the endpoint anything that makes sense for your app.
+
+```python
+# shelter/urls.py
 
 urlpatterns = [
 ...
-]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
-```
-***
-* Add authentication
-* Delete templates in users
-* Add django urls
-```
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/dogs/', include('adoption.urls')),
     path('api/auth/', include('rest_framework.urls'))
-    # path('signup/', user_views.signup, name='signup'),
-    # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
 ]
 ```
-* Add screenshot of login
-* Protect views
-```
+
+As you will see in the top right corner we now have the ability to login.
+
+![APIView Login](https://i.imgur.com/MrqZqxD.png)
+
+With authentication added, it's time to protect some of our routes.
+
+```python
+# adoption/views.py
+
 from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
 ...
 
@@ -219,3 +223,5 @@ class DogDetail(APIView):
     permission_classes = [IsAuthenticated]
 ...
 ```
+
+As you can see from the imports, we can easily stop non-logged-in users from interacting with our data thanks to Django REST framework's `IsAuthenticated` class. This is useful but we may also want to entice users to register for our site by giving an idea of some of the data we have to offer which is why it's a good idea to build a `ReadOnly` class, extending the `BasePermission`. Once that is done, we just have to let the views know which class to use and now our routes are protected.
