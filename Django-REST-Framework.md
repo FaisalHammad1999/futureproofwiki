@@ -225,3 +225,96 @@ class DogDetail(APIView):
 ```
 
 As you can see from the imports, we can easily stop non-logged-in users from interacting with our data thanks to Django REST framework's `IsAuthenticated` class. This is useful but we may also want to entice users to register for our site by giving an idea of some of the data we have to offer which is why it's a good idea to build a `ReadOnly` class, extending the `BasePermission`. Once that is done, we just have to let the views know which class to use and now our routes are protected.
+
+## Registration
+
+The last piece of the puzzle is registration. Although we can add users through the admin console, we might want people to have the ability to sign up on their own, so we have to create a register view and serializer.
+
+```python
+# users/serializers.py
+
+from rest_framework import serializers
+from django.contrib.auth.models import User
+
+class UserRegistrationSerializer(serializers.ModelSerializer):
+
+    password = serializers.CharField(write_only=True)
+    password_confirmation = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'password', 'password_confirmation')
+        write_only_fields = ('password', 'password_confirmation')
+
+    def create(self, validated_data):
+        user = User.objects.create(
+            username=validated_data['username']
+        )
+        password=validated_data['password']
+        password_confirmation=validated_data['password_confirmation']
+
+        if password != password_confirmation:
+            raise serializers.ValidationError({'password': 'Passwords must match.'}) 
+        user.set_password(password)
+        user.save()
+
+        return user
+```
+
+There are a few points to note here:
+* We have to protect passwords by ensuring they are `write_only=True`, this includes telling the serializer to never show these fields.
+* We have to use a `CREATE` rather than `POST` method when dealing with making new users, as this gives us access to the `validated_data` and `set_password` methods.
+* Adding in a password_conformation is not required, but a best practice for good user experience.
+
+Now we can update our view.
+
+```python
+# users/views.py
+
+from rest_framework.views import APIView
+from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework import status
+
+from .serializers import UserRegistrationSerializer
+
+
+class UserRegistrationView(APIView):
+    def post(self, request, format=None):
+        serializer = UserRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+```
+
+This is fairly straight forward, and similar to our dog views as the serailizer is doing the hard work.
+
+Lastly we just need to add this to our urls.
+
+```python
+# users/urls.py
+from django.urls import path
+
+from .views import UserRegistrationView
+
+urlpatterns = [
+    path('', UserRegistrationView.as_view()),
+]
+```
+***
+```python
+# shelter/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/dogs/', include('adoption.urls')),
+    path('api/auth/', include('rest_framework.urls')),
+    path('api/register/', include('users.urls')),
+]
+```
+
+And that's it - now you can add the front-end of your choice!
