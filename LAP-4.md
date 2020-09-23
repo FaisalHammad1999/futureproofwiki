@@ -13,5 +13,5 @@ The final LAP revolves around transferring what you have learned in the previous
 ### Additional Resources
 * [Installing Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Installing-Python)
 * [Virtual Environment](https://github.com/getfutureproof/fp_guides_wiki/wiki/Virtual-Environment)
-* [Django REST Framework]()
+* [Django REST Framework](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django-REST-Framework)
 * [Django Class-based Views]()
