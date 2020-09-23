@@ -1,3 +1,9 @@
+So far you've learned how to make a Django app entirely in Python using templating to display your data on HTML pages with Django's template language. This is a great way to build an app but what if we want to make this project into an API, which can be called upon for data to be displayed in a different front-end such as React.js? 
+
+Introducing [Django REST framework](https://www.django-rest-framework.org/). 📣
+
+Please do take a look at the documentation to familiarise yourself with all the amazing features, but read on for a quick start guide to turn the Shelter Project into an easily accessible API.
+
 * `pipenv install djangorestframework`
 * add to installed apps
 * remove templates from shelter
