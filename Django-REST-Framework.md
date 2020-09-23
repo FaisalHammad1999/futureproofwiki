@@ -11,6 +11,8 @@ Make sure you are in the root of your project folder and run: `pipenv install dj
 You should then add it to your installed apps:
 
 ```python
+#shelter/settings.py
+
 INSTALLED_APPS = [
 ...
     'rest_framework',
@@ -25,13 +27,21 @@ Next we are going to remove files that we will no longer be needing which includ
 Finally let's alter our urls to reflect those of an API and remove the existing auth routes for now, which we will add back in later. 
 
 ```python
+#shelter/urls.py
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/dogs/', include('adoption.urls')),
 ]
 ```
-* create `shelter/serializers.py`
-```
+
+## Serializers
+
+These help us in our pursuit of an API which can provide and receive data in a format easy to work with such as `JSON`, acting as coverters. Serializers also have the added benefit of validating data, much like a form. Read more about them [here](https://www.django-rest-framework.org/api-guide/serializers/).
+
+Start by creating a new file `adoption/serializers.py`.
+
+```python
 from rest_framework import serializers
 from .models import Dog
 
@@ -41,14 +51,19 @@ class DogSerializer(serializers.ModelSerializer):
         model = Dog
         fields = ('id', 'name', 'breed', 'owner')
 ```
-* shelter/views.py
-* remove 
-```
-from django.contrib.auth.decorators import login_required
-from .forms import NewDogForm, AdoptDogForm
-```
-* add
-```
+
+As you can see we are extending the model serializer to make one of our own, based on the Dog model we previously created. 
+
+The fields match these, determining what data will be passed on, adding in the `id` which is useful for dynamic displays on the front-end.
+
+## Views
+
+With our serializer created, we can now tell the `views.py` to use this rather than templates. To do this we are going to use Django REST framework's class based API view. 
+
+Learn more about [Django Class Based Views]().
+
+```python
+# adoption/views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 ...
