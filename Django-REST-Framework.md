@@ -42,6 +42,8 @@ These help us in our pursuit of an API which can provide and receive data in a f
 Start by creating a new file `adoption/serializers.py`.
 
 ```python
+# adoption/serializers.py
+
 from rest_framework import serializers
 from .models import Dog
 
@@ -56,7 +58,7 @@ As you can see we are extending the model serializer to make one of our own, bas
 
 The fields match these, determining what data will be passed on, adding in the `id` which is useful for dynamic displays on the front-end.
 
-## Views
+## List View
 
 With our serializer created, we can now tell the `views.py` to use this rather than templates. To do this we are going to use Django REST framework's class based API view. 
 
@@ -64,43 +66,19 @@ Learn more about [Django Class Based Views]().
 
 ```python
 # adoption/views.py
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 ...
 from .serializers import DogSerializer
-```
-* add first view
-```
+
 class DogList(APIView):
 
     def get(self, request, format=None):
         dogs = Dog.objects.all()
         serializer = DogSerializer(dogs, many=True)
         return Response(serializer.data)
-```
-* change shelter/urls
-```
-from django.urls import path
-from .views import DogList
-
-urlpatterns = [
-    path('', DogList.as_view()),
-    # path('about/', views.about, name='adoption-about'),
-    # path('dogs/new/', views.create, name='dog-create'),
-    # path('dogs/<int:dog_id>/', views.show, name='dog-show')
-]
-```
-* runserver, go to http://127.0.0.1:8000/api/dogs/
-* insert screenshot
-***
-* add create route and status
-```
-...
-from rest_framework import status
-...
-
-class DogList(APIView):
-...
 
     def post(self, request, format=None):
         serializer = DogSerializer(data=request.data)
@@ -109,11 +87,49 @@ class DogList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 ```
-* remove `path('dogs/new/', views.create, name='dog-create'),` from urls
-* insert screenshot
-***
-* add detail view get
+
+As you can see we are defining the `GET` and `POST` requests within the `APIView`, this replaces the need for conditionals as it is built in to the view.
+
+For the `GET` function we still need to get all dogs, but this time pass them to the `DogSerializer` and return this instead of a template. As there will likely be more than one dog, we also need to let the serializer know that.
+
+In the `POST` function we use the serializer to validate the data before saving, and return error status that reflect the outcome.
+
+## URLS
+
+The last thing we have to do in order to finish our first API route is update our urls.
+
+```python
+# adoption/urls.py
+
+from django.urls import path
+from .views import DogList
+
+urlpatterns = [
+    path('', DogList.as_view()),
+]
 ```
+
+Let's check that is working by running `python manage.py runserver` and navigating to `http://127.0.0.1:8000/api/dogs/`.
+
+![DogsListGET](https://i.imgur.com/Wk5md7f.png)
+
+We can also easily add to our dog list:
+
+![DogListPOST](https://i.imgur.com/Sz9q3VD.png)
+
+## Detail View
+
+As well as seeing all of our dogs, we also may want to view individual ones. This `DetailView` is also a good place to be able to edit or delete.
+
+It's worth checking the object exists first too and if not raising an error.
+
+```python
+# adoption/views
+
+...
+from django.http import Http40
+...
+
 class DogDetail(APIView):
 
     def get_object(self, dog_id):
@@ -126,36 +142,6 @@ class DogDetail(APIView):
         dog = self.get_object(dog_id)
         serializer = DogSerializer(dog)
         return Response(serializer.data)
-```
-* make sure you have `from django.http import Http40`
-* change url
-```
-from django.urls import path
-from .views import DogList, DogDetail
-
-urlpatterns = [
-    path('', DogList.as_view()),
-    path('<int:dog_id>/', DogDetail.as_view())
-    # path('about/', views.about, name='adoption-about'),
-    
-]
-```
-* remove 
-```
-def not_found_404(request, exception):
-    data = { 'err': exception }
-    return render(request, 'adoption/404.html', data)
-```
-&&
-```
-# shelter/urls.py
-handler404 = 'adoption.views.not_found_404'
-```
-* add put and delete
-```
-class DogDetail(APIView):
-
-...
 
     def put(self, request, dog_id, format=None):
         dog = self.get_object(dog_id)
@@ -170,6 +156,24 @@ class DogDetail(APIView):
         dog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
+
+Don't forget to add this new view to the urls!
+
+```python
+# shelter/urls.py
+
+from .views import DogList, DogDetail
+
+urlpatterns = [
+    path('', DogList.as_view()),
+    path('<int:dog_id>/', DogDetail.as_view())
+]
+```
+
+Once again let's check if it works, this time at `http://127.0.0.1:8000/api/dogs/16`
+
+![DogDetail](https://i.imgur.com/2o2FDTZ.png)
+
 ***
 * Add urlpatterns
 ```
