@@ -33,6 +33,9 @@ urlpatterns = [
 ```
 ***
 ## List View
+
+Displaying a list of objects is common for an app or API so Django gives us an easy way to do so with the `ListView`.
+
 ```python
 # adoption/views.py
 
@@ -45,18 +48,23 @@ class DoggosList(ListView):
     model = Dog
     context_object_name = 'dogs'
 ```
-***
+
+Again we are extending the Django class, this time passing the model we want to use. As this is a list view, Django infers that we want to display all objects associated with this model and again does the rest. We have changed the name of our template to `dog_list.html` as Django will look for a template named `model_list.html`. We can specify the template name if we wish, as we saw above. 
+
+By default Django will pass the objects to the template with a name of `object_list`, which is fine but not particularly descriptive semantically. This is why we have instructed that the objects be passed with the name of `dogs`, so that we can iterate over the list in a more readable way: `for dog in dogs`.
+
+Again the last thing we need to do is update our URLs.
+
 ```python
 # adoption/urls.py
+
 from .views import DoggosList, AboutView
 
 urlpatterns = [
-    path('', views.DoggosList.as_view(), name='adoption-home'),
+    path('', DoggosList.as_view(), name='adoption-home'),
     path('about/', AboutView.as_view(), name='adoption-about'),
 ...
 ```
-***
-`adoption/home.html` = `adoption/dog_list.html`
 ***
 ## Form View
 ```python
