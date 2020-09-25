@@ -137,3 +137,27 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
 ```
+***
+## Protected Views
+```python
+class NewDogFormView(View):
+    form_class = NewDogForm
+    initial = {'key': 'value'}
+    template_name = 'dogs/new.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(NewDogFormView, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            dog_id = form.save().id
+            return HttpResponseRedirect(f'/dogs/{dog_id}')
+
+        return render(request, self.template_name, {'form': form})
+```
