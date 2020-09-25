@@ -142,6 +142,8 @@ class DogDetailView(View):
 
 The main thing to point out here is applying the initial value for the form on our 'GET' method, which autopopulates the owner field if the user wishes to adopt the dog. The form validation remains the same.
 
+Remember those URLs.
+
 ```python
 # adoption/urls.py
 
@@ -156,17 +158,21 @@ urlpatterns = [
 ]
 ```
 ## Register View
+
+As we are making use of Django's authorisation views, we don't need to touch `Login` and `Logout`, so the last view we are going to tweak is the Register view.
+
 Login and Logout can stay the same.
 ```python
+# users/views.py
+
 from django.views.generic import View
 
 class UserSignupFormView(View):
     form_class = UserSignupForm
-    initial = {'key': 'value'}
     template_name = 'users/signup.html'
 
     def get(self, request):
-        form = self.form_class(initial=self.initial)
+        form = self.form_class
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
@@ -176,7 +182,14 @@ class UserSignupFormView(View):
             return redirect('login')
         return render(request, 'users/signup.html', {'form': form})
 ```
+
+Now that we have already created another form, the implementation of this is really straight forward.
+
+The final URL also needs adjusting.
+
 ```python
+# shelter/urls.py
+
 ...
 from users.views import UserSignupFormView
 from django.contrib.auth import views as auth_views
@@ -189,21 +202,25 @@ urlpatterns = [
 ```
 ***
 ## Protected View
+
+With the ability to `Register`, `Login` and `Logout`, we should protect some of our views. This has similarities but important differences to how we have gone about this before. We can't simply apply a function decorator anymore to let Django know we require users to login to use these routes, instead we have to build a method decorator. We could decorate the class itself to protect specific methods within, but since we want users to be logged-in to use both `GET` and `POST` methods, we will use an instance method and decorate that instead.
+
+Take a look [here](https://docs.djangoproject.com/en/3.1/topics/class-based-views/intro/) for more information.
+
 ```python
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 ...
 class NewDogFormView(View):
     form_class = NewDogForm
-    initial = {'key': 'value'}
     template_name = 'dogs/new.html'
 
     @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):
-        return super(NewDogFormView, self).dispatch(request, *args, **kwargs)
+    def dispatch(self, request, **kwargs):
+        return super(NewDogFormView, self).dispatch(request, **kwargs)
 
     def get(self, request):
-        form = self.form_class(initial=self.initial)
+        form = self.form_class
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
@@ -215,3 +232,6 @@ class NewDogFormView(View):
         return render(request, self.template_name, {'form': form})
 ...
 ```
+Note that we have included `**kwargs` as we know that we will be expecting `dog_id` along with the request.
+
+**That's a quick demonstration of Class-based views, why not give it a go!**
