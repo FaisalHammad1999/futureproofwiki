@@ -62,7 +62,7 @@ The fields match these, determining what data will be passed on, adding in the `
 
 With our serializer created, we can now tell the `views.py` to use this rather than templates. To do this we are going to use Django REST framework's class based API view. 
 
-Learn more about [Django Class Based Views]().
+Learn more about [Django Class Based Views](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django-Class-based-Views).
 
 ```python
 # adoption/views.py
