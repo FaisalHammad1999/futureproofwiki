@@ -105,3 +105,35 @@ urlpatterns = [
     path('dogs/<int:dog_id>/', DogDetailView.as_view() , name='dog-show')
 ]
 ```
+## Register
+Login and Logout can stay the same.
+```python
+from django.views.generic import View
+
+class UserSignupFormView(View):
+    form_class = UserSignupForm
+    initial = {'key': 'value'}
+    template_name = 'users/signup.html'
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+        return render(request, 'users/signup.html', {'form': form})
+```
+```python
+...
+from users.views import UserSignupFormView
+from django.contrib.auth import views as auth_views
+
+urlpatterns = [
+...
+    path('signup/', UserSignupFormView.as_view(), name='signup'),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
+```
