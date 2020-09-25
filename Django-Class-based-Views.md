@@ -53,7 +53,7 @@ Again we are extending the Django class, this time passing the model we want to 
 
 By default Django will pass the objects to the template with a name of `object_list`, which is fine but not particularly descriptive semantically. This is why we have instructed that the objects be passed with the name of `dogs`, so that we can iterate over the list in a more readable way: `for dog in dogs`.
 
-Again the last thing we need to do is update our URLs.
+Remember the last thing we need to do is update our URLs.
 
 ```python
 # adoption/urls.py
@@ -67,7 +67,12 @@ urlpatterns = [
 ```
 ***
 ## Form View
+
+Although forms do have a class of their own, they also work well with a standard `View` which expects a `GET` and `POST` method, which is worth having a look at.
+
 ```python
+# adoption/views.py
+
 from django.views.generic import View, TemplateView, ListView
 
 from .forms import NewDogForm, AdoptDogForm
@@ -75,11 +80,10 @@ from .forms import NewDogForm, AdoptDogForm
 
 class NewDogFormView(View):
     form_class = NewDogForm
-    initial = {'key': 'value'}
     template_name = 'dogs/new.html'
 
     def get(self, request):
-        form = self.form_class(initial=self.initial)
+        form = self.form_class
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
@@ -90,7 +94,16 @@ class NewDogFormView(View):
 
         return render(request, self.template_name, {'form': form})
 ```
+
+Since the template and form is being used in a few places, we can define them at the top of the class. We have also removed the need to us conditional statements to determine the method as Django will do this for us. The rest of the code block should be fairly familiar.
+
+See if you can implement a [FormView](https://docs.djangoproject.com/en/3.1/topics/class-based-views/generic-editing/) instead.
+
+As always, let's also update the URLs.
+
 ```python
+# adoption/urls.py
+
 from django.urls import path
 from .views import DoggosList, AboutView, NewDogFormView
 
@@ -101,6 +114,9 @@ urlpatterns = [
 ```
 ***
 ## Detail View
+
+Moving on to the detail
+
 ```python
 class DogDetailView(View):
     model = Dog
