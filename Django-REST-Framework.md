@@ -2,7 +2,7 @@ So far you've learned how to make a Django app entirely in Python using templati
 
 📣 Introducing [Django REST framework](https://www.django-rest-framework.org/). 📣
 
-Please do take a look at the documentation to familiarise yourself with all the amazing features, but read on for a quick start guide to turn the Shelter Project into an easily accessible API.
+Please do take a look at the documentation to familiarise yourself with all the amazing features, but read on for a quick start guide to turn the Shelter Project from the [Django Tutorial](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django) into an easily accessible API.
 
 ## Installation and Setup
 
