@@ -1,8 +1,38 @@
+We started out by building our Django app using Function-based Views with good reason! This was originally the only way to build in Django and is still incredibly useful to know. However, as Django grew, Class-based Views were introduced as a way to speed up development. Their usefulness is at it's peak when writing tried and tested functionality built in many applications. Class-based views are a potentially more elegant way of writing a Django app, condensing boilerplate code into pre-built classes that can be reused and extended.
 
+This tutorial will cover some of the most common uses, building upon what we learned in the [Django tutorial](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django).
 
-Django's [Class-based Views](https://docs.djangoproject.com/en/3.1/topics/class-based-views/).
+Take a look at the official documentation for a better understanding of the full extent and power of Django's [Class-based Views](https://docs.djangoproject.com/en/3.1/topics/class-based-views/). 💻
 
-## Dogs
+## Template View
+
+This is one of the easiest views to implement and it does a lot of the heavy lifting for us.
+
+```python
+# adoption/views.py
+
+from django.views.generic import TemplateView, ListView
+
+...
+
+class AboutView(TemplateView):
+    template_name = 'adoption/about.html'
+```
+
+As you can see below we are extending the `TemplateView` to create one of our own, passing it the name of the template we want to display. This will look for a a template folder, and find a match.
+
+Then we simply need to update our URLs, passing the class instead of the function.
+
+```python
+# adoption/urls.py
+
+from .views import AboutView
+
+urlpatterns = [
+    path('', AboutView.as_view(), name='adoption-about'),
+```
+***
+## List View
 ```python
 # adoption/views.py
 
@@ -18,32 +48,17 @@ class DoggosList(ListView):
 ***
 ```python
 # adoption/urls.py
+from .views import DoggosList, AboutView
 
 urlpatterns = [
     path('', views.DoggosList.as_view(), name='adoption-home'),
+    path('about/', AboutView.as_view(), name='adoption-about'),
 ...
 ```
 ***
 `adoption/home.html` = `adoption/dog_list.html`
 ***
-## About
-```python
-from django.views.generic import TemplateView, ListView
-
-...
-
-class AboutView(TemplateView):
-    template_name = 'adoption/about.html'
-```
-```python
-from .views import DoggosList, AboutView, create, show
-
-urlpatterns = [
-    path('', DoggosList.as_view(), name='adoption-home'),
-    path('about/', AboutView.as_view(), name='adoption-about'),
-```
-***
-## New
+## Form View
 ```python
 from django.views.generic import View, TemplateView, ListView
 
@@ -77,7 +92,7 @@ urlpatterns = [
     path('dogs/new/', NewDogFormView.as_view(), name='dog-create'),
 ```
 ***
-## Detail
+## Detail View
 ```python
 class DogDetailView(View):
     model = Dog
@@ -109,7 +124,7 @@ urlpatterns = [
     path('dogs/<int:dog_id>/', DogDetailView.as_view() , name='dog-show')
 ]
 ```
-## Register
+## Register View
 Login and Logout can stay the same.
 ```python
 from django.views.generic import View
@@ -142,7 +157,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
 ```
 ***
-## Protected Views
+## Protected View
 ```python
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
