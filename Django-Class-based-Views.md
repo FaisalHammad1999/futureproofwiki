@@ -1,3 +1,7 @@
+
+
+Django's [Class-based Views](https://docs.djangoproject.com/en/3.1/topics/class-based-views/).
+
 ## Dogs
 ```python
 # adoption/views.py
