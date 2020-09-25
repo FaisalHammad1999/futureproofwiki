@@ -115,9 +115,11 @@ urlpatterns = [
 ***
 ## Detail View
 
-Moving on to the detail
+Moving on to the detail view, again we are going to use a standard `View` here, in the main because this combines both a detail view and a list view.
 
 ```python
+# adoption/views.py
+
 class DogDetailView(View):
     model = Dog
     form_class = AdoptDogForm
@@ -137,7 +139,12 @@ class DogDetailView(View):
             return HttpResponseRedirect(f'/dogs/{dog_id}')
         return render(request, self.template_name, {'dog': dog, 'form': form})
 ```
+
+The main thing to point out here is applying the initial value for the form on our 'GET' method, which autopopulates the owner field if the user wishes to adopt the dog. The form validation remains the same.
+
 ```python
+# adoption/urls.py
+
 from django.urls import path
 from .views import DoggosList, AboutView, NewDogFormView, DogDetailView
 
