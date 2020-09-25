@@ -140,6 +140,9 @@ urlpatterns = [
 ***
 ## Protected Views
 ```python
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+...
 class NewDogFormView(View):
     form_class = NewDogForm
     initial = {'key': 'value'}
@@ -160,4 +163,5 @@ class NewDogFormView(View):
             return HttpResponseRedirect(f'/dogs/{dog_id}')
 
         return render(request, self.template_name, {'form': form})
+...
 ```
