@@ -25,7 +25,7 @@ Now when you open up a terminal in VS Code (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 
 Try `npm run hello` again and you should be greeted and asked for your name in the console.
 
-To exit your container, you can click on the `><` and select **'Rebuild Locally'**. Alternatively, type `exit` in the workspace terminal and hit enter.
+To exit your container, you can click on the `><` and select **'Reopen Locally'**. Alternatively, type `exit` in the workspace terminal and hit enter.
 
 ## Behind the Scenes
 What happened when you clicked **'Reopen in Container'** was that the Remote - Containers extension looked for a folder called `.devcontainer` - have a look and you will see that this repo comes with one already. In there, it found all the information it needed to spin up a Docker container ready to run this app. We can make these as simple or as complicated as we like, including loads of different programs and interpreters that we may need for any given project. 
