@@ -1,19 +1,16 @@
-# Local Dev Environment Setup: MacOS
-_Please note this is designed for MacOS Catalina. If you are on a previous version, you can still use this guide but look out for any extra notes!_
+***
+*_We recommend using Docker containers during futureproof - and beyond!_* \
+*_For more details on other options for local env setup for MacOS, check out the [Optional](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup#Optional) section below._*
+***
+
+# Dev Environment Setup: MacOS
+_Please note this is designed for MacOS Catalina. If you are on a previous version, you may need to refer to external materials if you come across any issues!_
 
 ## Essential: 
 ### Install Xcode Command Line Tools
 In your terminal run: `xcode-select --install` 
 If you hit any issues, download directly from [here](https://developer.apple.com/download/more/?=command%20line%20tools) (select the most recent stable version or the one stated for your OS version).
 The installation can take a little time - at least 5 minutes. Grab yourself a tea.
-
-***
-
-## Optional but recommended: 
-### Install Zsh
-- Run: `echo $SHELL` to see if you have Zsh installed. 
-- If it does not output `/bin/zsh` run: `brew install zsh` (see *Install Homebrew* below) and `chsh -s /bin/zsh`
-- Restart your terminal.
 
 ### Connect git to GitHub
 - Run: `git version` to see if you have git installed.
@@ -28,8 +25,16 @@ The installation can take a little time - at least 5 minutes. Grab yourself a te
 - Visit the [GitHub SSH keys settings page](https://github.com/settings/keys) in your browser and click ‘New SSH Key’
 - Give it a title (anything you want to indicate the machine this key is for) and paste in your key.
 
-### Install Node Version Manager
-[nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us switch between node versions. This can be extremely useful when working with others.
+### Setup Docker and VSCode Remote - Containers
+See this [walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code) and [accompanying repo](https://github.com/getfutureproof/fp_study_notes_hello_docker)!
+
+***
+
+## Optional: 
+### Install Zsh
+- Run: `echo $SHELL` to see if you have Zsh installed. 
+- If it does not output `/bin/zsh` run: `brew install zsh` (see *Install Homebrew* below) and `chsh -s /bin/zsh`
+- Restart your terminal.
 
 ### Install Homebrew
 [Homebrew](https://brew.sh/) is a popular package manager for Mac & Linux applications.
