@@ -4,7 +4,7 @@
 
 ***
 
-If you are on Linux machine (as opposed to running WSL in Windows), skip to [Setting up your environment](https://github.com/getfutureproof/fp_guides_wiki/wiki/WSL-Setup#setting-up-your-environment)
+If you are on Linux machine (as opposed to running WSL in Windows), skip to [Setting up your environment](https://github.com/getfutureproof/fp_guides_wiki/wiki/Linux-and-WSL-Setup#setting-up-your-environment)
 
 # Local Dev Environment Setup: WSL on Windows 10
 _If you are running Windows 10, you have the option of accessing the Windows Subsystem Linux._
