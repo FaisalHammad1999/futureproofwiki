@@ -5,7 +5,7 @@
 
 # Dev Environment Setup: Windows
 
-## Git & GitBash Setup
+### Git & GitBash Setup
 Install the [latest release of git](https://git-scm.com/). Keep the standard options (make sure Git Bash is included in your install).
 When selecting the various options:
 - your default editor: Visual Studio Code
@@ -24,18 +24,21 @@ Open GitBash and configure git:
 When working on different operating systems, our line endings may end up getting changed. We will unify our line ending to match Unix-style.
 - `git config --global core.autocrlf input`
 
-## Set up your SSH key
+### Set up your SSH key
 - run `ssh-keygen` and follow the instructions. If it asks if you want to overwrite, say no.
 - Run `cat ~/.ssh/id_rsa.pub` and copy the output
 - Visit the [GitHub SSH Keys setting page](https://github.com/settings/keys) in your browser and click 'New SSH Key'
 - Give it a title, anything you like to indicate the machine this key is for, and paste in your key
 - The first time you clone and push you may see warning that a new RSA key is being added, this is normal!
 
-### NB: If using the VS Code terminal, we recommend selecting Git Bash as your Default Shell
+*NB: If using the VS Code terminal, we recommend selecting Git Bash as your Default Shell*
 - Open a new terminal in VS Code (see the application top bar)
 - From the dropdown that likely says 1. Powershell, choose 'Select Default Shell' and select Git Bash
 - Close the terminal and open a new one - the dropdown should now say '1. bash'
 
-## Setup Docker and VSCode Remote - Containers
-See this [walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code) and [accompanying repo](https://github.com/getfutureproof/fp_study_notes_hello_docker)!
+### Test run GitHub!
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+
+### Setup Docker and VSCode Remote - Containers
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
 
