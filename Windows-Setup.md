@@ -3,7 +3,7 @@
 *_For more details on other options for local env setup for Windows, check out [this great resource](https://docs.microsoft.com/en-us/windows/dev-environment/overview)._*
 ***
 
-# Local Dev Environment Setup: Windows
+# Dev Environment Setup: Windows
 
 ## Git & GitBash Setup
 Install the [latest release of git](https://git-scm.com/). Keep the standard options (make sure Git Bash is included in your install).
