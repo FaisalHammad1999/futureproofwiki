@@ -6,7 +6,7 @@
 
 If you are on Linux machine (as opposed to running WSL in Windows), skip to [Setting up your environment](https://github.com/getfutureproof/fp_guides_wiki/wiki/Linux-and-WSL-Setup#setting-up-your-environment)
 
-# Local Dev Environment Setup: WSL on Windows 10
+# Dev Environment Setup: WSL on Windows 10
 _If you are running Windows 10, you have the option of accessing the Windows Subsystem Linux._
 _There was a major update to WSL in May 2020 so make sure you know which one you are using / aiming to use whilst setting up, debugging and working in your environment. Be aware that since WSL 2 is (at time of writing) a very recent release, there may be a lot of guides that refer to the original WSL. If the article does not specify, it is likely to be referring to WSL 1. Check out the official comparison docs [here](https://docs.microsoft.com/en-us/windows/wsl/compare-versions). If you can't decide and you are starting from scratch, go for WSL 2._
 
