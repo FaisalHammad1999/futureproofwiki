@@ -25,8 +25,11 @@ The installation can take a little time - at least 5 minutes. Grab yourself a te
 - Visit the [GitHub SSH keys settings page](https://github.com/settings/keys) in your browser and click ‘New SSH Key’
 - Give it a title (anything you want to indicate the machine this key is for) and paste in your key.
 
+### Test run GitHub!
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+
 ### Setup Docker and VSCode Remote - Containers
-See this [walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code) and [accompanying repo](https://github.com/getfutureproof/fp_study_notes_hello_docker)!
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
 
 ***
 
