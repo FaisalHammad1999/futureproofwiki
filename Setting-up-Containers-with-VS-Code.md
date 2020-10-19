@@ -23,7 +23,7 @@ Now we have Docker and the Remote - Containers extension installed, you will see
 
 Now when you open up a terminal in VS Code (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd> on all OS), you will get a new prompt showing that you are in a workspace for this folder.
 
-Try `npm run hello` again and you should see 'Hello!' in the console.
+Try `npm run hello` again and you should be greeted and asked for your name in the console.
 
 To exit your container, you can click on the `><` and select **'Rebuild Locally'**. Alternatively, type `exit` in the workspace terminal and hit enter.
 
