@@ -53,6 +53,9 @@ Although we will use Docker for many things, we will also install node locally f
 ### Install Homebrew
 [Homebrew](https://brew.sh/) is a popular package manager for Mac & Linux applications.
 
+### Install Node Version Manager
+[nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us switch between node versions. This can be extremely useful when working with others.
+
 ***
 
 ## Frivolous Optional Extras! 
