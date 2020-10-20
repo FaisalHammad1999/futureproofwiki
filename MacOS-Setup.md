@@ -31,6 +31,17 @@ Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_h
 ### Setup Docker and VSCode Remote - Containers
 Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
 
+### Get node locally and install a global package
+Although we will use Docker for many things, we will also install node locally for some global use tools that we may use.
+- Download and install nodejs using the [official installers](https://nodejs.org/en/download/) or Homebrew (see below)
+- Confirm your node installation
+    + In your terminal, run `node -v`
+    + If you see a version number eg. `v12.19.0` then your install was successful!
+    + You should also get version numbers back for `npm -v` and `npx -v`
+- Install your first global node package
+    + `npm install -g laughs`
+    + `ha` - wait for a joke! 
+
 ***
 
 ## Optional: 
