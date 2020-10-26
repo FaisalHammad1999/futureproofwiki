@@ -1,17 +1,3 @@
-### Pairs of Tags
-
-HTML tags should almost always have be in pairs, an opening and a closing tag with content between them.
-
-```HTML
-<h1>This is a heading</h1>
-```
-
-The exception to this rule is a self-closing tag, which does not contain content.
-
-```HTML
-<br/>
-```
-
 ### Mandatory Tags
 
 There are four tags which are mandatory on a website, these are:
@@ -27,6 +13,20 @@ There are four tags which are mandatory on a website, these are:
 
 </html>
 
+```
+
+### Pairs of Tags
+
+HTML tags should almost always have be in pairs, an opening and a closing tag with content between them.
+
+```HTML
+<h1>This is a heading</h1>
+```
+
+The exception to this rule is a self-closing tag, which does not contain content.
+
+```HTML
+<br/>
 ```
 
 ### Nesting
