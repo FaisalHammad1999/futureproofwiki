@@ -38,6 +38,15 @@ Although we will use Docker for many things, we will also install node locally f
     + In your terminal, run `node -v`
     + If you see a version number eg. `v12.19.0` then your install was successful!
     + You should also get version numbers back for `npm -v` and `npx -v`
+
+- Install Node Version Manager
+[nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us switch between node versions. This can be extremely useful when working with others.
+    + In your terminal, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
+    + Confirm the install with `nvm ls`
+    + If `nvm ls` gives you an error, see [Troubleshooting](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup#Troubleshooting) below
+    + Install a new version of nvm with `nvm install <version>` eg `nvm install 12.19.0`
+    + You can install as many different versions of node as you like and switch between them with `nvm use <version>
+
 - Install your first global node package
     + `npm install -g laughs`
     + `ha` - wait for a joke! 
@@ -52,9 +61,6 @@ Although we will use Docker for many things, we will also install node locally f
 
 ### Install Homebrew
 [Homebrew](https://brew.sh/) is a popular package manager for Mac & Linux applications.
-
-### Install Node Version Manager
-[nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us switch between node versions. This can be extremely useful when working with others.
 
 ***
 
@@ -74,3 +80,32 @@ Although we will use Docker for many things, we will also install node locally f
 - [Alfred](https://www.alfredapp.com/) - a Spotlight alternative and more
 - [CheatSheet](https://mediaatelier.com/CheatSheet/?lang=en) - see all available shortcuts for current app by holding command key
 - [Bartender](https://www.macbartender.com/) - keep your menu bar neat and tidy
+
+***
+
+## Troubleshooting
+### NVM Installation
+If the curl command above does not successfully complete the install, you'll need to add some code to your terminal configuration file. To find this file:
+- `cd ~`
+- `ls -lah`
+- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
+- Open whichever of those you find with `code <filename>` eg `code .zshrc`
+- Into that file, paste the following:
+```
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+- Save the file with <key>Cmd</key>+<key>s</key> and close
+- In your terminal run `source ~/<filename>` eg `source ~/.zshrc`
+- NVM should now work, test it with `nvm ls`
+
+### Admin/permissions errors
+If you are getting permissions errors, you may be using an account which does not have full owner access to the computer's filesystem. If you know that you should (ie. it is your machine or the original owner does not mind you having owner access), you can run the following:
+- `cd ~`
+- `sudo chown -R <your-username> .`
+    + If you are not sure what your username is, it is usually visible in your terminal prompt
+
+### zsh compinit errors
+Sometimes zsh gets wrongly suspicious of your files! You can disable this 'feature' by adding the following to your `.zshrc` file (see 'NVM Installation' above)
+- `ZSH_DISABLE_COMPFIX="true"`
+- Save and close the file and run `source ~/.zshrc` in your terminal
