@@ -1,11 +1,13 @@
 We're starting to get cosy with installing npm packages that other people and companies have made using the `npm install <package-name>` command. It would be great to start sharing our own handy little chunks of code with others!
 
 ## Signup/login to the npm registry
-- `npm adduser`
-- update if prompted
+- Check to see if you are logged in with `npm whoami`. If you are (your npm username is returned) continue to the [next step](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package#create-a-folder-and-git-repository-for-your-package).
+- If not, `npm adduser`
+- Update if prompted
 - Check your email to login and verify your email address with the npm registry
 
 ## Create a folder and git repository for your package
+*This step is optional but recommended*
 - `mkdir <project-name>`
 - `cd <project-name>`
 - `git init`
@@ -46,10 +48,27 @@ module.exports = function(name){
 }
 ```
 
+- if you want to export more than one function, export an object with keys that point to the functions:
+```js
+function plus(num1, num2){
+    return num1 + num2
+}
+
+function minus(num1, num2){
+    return num1 - num2
+}
+
+module.exports = {
+    add: plus,
+    subtract: minus
+}
+```
+
 ## Set your version
 - `npm version 1.0.0`
 
 ## Stage, Commit & Push to GitHub
+*Only if you made a git repo before!*
 - you know how to do this!
 - additionally, run `git push --tags`
 
@@ -68,6 +87,14 @@ let greeting = fp('Beth')
 console.log(greeting)
 ```
 
+If you package exported an object rather than a function, use accordingly:
+```js
+const calc = require('my-calc-package');
+
+let result = calc.add(4, 2)
+
+console.log(result)
+```
 ***
 
 For more information including how to make a CLI executable package, check out the [official documentation](https://docs.npmjs.com/packages-and-modules/)
