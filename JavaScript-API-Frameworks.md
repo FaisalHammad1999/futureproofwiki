@@ -89,7 +89,7 @@ Let's make our first route. It will respond to a `GET` request made to `/cats` b
 ```js
 const cats = ["Zelda", "Tigerlily", "Rumble"];
 
-server.get('/cats', (req, res) => res.send(JSON.stringify(cats)));
+server.get('/cats', (req, res) => res.send({cats});
 ```
 Restart your server and visit or curl `http://localhost:3000` - you should get some cats!
 Here's a snippet to quickly paste if you want to test it with `fetch` in the browser console or your own client-side code base.
@@ -113,14 +113,14 @@ Let's bring in another piece of middleware to handle the parsing of a request bo
 // in server.js
 const bodyParser = require('body-parser');
 // after server has been declared
-server.use(bodyParser.text());
+server.use(bodyParser.json());
 ```
-I've used the .text bodyParser as we've got in the habit now of stringifying our data before we send it. There are plenty of alternative options though and I recommend a look through the [docs](https://github.com/expressjs/body-parser).
+I've used the .json bodyParser as json is the most common format to send data around in. There are plenty of alternative options though and I recommend a look through the [docs](https://github.com/expressjs/body-parser).
 
 That's it! Now you will have access to `req.body` in your routes.
 ```js
 server.post('/cats', (req, res) => {
-    const newCat = JSON.parse(req.body);
+    const newCat = req.body;
     cats.push(newCat.name);
     res.send({message: `${newCat.name} successfully added to our collection.`})
 })
@@ -128,7 +128,7 @@ server.post('/cats', (req, res) => {
 ```js
 // You can test it with this snippet in browser console
 const newCat = JSON.stringify({ name: "Flora"})
-fetch('http://localhost:3000/cats', {method: 'POST', body: newCat}).then(r => r.json()).then(console.log)
+fetch('http://localhost:3000/cats', {method: 'POST', body: newCat, headers: {'Content-Type': 'application/json'}).then(r => r.json()).then(console.log)
 ```
 
 Check `http://localhost:3000/cats` and see that "Flora" has been added!
