@@ -14,8 +14,8 @@ Once your Heroku app is initialised, you have some options on how to proceed. Th
 #### GitHub integration
 Once you have authorized Heroku to connect with your GitHub, search for your repo and hit 'Connect'. If you go for automatic deploys, you'll want to consider carefully here what branch you deploy and create a new one specifically for production deploys if you like.
 
-#### Heroku CLI
-Even if deploying via GitHub, you're going to want the Heroku CLI soon enough. You can find install options for your OS [here](https://devcenter.heroku.com/articles/heroku-cli). Once installed, make sure to authenticate with `heroku login` (add the `-i` flag to avoid opening your browser to login).
+#### Heroku CLI (Optional)
+Even if deploying via GitHub, you're probably going to want the Heroku CLI soon enough. You can find install options for your OS [here](https://devcenter.heroku.com/articles/heroku-cli). Once installed, make sure to authenticate with `heroku login` (add the `-i` flag to avoid opening your browser to login).
 
 ### Preparing Your App
 There's a good chance that by now you've deployed something but it's not working. The best place to check out what's going wrong is in your logs which you can access via the Heroku CLI. Let's say you want to check the logs for an app you've created called `fp-express-cats`. Even if you created this in the UI and with GitHub integration, you can check the logs with:
