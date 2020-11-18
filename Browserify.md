@@ -22,7 +22,7 @@ There are many tools to help us with this and we will look at a more complex one
 
 ### Install browserify
 Browserify is, itself, an npm package. You can install it globally or as a dev dependency.
-`npm i -g browserify` / `npm i --save-dev browserify` (if working in a team, you'll probably want everyone to have it so either all make sure you install globally if it's not a dev dependency.)
+`npm i -g browserify` / `npm i --save-dev browserify` (if working in a team, you'll probably want everyone to have it so make sure you all install globally if it's not a dev dependency.)
 
 ### Create a script
 In your package.json file, create a new script:
@@ -47,7 +47,7 @@ We can now use this new bundle.js _**instead**_ of our original JS file, so upda
 ```
 
 ### Require with success!
-Now refresh or ropen your index.html in your browser and check the console - the require error should be gone!
+Now refresh or reopen your index.html in your browser and check the console - the require error should be gone!
 
 ### Updating your bundle
 *Do not update bundle.js directly* \
