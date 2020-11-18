@@ -68,7 +68,6 @@ module.exports = {
     rules: [ // instructions for the modules/helpers
       { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }, // transpile JSX files
       { test: /\.css$/, loader: ['style-loader', 'css-loader'] }, // transpile css files
-      { test: /\.s(a|c)ss$/, loader: ['style-loader', 'css-loader', 'sass-loader'] } // transpile sass/scss files
     ]
   },
   devServer: { // instructions for the development server
