@@ -26,7 +26,7 @@ We use the `--save-dev` as we only need these for development and not production
 
 We use these to add support for various file types.
 
-`npm install babel-loader style-loader css-loader sass-loader node-sass --save-dev`
+`npm install babel-loader style-loader css-loader --save-dev`
 
 ### Install Babel
 
@@ -52,47 +52,80 @@ We also need to create an `src` and a `public` folder to store our source code a
 Our next task is to instruct Webpack on how it should work by creating a `webpack.config.js` file and inserting the following:
 
 ```js
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  entry: './src/index.js', // the main JavaScript file of the app/project
-  output: { // instructions for compiling the code
-    path: path.resolve('dist'), // the file where the compiled code should go
+const ROOT_DIRECTORY = path.join(__dirname, './'); // the root of your project
+const PUBLIC_DIRECTORY = path.join(ROOT_DIRECTORY, 'public'); // the root of the frontend, i.e. html file
+
+const config = {
+  entry: [path.resolve(__dirname, './src/index.js')], // the main JavaScript file of the project
+  output: {
+    // instructions for compiling the code
+    path: path.resolve(__dirname, './dist'), // the file where the compiled code should go
     filename: 'bundle.js', // the file name of the compiled code
-    publicPath: '/' // redirect incoming requests to '/'
+    publicPath: '/', // specifies the base path for all the assets within your application.
   },
-  devtool: 'source-maps', // a tool to find errors in the compiled code, but show them against the source code for easier debugging
-  module: { // modules/helpers we want Webpack to use
-    rules: [ // instructions for the modules/helpers
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }, // transpile JSX files
-      { test: /\.css$/, loader: ['style-loader', 'css-loader'] }, // transpile css files
-    ]
+  mode: 'development', // tells webpack to use its built-in optimizations according to the mode
+  resolve: {
+    // instructions on how to resolve modules
+    modules: [path.resolve('node_modules'), 'node_modules'], // tells webpack where to look for node_modules
   },
-  devServer: { // instructions for the development server
-    contentBase: path.resolve('src'), // location of the source code
-    hot: true, // refresh the browser when changes are saved
-    open: true, // open the app/project in the browser when the server starts
-    port: 8000, // use this port for the server
-    host: '0.0.0.0', // server is accessible externally
-    historyApiFallback: true, //serve a previous page on a 404 error
-    watchContentBase: true // watch for changes to static files
+  performance: {
+    // notifies you if assets and entry points exceed a specific file limit
+    hints: false,
   },
-  plugins: [ // plugins we are using
-    new webpack.HotModuleReplacementPlugin(), // update changed modules without page reload
-    new HtmlWebpackPlugin({ // add JavaScript code to the HTML
-      template: 'public/index.html',
-      filename: 'index.html',
-      inject: 'body'
-    })
-  ]
-}
+  plugins: [
+    // plugins we are using to help with compiling
+    new HtmlWebpackPlugin({
+      // used to add the JavaScript code to the HTML
+      template: path.join(PUBLIC_DIRECTORY, 'index.html'),
+    }),
+  ],
+  module: {
+    // helpers we want webpack to use
+    rules: [
+      // specific instructions for each helper
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }, // transpile JavaScript files
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }, // transpile css files
+      {
+        test: /\.(png|svg|jpg|gif|pdf)$/,
+        use: ['file-loader'],
+      }, // transpile image files
+    ],
+  },
+};
+
+module.exports = config;
+```
+
+We also need to configure a development configuration file. Begin by making a file called `webpack.config.dev.js` and then add the below:
+
+```js
+const path = require('path');
+const config = require('./webpack.config.js');
+
+config.devServer = {
+  historyApiFallback: true, //serve a previous page on a 404 error
+  contentBase: path.resolve('src'), // location of the source code
+  port: 8080, // use this port for the server
+  hot: true, // refresh the browser when changes are saved
+  open: true, // open the project in the browser when the server starts
+  host: '0.0.0.0', // make server accessible externally
+  watchContentBase: true, // watch for changes to static files
+};
+
+config.devtool = 'inline-source-map'; // a tool to find errors in the compiled code, but show them against the source code for easier debugging
+
+module.exports = config;
 ```
 
 Finally we should add some scripts to our `package.json`.
 
 ```json
-"start": "webpack-dev-server --mode-development",
+"start": "webpack-cli serve --mode development --config webpack.config.dev.js",
 "build": "webpack -p"
 ```
