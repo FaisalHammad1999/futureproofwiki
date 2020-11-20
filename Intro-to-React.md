@@ -91,7 +91,7 @@ Return statement may also be wrapped in a render block.
 
 ## Components
 
-Now we have completed the setup, we can begin to separate our files into components. You can use *class components* or *functional components (also known as simple components)* depending on what you need from them. Generally you want to use a functional component if you simply want to display data and a class component for anything else.
+Now we have completed the setup, we can begin to separate our files into components. You can use **class components** or **functional components (also known as simple components)** depending on what you need from them. Generally you want to use a functional component if you simply want to display data and a class component for anything else.
 
 First we need to create `App.js` inside of the `src` folder.
 
