@@ -8,7 +8,7 @@ React has a very robust community and that is just one of many reasons why peopl
 
 ## Pre-setup
 
-You can also create-react-app which bootstraps a project and gives us a lot of files (some of which we may not need) but it doesn’t require any configuration.
+You can create-react-app which bootstraps a project and gives us a lot of files (some of which we may not need) but it doesn’t require any configuration.
 
 You can also simply import React into your website via script tags, as well as Babel for use of JSX but this is not a common way of doing it.
 
