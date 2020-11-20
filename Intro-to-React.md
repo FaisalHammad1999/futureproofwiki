@@ -60,6 +60,8 @@ We don't need a script tag as Webpack will connect it for us.
 Next we need to create an `index.js` file in out `src` folder.
 
 ```js
+// index.js
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -95,8 +97,10 @@ First we need to create `App.js` inside of the `src` folder.
 
 Note that the `App.js` is capitalised - this is a React convention when writing components to differentiate from html elements.
 
+### Class Component
+
 ```js
-// Class Component
+// App.js
 
 import React, { Component } from 'react'
 
@@ -115,20 +119,55 @@ export default App
 ```
 
 ```js
-// Functional Component
+// index.js
 
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const App = () => {
+import App from './App';
+
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+### Functional Component
+
+What if we wanted to move the greeting into a component and display in within app? We could do the below.
+
+```js
+// Greeting.js
+
+import React from 'react';
+
+const Greeting = () => {
     return (
-      <main>
+      <div>
           <h1>Hello World!</h1>
           <p>Nice to meet you React</p>
-      </main>
-    )
-}
+      </div>
+    );
+};
 
-export default App
+export default Greeting;
+```
+
+```js
+// App.js
+
+import React, { Component } from 'react';
+import Greeting from './components/Greeting';
+
+class App extends React.Component {
+    render() {
+      return (
+          <main>
+              <Greeting />
+          </main>
+      );
+    }
+  }
+
+export default App;
 ```
  
 We need to export the App so it can be used by the `index.js`. Note that our class component must include `render()` and `return` whereas it is only mandatory to have `return` in our functional component. Make sure you only have one parent element within the `return` or you will get an error. You can use fragments `<></>` as the parent element if you wish.
