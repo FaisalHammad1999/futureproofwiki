@@ -118,6 +118,8 @@ class App extends React.Component {
 export default App
 ```
 
+Now that the code has been moved over, we can import and insert it into our html.
+
 ```js
 // index.js
 
@@ -150,6 +152,8 @@ const Greeting = () => {
 
 export default Greeting;
 ```
+
+As you can see below, components can be rendered inside of other components. 
 
 ```js
 // App.js
