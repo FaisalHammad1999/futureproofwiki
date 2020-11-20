@@ -89,14 +89,17 @@ Return statement may also be wrapped in a render block.
 
 ## Components
 
-Now we have completed the setup, we can begin to seperate our files into components.
+Now we have completed the setup, we can begin to separate our files into components. You can use *class components* or *functional components (also known as simple components)* depending on what you need from them. Generally you want to use a functional component if you simply want to display data and a class component for anything else.
 
 First we need to create `App.js` inside of the `src` folder.
 
-Note that the `App.js` is capitalised - this is a React convention when writing components.
+Note that the `App.js` is capitalised - this is a React convention when writing components to differentiate from html elements.
 
 ```js
-import React from 'react'
+# Class Component
+
+import React, { Component } from 'react'
+
 class App extends React.Component {
     render() {
       return (
@@ -107,10 +110,27 @@ class App extends React.Component {
       )
     }
   }
+
+export default App
+```
+
+```js
+# Functional Component
+
+import React from 'react'
+
+const App = () => {
+    return (
+      <main>
+          <h1>Hello World!</h1>
+          <p>Nice to meet you React</p>
+      </main>
+    )
+}
 export default App
 ```
  
- We need to export the App so it can be used by the `index.js`.
+We need to export the App so it can be used by the `index.js`.
 
 ## JSX
 
