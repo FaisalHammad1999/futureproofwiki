@@ -96,7 +96,7 @@ First we need to create `App.js` inside of the `src` folder.
 Note that the `App.js` is capitalised - this is a React convention when writing components to differentiate from html elements.
 
 ```js
-# Class Component
+// Class Component
 
 import React, { Component } from 'react'
 
@@ -115,7 +115,7 @@ export default App
 ```
 
 ```js
-# Functional Component
+// Functional Component
 
 import React from 'react'
 
@@ -127,6 +127,7 @@ const App = () => {
       </main>
     )
 }
+
 export default App
 ```
  
