@@ -131,7 +131,7 @@ const App = () => {
 export default App
 ```
  
-We need to export the App so it can be used by the `index.js`.
+We need to export the App so it can be used by the `index.js`. Note that our class component must include `render()` and `return` whereas it is only mandatory to have `return` in our functional component. Make sure you only have one parent element within the `return` or you will get an error. You can use fragments `<></>` as the parent element if you wish.
 
 ## JSX
 
