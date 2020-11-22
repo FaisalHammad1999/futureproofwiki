@@ -2,7 +2,7 @@
 
 React is a Javascript library that we can use to build beautiful front ends. 
 
-It was created by Facebook in 2011. Aside from Facebook itself Instagram, Codeacademy and Khan Academy are also built using React.
+It was created by Facebook in 2011. Aside from Facebook itself, many web applications are built with React including Instagram, Codeacademy and Khan Academy to name a few.
 
 React has a very robust community and that is just one of many reasons why people like it so much.
 
@@ -10,20 +10,20 @@ React has a very robust community and that is just one of many reasons why peopl
 
 There are a few ways to get started with React.
 
-You can use [create-react-app](https://create-react-app.dev/docs/getting-started/) which bootstraps a project and gives us a lot of files (some of which we may not need) but it doesn’t require any configuration.
+- You can **use [create-react-app**](https://create-react-app.dev/docs/getting-started/) which bootstraps a project and gives us a lot of files (some of which we may not need) but it doesn’t require any configuration.
 
-You can also simply import React into your website via script tags, as well as Babel for use of JSX but this is not a common way of doing it.
+- You can also simply **import React into your website via script tags**, as well as Babel for use of JSX but this is not a common way of doing it.
 
 ```html
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 
- <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 ```
 
-For this lesson, we are going to create our React app from scratch.
+- For this lesson, we are going to **create our React app from scratch**.
 
 To go through this lesson though you should have already created a Webpack setup for your project.
 
