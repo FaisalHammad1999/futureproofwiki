@@ -11,13 +11,13 @@ If you use CRA and are interested to see what is going on behind-the-scenes, I r
 ### Non-CRA Setup
 In a non-CRA project there is a little bit more setup but not too much. Check out the official configuration guide [here](https://jestjs.io/docs/en/tutorial-react).
 
-**Install Dependencies**
+**1. Install Dependencies**
 ```bash
 npm install --save-dev jest babel-jest enzyme enzyme-adapter-react-16 sinon
 ```
 
-**Add Jest config to handle static assets (css and other files)**
-- Add config to package.json
+**2. Add Jest config to handle static assets (css and other files)**
+Add config to package.json
 ```js
 // in package.json
 {
@@ -31,16 +31,17 @@ npm install --save-dev jest babel-jest enzyme enzyme-adapter-react-16 sinon
   // etc
 }
 ```
-- Create mock files referenced in the above setup
-Create a new folder at the top level of your project called `__mocks__` \
-In it, make a file called `fileMock.js` with the content `module.exports="test-file-stub"` `
-Also make a file called `styleMock.js` with the content `module.exports={}`
+
+**3. Create mock files referenced in the above setup**
+- Create a new folder at the top level of your project called `__mocks__` \
+- In it, make a file called `fileMock.js` with the content `module.exports="test-file-stub"` \
+- Also make a file called `styleMock.js` with the content `module.exports={}`
 
 ***
 
 ## Configure Test Setup
 ### setup file
-Create (or use the existing) `setupTests.js` file (I've put it in a `src/test` folder) and let's do some basic setup that we'll want to use across all our test files.
+Create (or, in CRA, use the existing) `setupTests.js` file (I've put it in a `src/test` folder) and let's do some basic setup that we'll want to use across all our test files. If using CRA, clear out this file contents and start from scratch with us.
 
 We'll start with React itself, we're sure to need that across the board!
 ```js
