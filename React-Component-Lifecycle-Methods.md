@@ -1,67 +1,7 @@
-## Props
-Passing data between components in a React app can be acheived with React Props (properties). \
-Let's say we have some TV show data stored in state that we want to pass to a ShowCard component.
-```jsx
-state = { 
-    faveShow: {title: 'The Good Place', seasons: 4}
-}
-
-// in render
-<ShowCard show={this.state.faveShow}/>
-```
-
-From our `ShowCard` componont, we can access the props in one of two ways, depending on whether it is a class or a functional component:
-```jsx
-// In a Class Component, props can be accessed with `this.props`
-class ShowCard extends Component {
-    render(){
-        return <p>{this.props.show.title} has {this.props.show.seasons} seasons.</p>
-    };
-};
-
-// You can use destructuring
-class ShowCard extends Component {
-    render(){
-        const { show: { title, seasons}} = this.props;
-
-        return <p>{this.props.show.title} has {this.props.show.seasons} seasons.</p>
-    };
-};
-```
-
-```jsx
-// In a functional component, props are accessed as a parameter
-const ShowCard = (props) => {
-    return <p>{props.show.title} has {props.show.seasons} seasons.</p>
-};
-
-// You can use destructuring
-const ShowCard = ({show: { title, seasons }) => {
-    return <p>{title} has {seasons} seasons.</p>
-};
-```
-
-### Callbacks as props
-As we know, functions can be treated in the same way as other data types in JavaScript. We can pass functions as props:
-```jsx
-class App extends Component {
-    doSomething = e => console.log('Doing something!');
-
-    render(){
-        return <LikeButton clickHandler={this.doSomething} />
-    };
-};
-
-const LikeButton = ({ clickHandler }) => <button onClick={clickHandler}>Click to do something!</button>
-```
-
-***
-
-## Class Component Lifecycle Methods
 React Class Components come with a suite of Lifecycle methods to give us some control over the lifecycle of a component instance. \
-In one lifecycle, in the same way that humans are born once, develop several times through life and pass on once, React Components are 'mounted' once, can be 'updated' multiple times and 'unmounted' once. We don't know if humans can have more than one lifecycle but React Compononts certainly can!
+In one lifecycle, in the same way that humans are born once, develop several times through life and pass on once, React Components are 'mounted' once, can be 'updated' multiple times and 'unmounted' once. We don't know if humans can have more than one lifecycle but React Components certainly can!
 
-***NB: function components can not access these methods***
+***NB: functional components can not access these methods.***
 
 [Here is a fantastic, simple diagram of all the lifecycle methods](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/). Note what is added/taken away when clicking on 'Show less common lifecycles'. As well as the 3 stages of mounting, updating and unmounting, we are also aware of a 2nd dimension of phases - render, pre-commit and commit. Reading the official React documentation on these methods is highly encouraged but here is a brief overview of the methods, starting with the most common ones.
 
