@@ -1,6 +1,7 @@
 As React is used to create SPAs (Single Page Applications) we can be tempted to ignore actual browser navigation but this is not very fair on users who may want to bookmark a view on your app or use their browser navigation system (foward, back, history etc).
 
 [`react-router-dom`](https://reactrouter.com/web/guides/quick-start) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
+***
 ### Setup
 As high up as possible in your app, wrap your app in a Router. Generally I like to do this in my `index.js` file.
 ```jsx
@@ -14,7 +15,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
+***
 ### Defining Routing
 What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Switch` and `Route` components from `react-router-dom` for this. The `Route` can either receive a `render` prop or a `component` prop to define what should be shown when that route is visited. Note the differences below.
 ```jsx
@@ -33,7 +34,7 @@ import { Switch, Route } from 'react-router-dom';
     <Route component={NotFound404} />
 </Switch>
 ```
-
+***
 ### Dynamic Segments
 Note that the `Switch` is checking the Route paths top to bottom to find a match. This is especially important when handling nested routing with dynamic segments.
 ```jsx
@@ -43,7 +44,7 @@ Note that the `Switch` is checking the Route paths top to bottom to find a match
     <Route path={`students/:id`} render={() => <PersonCard getPerson={this.getStudentByName}/>}/>
 </Switch>
 ```
-
+***
 ### Creating Links
 We can use normal `<a>` tags to create links but using `react-router-doms`'s `Link` and `NavLink` components give us more integrated control over our navigation handling.
 ```jsx
@@ -61,6 +62,20 @@ import { NavLink } from `react-router-dom`;
 <NavLink to="/cats" activeClassName="current">Cats</NavLink>
 ```
 
+**NB**: *At time of writing, a conflicting dependency version of the `path-to-regexp` module can cause the path to not be matched. If you are having trouble with this, in your `webpack.config.js` file, add the following `alias` key to `config.resolve` and restart your dev server:*
+```js
+const config = {
+    ...,
+    resolve: {
+        alias: {
+            'path-to-regexp': path.resolve(__dirname, 'node_modules', 'react-router', 'node_modules', 'path-to-regexp')
+        },
+        ...
+    },
+    ...
+}
+```
+***
 ### withRouter
 `withRouter` is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that comes with `react-router-dom`. We can use it to wrap a Component and give it access to our router props of `match`, `history` and `location`. There is quite a bit to explore in those but here are some of the most common uses:
 
