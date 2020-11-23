@@ -273,12 +273,12 @@ When running tests, the script CRA uses (or adding the `--watch` flag on a non-C
 ***
 
 ## Displaying Test Coverage
-For coverage I have set up a new script in the `package.json`:
-*** CRA Setup ***
+For coverage I have set up a new script in the `package.json`: \
+**CRA Setup**
 ```js
 "coverage": "react-scripts test --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
 ```
-*** No CRA ***
+**No CRA**
 ```js
 "coverage": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
 ```
