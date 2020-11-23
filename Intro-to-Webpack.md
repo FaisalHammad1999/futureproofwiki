@@ -30,7 +30,7 @@ We use these to add support for various file types.
 
 ### Install Babel
 
-We use this to tanspile ES6 to ES5.
+We use this to transpile ES6 to ES5.
 
 `npm install @babel/core @babel/preset-env @babel/preset-react`
 
