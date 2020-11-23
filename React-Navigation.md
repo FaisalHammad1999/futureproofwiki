@@ -114,6 +114,8 @@ export default withRouter(CatsContainer); // here is where we pass our CatsConta
 ```
 ```jsx
 // rendered on a page with path of `/cats/:name`
+import { withRouter } from `react-router-dom`;
+
 const CatCard = ({allCats, match}) => {
     // Extracting specific route parameter with match prop
     const cat = allCats.find(cat => cat.name === match.params.name)
@@ -124,4 +126,16 @@ const CatCard = ({allCats, match}) => {
 
     return ({ cat ? renderCat() : renderUnknown })
 }
+
+export default withRouter(CatCard);
+```
+***
+
+**NB** *When testing any component that is wrapped in a HOC (Higher Order Component), remember to let the test know with [`WrappedComponent`](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React#accessing-components-with-wrappers) and stub out any of the props the HOC is passing that you'll be using in that test.*
+```js
+    beforeEach(() => {
+        stubRouterHistory = { goBack: jest.fn() }
+ 
+        component = shallow(<BackButton.WrappedComponent history={stubRouterHistory}/>)
+    })
 ```
