@@ -34,16 +34,18 @@ We use this to tanspile ES6 to ES5.
 
 `npm install @babel/core @babel/preset-env @babel/preset-react`
 
+This plugin transforms static class properties as well as properties declared with the property initializer syntax.
+
+`npm install @babel/plugin-proposal-class-properties --save-dev`
+
 ### Folders and FIles
 
 To configure babel, we need to create a file called `.babelrc` and write in the following:
 
 ```json
 {
-    "presets":[
-        "@babel/preset-env",
-        "@babel/preset-react"
-    ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [["@babel/plugin-proposal-class-properties"]]
 }
 ```
 
