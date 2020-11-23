@@ -42,13 +42,14 @@ LAP | Week(s) | Overview |
 * [LAP 2](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-2)
     + [Object Orientation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
     + [Intro to Webpack](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Webpack)
-    + [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
-    + [React State & Eventing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing)
-    + [React Props & Component Lifecycle](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props-and-Component-Lifecycle)
-    + [React Navigation](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation)
-    + [Redux](https://github.com/getfutureproof/fp_guides_wiki/wiki/Redux)
-    + [TDD in React](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React)
-    + [Intro to DevOps](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-DevOps)
+    * [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
+    * [TDD in React](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React)
+    * [React State & Eventing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing)
+    * [React Props](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props)
+    * [React Navigation](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation)
+    * [React Component Lifecycle](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Component-Lifecycle-Methods)
+    * [Redux](https://github.com/getfutureproof/fp_guides_wiki/wiki/Redux)
+    * [Intro to DevOps](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-DevOps)
 
 ***
 
