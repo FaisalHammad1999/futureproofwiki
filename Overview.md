@@ -40,7 +40,7 @@ LAP | Week(s) | Overview |
 ***
 
 * [LAP 2](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-2)
-    + [Object Orientation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
+    + [Object Orientation in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
     + [Intro to Webpack](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Webpack)
     * [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
     * [TDD in React](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React)
