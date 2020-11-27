@@ -50,7 +50,8 @@ This stage is similar to a retrospective. Continuous monitoring of feedback and 
 
 ## Some key phrases and concepts
 ### CALMS
-An increasingly popular model to measure the 'health' of a company's devops flow based on 5 key areas: **C**ollaboration, **A**utomation, **L**ean, **M**easurement and **S**haring.
+An increasingly popular model to measure the 'health' of a company's devops flow based on 5 key areas: \
+**C**ollaboration, **A**utomation, **L**ean, **M**easurement and **S**harin
 
 ### Collaboration
 It is tempting to get caught up in the technical side of DevOps but none of it will fit together without tight collaboration across all the teams. Collaboration and communication between all parties needs to run both ways, with all involved taking responsibility.
