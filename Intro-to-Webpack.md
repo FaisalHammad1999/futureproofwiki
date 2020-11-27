@@ -125,6 +125,15 @@ config.devtool = 'inline-source-map'; // a tool to find errors in the compiled c
 module.exports = config;
 ```
 
+Thinking ahead we will also need to let webpack know how to build a production ready application by creating a `webpack.config.production.js` file:
+
+```js
+const config = require('./webpack.config.js');
+
+config.mode = 'production';
+module.exports = config;
+```
+
 Finally we should add some scripts to our `package.json`.
 
 ```json
