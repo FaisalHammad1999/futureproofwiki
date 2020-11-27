@@ -51,7 +51,7 @@ To configure babel, we need to create a file called `.babelrc` and write in the 
 
 We also need to create an `src` and a `public` folder to store our source code and assets.
 
-Our next task is to instruct Webpack on how it should work by creating a `webpack.config.js` file and inserting the following:
+Our next task is to instruct Webpack on how it should work by creating a folder called `config` and making a `webpack.config.js` file and inserting the following:
 
 ```js
 const path = require('path');
@@ -127,7 +127,7 @@ module.exports = config;
 
 Finally we should add some scripts to our `package.json`.
 
-```js
+```json
   "scripts": {
     "start": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js"
