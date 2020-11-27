@@ -127,7 +127,9 @@ module.exports = config;
 
 Finally we should add some scripts to our `package.json`.
 
-```json
-"start": "webpack-cli serve --mode development --config webpack.config.dev.js",
-"build": "webpack -p"
+```js
+  "scripts": {
+    "start": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
+    "build": "webpack --config config/webpack.config.production.js"
+  },
 ```
