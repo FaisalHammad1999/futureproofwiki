@@ -16,3 +16,4 @@ React and building a slick frontend is the main focus of this LAP. We'll cover a
 * [Call vs. Apply vs. Bind](https://github.com/getfutureproof/fp_guides_wiki/wiki/Call-vs-Apply-vs-Bind)
 * [Intro to React Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React-Hooks)
 * [Testing fetch with Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-fetch-with-Jest)
+* [Deploying a React Client with Netlify](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Deploy-with-Netlify)
