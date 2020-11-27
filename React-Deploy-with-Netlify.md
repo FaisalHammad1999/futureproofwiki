@@ -17,7 +17,7 @@ If you're not sure what the name of your publish folder is, run your build comma
 ```js
 // in webpack.config.js
 output: { 
-    path: path.resolve('dist'), // here!
+    path: path.resolve(__dirname, './dist'), // here!
     // ..etc
 },
 ```
