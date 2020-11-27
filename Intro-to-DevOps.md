@@ -58,7 +58,7 @@ It is tempting to get caught up in the technical side of DevOps but none of it w
 ### Automation
 "The technology by which a process or procedure is performed without human assistance.". Successful DevOps uses a *lot* of it! Consistency, reliability and speed are the key benefits.
 
-### Infrastructure as Code (IaS)
+### Infrastructure as Code (IaC)
 The usage of code to define the automation of infrastructure, rather than relying on physical hardware configuration and/or manual configuration.
 
 ### Configuration Management
