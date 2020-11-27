@@ -45,3 +45,36 @@ This stage is similar to a retrospective. Continuous monitoring of feedback and 
 ***
 
 ![DevOps Cycle](https://d1.awsstatic.com/Marketplace/solutions-center/icons/AWS-MP-DevOps-Infographic-Light.9cc594ee04ab14e33066daff892a49e5329ed47e.png)
+
+***
+
+## Some key phrases and concepts
+### CALMS
+An increasingly popular model to measure the 'health' of a company's devops flow based on 5 key areas: **C**ollaboration, **A**utomation, **L**ean, **M**easurement and **S**haring.
+
+### Collaboration
+It is tempting to get caught up in the technical side of DevOps but none of it will fit together without tight collaboration across all the teams. Collaboration and communication between all parties needs to run both ways, with all involved taking responsibility.
+
+### Automation
+"The technology by which a process or procedure is performed without human assistance.". Successful DevOps uses a *lot* of it! Consistency, reliability and speed are the key benefits.
+
+### Infrastructure as Code (IaS)
+The usage of code to define the automation of infrastructure, rather than relying on physical hardware configuration and/or manual configuration.
+
+### Configuration Management
+The automation of preparing and managing host-specific configuration for different environments eg. test, staging, production.
+
+### Continuous Integration
+The practice of frequent commits and merges to a version control system, which then triggers an automated build.
+
+### Continuous Testing
+The automation of test runs as an integrated part of the delivery flow. This can offer instant feedback, vastly reducing risks of releasing a product that does not work as expected.
+
+### Continuous Delivery
+The on-demand ability to deliver updates in a fast, safe, and sustainable manner. This relies heavily on the successful implementation of configuration management, continuous integration & continuous testing. This can take you from delivering updates once a month to updates once a day or even hour! The process is automated except the final push to production which may need manual approval.
+
+### Continuous Deployment
+An extension of Continuous Delivery which automates the entire process, including the final push to production. Feedback loops are even more important than ever when implementing continuous deployment.
+
+### Continuous Monitoring
+The implementation of various feedback loops to monitor across the entire life cycle to catch failures and required improvements.
