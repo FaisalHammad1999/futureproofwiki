@@ -97,7 +97,7 @@ And visit/call on:
 Given the example just above, that would be port 32768
 
 You can also specify which ports will be mapped where by extended our run command: \
-`docker run -d -p 3000:8080 node-express`: map container port 3000 to local port 8080
+`docker run -d -p 8080:3000 node-express`: map container port 3000 to local port 8080
 
 ***
 
