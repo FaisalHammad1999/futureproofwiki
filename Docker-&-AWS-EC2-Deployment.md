@@ -1,7 +1,39 @@
-## Create an EC2 instance or ECS service
+## Create an EC2 instance
 **EC2** is one of AWS' _*compute*_ services. That means it has the brains and resources to run your code.
 
-**ECS** is AWS' specific container service - it can automatically scale up the number of EC2 instances required depending on the traffic to your app. ECS comes ready with Docker and an agent to handle the automatic scaling logic. If using ECS, we recommend selecting the option to use AWS Fargate as it handles most of the complex orchestration configuration for you.
+- From the AWS Console, select EC2 and click 'Launch Instance'
+- Select the top, Amazon Linux 2 AMI
+- For now, the default setting on all the setup steps are okay, the t2.micro will be suitable for most small applications
+- Once you get to the overview, hit Launch!
+- In the next modal, select 'Create a new key pair', give it any name you like eg. `keypair`. Download and keep it somewhere safe!
+- Hit 'Launch Instance'!
+- Click on 'View Instances' in the bottom right to see your new instance. It may take a minute to get to the `Running` state.
+
+## Access your instance
+### Connect in the browser
+You can interact with your instance **in the browser** by clicking on the instance ID > Connect > Connect. This will open a tab with a terminal connected to your instance.
+
+### Connect via SSH
+You can find your instance's public IP address by clicking on the instance ID from the Instances overview page. \
+For the user, the standard user name for the following AMIs are: \
+Debian: _admin_ \
+RedHat: _ec2-user_ \
+Ubuntu: _ubuntu_
+
+#### Linux/MacOS
+In your local terminal application of choice, run: \
+`ssh -i <path-to-your-keypair> <user>@<ip>` \
+eg: `ssh -i ./keypair.pem ec2-user@54.188.152.32`
+
+If a connection is refused, run `chmod 600 <path-to-your-keypair.pem>` and try again
+
+#### Windows
+If you want to do connect **via SSH** and your local machine is running Windows, you will need to make sure you have an SSH client installed such as [PuTTY](https://www.putty.org/) (other OS should ship with an SSH client pre-installed.) If using PuTTY, open PuTTYgen and load the PEM key you downloaded when creating your instance. Click `Save private key` and store somewhere safe.
+
+To connect:
+- Open PuTTY and insert the instance's public IP Address in the Host Name field
+- Navigate to Connection > SSH > Auth in the left pane and then select the downloaded private key in PPK format
+- Login as ec2-user and you will see the EC2 server welcome banner and be placed in the Linux shell:
 
 ***
 
