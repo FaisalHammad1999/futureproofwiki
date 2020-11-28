@@ -10,4 +10,4 @@ Lightsail offers a friendly, easy to understand service to create instances. Mon
 
 ### Elastic Beanstalk
 | [AWS Elastic Beanstalk Guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/AWS-Elastic-Beanstalk-Deployment) | \
-Elastic Beanstalk is a free service designed to allow developers to upload their code and allow AWS to work out and configure the appropriate services to run the application.
+Elastic Beanstalk is a free service designed to allow developers to upload their code and allow AWS to work out and configure the appropriate services to run the application. Note that whilst Elastic Beanstalk is free to use, the services it selects may have costs involved.
