@@ -13,3 +13,6 @@ In LAP 3 we bring everything together by looking at databases, both relational a
 ### Additional Resources
 * [Deploying a Database](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Database)
 * [PRG Pattern](https://github.com/getfutureproof/fp_guides_wiki/wiki/PRG-Pattern)
+
+### Docker Resources
+* [Docker 101 Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/Docker-101-Cheatsheet)
