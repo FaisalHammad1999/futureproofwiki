@@ -14,5 +14,4 @@ In LAP 3 we bring everything together by looking at databases, both relational a
 * [Deploying a Database](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Database)
 * [PRG Pattern](https://github.com/getfutureproof/fp_guides_wiki/wiki/PRG-Pattern)
 * [Docker 101 Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/Docker-101-Cheatsheet)
-* [AWS EC2 & Docker Deployment](https://github.com/getfutureproof/fp_guides_wiki/wiki/Docker-&-AWS-EC2-Deployment)
-* [AWS Elastic Beanstalk Deployment](https://github.com/getfutureproof/fp_guides_wiki/wiki/AWS-Elastic-Beanstalk-Deployment)
+* [AWS Deployment](https://github.com/getfutureproof/fp_guides_wiki/wiki/AWS-Deployment)
