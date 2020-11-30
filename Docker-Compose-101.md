@@ -71,8 +71,7 @@ services: # here I refer to 2 services and give some instructions similar to whe
         ports: # map ports as needed
             - '3000:3000' # use local port 3000 to access container port 3000
         environment: # set any environment variables
-            - API_ROOT=https://cool-api.com/v1
-            - API_CLIENT_KEY=5678
+            - MY_SECRET_KEY=shh987654321
         command: [ "npm", "start" ] # inline sequence syntax is optional
         depends_on: # define any service(s) it relies on (this helps compose decide what order to prep and start up services in)
             - the-database
@@ -136,6 +135,7 @@ const pool = new Pool()
 - We are mapping it to 35432 for convention's sake but as with any port map, feel free to change this.
 - To get away with the minimal `const pool = new Pool()` above, we must make sure it has access to the env vars set below.
 - This example uses official Docker images but you could use any built image, including custom ones.
+- The volume rule of `- "./db/:/docker-entrypoint-initdb.d/:ro"` will run all the files in local `./db` folder in alphabetical order once the database is setup. Both the `postgres` and `mongo` official images support this. 
 
 ```yaml
 version: '3'
@@ -165,6 +165,7 @@ services:
       - 35432:5432
     volumes:
       - "dbdata:/var/lib/postgresql/data"
+      - "./db/:/docker-entrypoint-initdb.d/:ro"
     environment: 
       - POSTGRES_DB=my-app-db
       - POSTGRES_USER=my-app
@@ -181,27 +182,10 @@ If you have `psql` installed locally, to access the database, you can run: \
 `psql postgres://<user>:<password>@localhost:<mapped-port>/<db-name>` \
 eg. `psql postgres://my-app:my-app-pass@localhost:35432/my-app-db`
 
-You can use files to create table(s), seed as needed etc:
-```sql
--- Example seed.db
-CREATE TABLE cats (
-	id serial PRIMARY KEY,
-	name VARCHAR ( 20 ) NOT NULL,
-	age INT
-);
-
-INSERT INTO cats (name, age) VALUES ('Zelda', 3), ('Ziggy', 1), ('Tigerlily', 9);
-```
-
-In your psql shell connected to your database, run `\i <path-to-seed-file>` \
-eg. `\i db/seed.db` if connected whilst in the same folder
-
 If you don't have `psql` installed locally, you can still connect! Attach to the container and run psql directly in it with: \
 `docker exec -it <container_name> psql -U <pg-user> <db-name>` \
 eg. `docker exec -it webapp_db_1 psql -U my-app my-app-db` \
 (If you don't know your container name, just run `docker ps` to find it!)
-
-Connecting to psql this second way will not give you access to local files given the docker-compose example above but you can give access to volumes as necessary if you like, or directly run SQL queries in the psql shell.
 
 ## Make it stop!
 See above for more details on a thorough teardown but if you're looking for a basic stop: \
