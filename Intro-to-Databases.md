@@ -63,3 +63,14 @@ When we design a database we need to first think about what we want to store and
 ## Security
 
 It is always important when we discuss data and databases to consider security. We should be considering if we need to store specific data and if we have the appropriate protection in place. Examples of this would be not storing plain-text passwords and encrypting your data.
+
+### ACID Transactions
+ACID is an acronym you may see a lot when comparing various database offerings. A 'transaction' is any interaction with the database. The acronym stands for:
+- **A**tomicity:
+If any part of the transaction fails, the whole process will roll back. No half finished transactions allowed!
+- **C**onsistency:
+The transaction takes the database from one valid 'state' to another. No invalid resulting databases allowed!
+- **I**solation:
+No transaction can mess up another transaction. No interfering with other transactions allowed!
+- **D**urability:
+Once written, the transaction will persist. No suddenly missing data allowed!
