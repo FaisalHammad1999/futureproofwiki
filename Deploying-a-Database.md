@@ -4,7 +4,7 @@ Deploying a database can seem intimidating at first, partly because there are ma
 As we've seen before, Heroku is a good option for freebie server hosting. They offer a [Postgres add-on](https://www.heroku.com/postgres).
 
 ### AWS
-The cheapest way to handle a small database would be to **add one manually to your EC2 instance**. For small projects this should serve you just fine as proof of concept with no additional costs over your EC2 billing. If your home computer can handle it at the same time as other activity without panicking, so can your EC2 instance (check your AMI specs of course!). You could even use a docker-compose configuration quite easily without making changes. You may want to strongly consider adding validations in your code to check your database size regularly and delete old data to avoid hitting your storage limits.
+The cheapest way to handle a small database on AWS would be to **add one manually to your EC2 instance**. For small projects this should serve you just fine as proof of concept with no additional costs over your EC2 billing. If your home computer can handle it at the same time as other activity without panicking, so can your EC2 instance (check your AMI specs of course!). You could even use a docker-compose configuration quite easily without making changes. You may want to strongly consider adding validations in your code to check your database size regularly and delete old data to avoid hitting your storage limits.
 
 When working at a company however there is a good chance that you'll be working with a managed database service. At time of writing, AWS has 15 managed database options covering 9 types of database! A few of the most popular are:
 
