@@ -4,9 +4,12 @@ Deploying a database can seem intimidating at first, partly because there are ma
 As we've seen before, Heroku is a good option for freebie server hosting. They offer a [Postgres add-on](https://www.heroku.com/postgres).
 
 ### AWS
-At time of writing, AWS has 15 managed database options covering 9 types of database! A few of the most popular are: \
+The cheapest way to handle a small database would be to **add one manually to your EC2 instance**. For small projects this should serve you just fine as proof of concept with no additional costs over your EC2 billing. If your home computer can handle it at the same time as other activity without panicking, so can your EC2 instance (check your AMI specs of course!). You could even use a docker-compose configuration quite easily without making changes. You may want to strongly consider adding validations in your code to check your database size regularly and delete old data to avoid hitting your storage limits.
+
+When working at a company however there is a good chance that you'll be working with a managed database service. At time of writing, AWS has 15 managed database options covering 9 types of database! A few of the most popular are:
+
 **[Amazon RDS](https://aws.amazon.com/rds/)**
-can be used to manage a variety of relational databases [including PostgreSQL](https://aws.amazon.com/rds/postgresql/) \
+offers 6 services that can be used to manage a variety of relational databases [including PostgreSQL](https://aws.amazon.com/rds/postgresql/) \
 **[DynamoDB](https://aws.amazon.com/dynamodb/)**
 is AWS' serverless NoSQL offering. [This video walkthrough](https://resources.awscloud.com/aws-builders-online-series/aws-amplify-donnie-prakoso?trk=em_builder_series20q3_od&trkcampaign=builders-online-series) is an excellent starting point for connecting to a DynamoDB using Amplify.
 
@@ -14,7 +17,7 @@ is AWS' serverless NoSQL offering. [This video walkthrough](https://resources.aw
 Once you've made a MongoDB Atlas cluster, you can [connect to it from nigh on anywhere](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/).
 
 ### [FaunaDB](https://fauna.com/)
-FaunaDB is a very user friendly, serverless, collection-document database service. For a walkthrough on adding it to a Netlify-deployed app, [give this a go](https://medium.com/@bethmschofield/adding-faunadb-to-a-netlify-deployed-react-app-47753d6de1c9). Netlify Functions actually harnesses the same [AWS Lambda](https://aws.amazon.com/lambda/) service as Amplify just with some limitations.
+FaunaDB is a very user friendly, serverless, collection-document database service. Fauna uses it's own query language, [FQL](https://docs.fauna.com/fauna/current/start/fql_for_sql_users.html). For a walkthrough on adding it to a Netlify-deployed app, [give this a go](https://medium.com/@bethmschofield/adding-faunadb-to-a-netlify-deployed-react-app-47753d6de1c9). Netlify Functions actually harnesses the same [AWS Lambda](https://aws.amazon.com/lambda/) service as Amplify just with some limitations.
 
 ### [Firebase Realtime Database](https://firebase.google.com/)
 Google's Firebase has a popular and interesting real time database offering. For more info, see their own [introduction](https://firebase.google.com/docs/database).
