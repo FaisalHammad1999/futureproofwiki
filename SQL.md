@@ -8,13 +8,14 @@ There are various options for relational database systems including Oracle, Post
 ## PostgreSQL
 *"PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform."* - [About PostgreSQL](https://www.postgresql.org/about/)
 
-## Install
+## Local Usage
+### Install
 - On [MacOS](https://www.postgresql.org/download/macosx/) you can use the [installer](https://www.postgresql.org/download/macosx/) or the recommended [homebrew](https://formulae.brew.sh/formula/postgresql) installation
     - `brew update && brew install postgresql`
 - On [Windows](https://www.postgresql.org/download/windows/), use the [installer](https://www.postgresql.org/download/windows/). For more install assistance, check [this tutorial](https://www.postgresqltutorial.com/install-postgresql/)
 - On [Linux](https://www.postgresql.org/download/), find the instructions for your distro [here](https://www.postgresql.org/download/)
 
-## Start and Stop the service
+### Start and Stop the service
 To run PostgreSQL as a background service:
 - On MacOS
     - start: `brew services start postgresql`
@@ -24,28 +25,40 @@ To run PostgreSQL as a background service:
 **Optional** Install and connect a GUI editor
 [PopSQL](https://popsql.com/) is one of [many options](https://alternativeto.net/software/popsql/) for GUI interaction with your relational database server. It is not required but can be a nice way to store and share your queries.
 
+## Docker Usage
+### Create Container
+- `docker run --name <new-container-name> -e POSTGRES_PASSWORD=<a-password> -d postgres`
+### Create container with volume (useful if you want to [run files from within psql shell](https://github.com/getfutureproof/fp_guides_wiki/wiki/SQL#run-a-sql-file))
+- `docker run --name <new-container-name> --mount type=bind,source="$(pwd)",dst=<destination> -e POSTGRES_PASSWORD=<a-password> -d postgres`
+- eg. `docker run --name vol-db --mount type=bind,source="$(pwd)",dst="/code" -e POSTGRES_PASSWORD=password -d postgres`
+### Attach to container in bash shell (from where you can run the first set of commands below)
+- `docker exec -it <container-name> /bin/bash`
+- eg. `docker exec -it vol-db /bin/bash`
+### Or attach to container in psql shell (from where you can run the second set of commands below)
+- `docker exec -it vol-db psql -U postgres`
+
 ***
 
 ## Interact with the Postgres service via the terminal
-To interact with your Postgres service you can access via the command line. Alternatively you can use a GUI such as Compass (see above).
+To interact with your Postgres service you can access via the command line. Alternatively you can use a GUI such as PopSQL (see above).
 
 ### See all databases
-- `psql -l`
+- `psql -U postgres -l`
 
 ### Create a new database
-- `createdb <db-name>` ( eg. `createdb shelter`)
+- `createdb <db-name> -U <pg-username>` ( eg. `createdb shelter -U postgres`)
 
 ### Delete a database
-- `dropdb <db-name>` ( eg. `dropdb shelter`)
+- `dropdb <db-name> -U <pg-username>` ( eg. `dropdb shelter -U postgres`)
 
-### Acess database shell
-- enter: `psql <db-name>` ( eg. `psql shelter`)
+### Access database shell
+- enter: `psql <db-name> -U <pg-username>` ( eg. `psql shelter -U postgres`)
 - exit: `\q`
 
 ***
 
 ## SQL
-The following commands can be run from your database shell (see above). The ending semicolons are very important, don't forget them! [This cheatsheet](https://sp.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf) is a great resource for the commands below and much more!
+The following commands can be run from within your database shell (see above). The ending semicolons are very important, don't forget them! [This cheatsheet](https://sp.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf) is a great resource for the commands below and much more!
 
 ### Help!
 - `\h` to see options
