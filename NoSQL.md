@@ -22,7 +22,8 @@ Options for NoSQL are many, each offering their own flavour and features. We wil
 
 MongoDB offer several options for running. The Community Server is a great place to start.
 
-## Install
+## Local Usage
+### Install
 - On [MacOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) it is recommended to install with [homebrew](https://brew.sh/):
     - `brew tap mongodb/brew`
     - `brew install mongodb-community@4.4`
@@ -34,14 +35,26 @@ MongoDB offer several options for running. The Community Server is a great place
 
 To connect Compass to your local MongoDB service, select 'Fill in connection fields individually' and hit connect. The default details should be correct but you can check by running `mongo` in your terminal to see the connection details.
 
-***
-
-## Start and Stop the service
+### Start and Stop the service
 To run MongoDB as a background service:
 - On MacOS
     - start: `brew services start mongodb-community@4.4`
     - stop: `brew services stop mongodb-community@4.4`
 - On Windows use the Services console
+
+***
+
+## Docker Usage
+### Create Container
+- `docker run --name <new-container-name> -d mongo`
+### Create container with volume (useful if you want to [run files from within mongo shell](https://github.com/getfutureproof/fp_guides_wiki/wiki/NoSQL#run-scripts))
+- `docker run --name <new-container-name> --mount type=bind,source="$(pwd)",dst=<destination> -d mongo`
+- eg. `docker run --name vol-db --mount type=bind,source="$(pwd)",dst="/code" -d mongoe`
+### Attach to container in bash shell
+- `docker exec -it <container-name> /bin/bash`
+- eg. `docker exec -it vol-db /bin/bash`
+### Or attach to container directly in mongo shell
+- `docker exec -it vol-db mongo`
 
 ***
 
