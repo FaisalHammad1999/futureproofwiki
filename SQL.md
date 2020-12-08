@@ -1,4 +1,5 @@
-Relational databases are perfectly equipped to work with relationships between multiple models. Using **S**tructured **Q**uery **L**anguage (SQL), we can craft complex queries across our strictly formatted relational databases.
+Relational databases are perfectly equipped to work with relationships between multiple models. \
+Using **S**tructured **Q**uery **L**anguage (SQL), we can craft complex queries across our strictly formatted relational databases.
 
 *"Each table is a named collection of rows. Each row of a given table has the same set of named columns, and each column is of a specific data type. Whereas columns have a fixed order in each row, it is important to remember that SQL does not guarantee the order of the rows within the table in any way (although they can be explicitly sorted for display)."*  - [SQL Concepts](https://www.postgresql.org/docs/12/tutorial-concepts.html)
 
