@@ -49,7 +49,7 @@ To run MongoDB as a background service:
 - `docker run --name <new-container-name> -d mongo`
 ### Create container with volume (useful if you want to [run files from within mongo shell](https://github.com/getfutureproof/fp_guides_wiki/wiki/NoSQL#run-scripts))
 - `docker run --name <new-container-name> --mount type=bind,source="$(pwd)",dst=<destination> -d mongo`
-- eg. `docker run --name vol-db --mount type=bind,source="$(pwd)",dst="/code" -d mongoe`
+- eg. `docker run --name vol-db --mount type=bind,source="$(pwd)",dst="/code" -d mongo`
 ### Attach to container in bash shell
 - `docker exec -it <container-name> /bin/bash`
 - eg. `docker exec -it vol-db /bin/bash`
