@@ -81,4 +81,4 @@ router.post('/', (req, res) => {
 
 
 ## Environment variables
-As we start working more with databases, there's a a good chance that we will be needing to store some sensitive information. We want to make sure that things like the password for a secured database are not shared, for example on GitHub. [`dotenv`](https://www.npmjs.com/package/dotenv) is a simple and excellent library for this purpose.
+As we start working more with databases, there's a a good chance that we will be needing to store some sensitive information. We want to make sure that things like the password for a secured database are not shared, for example on GitHub. [`dotenv`](https://www.npmjs.com/package/dotenv) and its sister package [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack) are simple and excellent libraries for this purpose.
