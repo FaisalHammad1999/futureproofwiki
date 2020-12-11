@@ -112,7 +112,7 @@ class Breed(models.Model):
 class Dog(models.Model):
     name = models.CharField(max_length=50)
     age = models.PositiveIntegerField()
-    breed = models.ForeignKey(Breed, on_delete=models.SET_NULL)
+    breed = models.ForeignKey(Breed, null=True, on_delete=models.SET_NULL)
 ```
 
 Ready for some magic?
@@ -275,18 +275,18 @@ class UserSignupForm(UserCreationForm):
 # users/views.py
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserSignupFormm
+from .forms import UserSignupForm
 
 def register(req):
     if req.method == 'POST':
-        form = UserSignupFormm(req.POST)
+        form = UserSignupForm(req.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(req, f'Welcome, {username}!')
             return redirect('adoption-index')
     else:
-        form = UserSignupFormm()
+        form = UserSignupForm()
     data = {'form': form}
     return render(req, 'users/signup.html', data)
 ```
@@ -390,7 +390,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def profile(req):
-    return HttpResponse(f'<h1>{user.username}\'s profile</h1>')
+    return HttpResponse(f'<h1>{req.user.username}\'s profile</h1>')
 ```
 
 ***For more info on Django authentication check out the [documentation](https://docs.djangoproject.com/en/3.1/topics/forms/#forms-in-django).***
