@@ -51,7 +51,7 @@ Let's look at three design patterns:
 
 ### MVC
 **M**odel **V**iew **C**ontroller is a tried and tested pattern that was first documented in the 1970s!
-- **Modal** is where we manage all of our data and our business logic.
+- **Model** is where we manage all of our data and our business logic.
 - **View** is what the user sees and where they interact with our product.
 - **Controller** is what handles any requests between the two.
 
