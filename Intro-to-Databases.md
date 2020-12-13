@@ -1,3 +1,7 @@
+## What is a Database?
+
+Simply put a database is a collection of structured information generally held and accessed electronically.
+
 ## Why use Databases?
 
 Storing data is an important part of many modern applications. This could mean user information, stock availability or your latest social post. 
