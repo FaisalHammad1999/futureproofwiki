@@ -1,8 +1,8 @@
 ## Why use Databases?
 
-Storing data is an important part of most modern applications. This could mean user information, stock availability or your latest social post. 
+Storing data is an important part of many modern applications. This could mean user information, stock availability or your latest social post. 
 
-This information can be stored in a local database on your personal computer but as the data grows this becomes impractical and counter productive. Nowadays most databases are stored away from local machines in distributed systems, on large servers or the cloud, and accesses via the internet. Some companies still manage their own servers but often they leave it up to to a provider, which comes with the added benefit leaving the maintenance of the servers up to that provider.
+This information can be stored in a local database on your personal computer but as the data grows this becomes impractical and counter productive. Nowadays most databases are stored away from local machines in distributed systems, on large servers or the cloud, and accesses via the internet. Some companies still manage their own servers but often they leave it up to to a provider, which comes with many added benefits such as being easier to scale, leaving the maintenance of the servers up to that provider and reduced cost through economies of scale.
 
 ## Types of Databases
 
@@ -42,7 +42,7 @@ Examples of NoSQL databases are [MongoDB](https://www.mongodb.com/) and [CouchDB
 
 ## Scale
 
-In order to scale both types of databases we will be using an axis.
+When thinking about scaling, we do so in reference to different axis.
 
 Relational databases are often scaled vertically in the first instance, meaning if we up the power of our hardware we can process and store more data. This would mean upgrading or increasing the CPU, RAM, etc. This can become expensive/unfeasible at a point though. 
 
@@ -62,7 +62,7 @@ When we design a database we need to first think about what we want to store and
 
 ## Security
 
-It is always important when we discuss data and databases to consider security. We should be considering if we need to store specific data and if we have the appropriate protection in place. Examples of this would be not storing plain-text passwords and encrypting your data.
+It is always important when we discuss data and databases to consider security. We should be considering if we need to store specific data and if we have the appropriate protection in place. Examples of this would be not storing plain-text passwords, encrypting your data and requiring tokens to access a database.
 
 ### ACID Transactions
 ACID is an acronym you may see a lot when comparing various database offerings. A 'transaction' is any interaction with the database. The acronym stands for:
