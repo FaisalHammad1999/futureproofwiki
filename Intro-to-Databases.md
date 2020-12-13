@@ -1,12 +1,26 @@
-## What is a Database?
+### What is a Database?
 
 Simply put a database is a collection of structured information generally held and accessed electronically.
 
-## Why use Databases?
+### Who would use one?
 
-Storing data is an important part of many modern applications. This could mean user information, stock availability or your latest social post. It allows us to persist information, which we can later access, manage, update and organise. 
+Perhaps an easier question to answer is who wouldn't use one? Storing data is an important part of many modern businesses, particularly the applications they use and develop. Think banking, retail, social media... the list is endless.
 
-This information can be stored in a local database on your personal computer but as the data grows this becomes impractical and counter productive. Nowadays most databases are stored away from local machines in distributed systems, on large servers or the cloud, and accesses via the internet. Some companies still manage their own servers but often they leave it up to to a provider, which comes with many added benefits such as being easier to scale, leaving the maintenance of the servers up to that provider and reduced cost through economies of scale.
+### Why use Databases?
+
+The main reasons for using databases are that they allow us to retain information, which we can access, manage, update and organise. This could mean user information, stock availability or your latest social post.
+
+### Where is a database stored?
+
+Information can be stored in a local database on your personal computer but as the data grows this becomes impractical and counter productive. Most databases are stored away from local machines in data centres, which are essentially large rooms or warehouses with servers. These could be owned and managed by a company, provided via cloud platforms such as AWS, GCP or Azure or a hybrid of both.
+
+### How can you access one?
+
+If your database is not stored locally, you can access it via the internet by making a request to the server for information which in turn is relayed back. At the very minimum a database should require an access key or token to make these requests.
+
+### When can you access the data?
+
+Ideally you should be able to access data at any time, however as you can imagine storing large amounts of information can become expensive due to the space and servers required to hold this. Generally you either have hot storage or cold storage. Databases held in hot storage can be reasonably expected to be instantly accessible but expensive to run, whereas getting data from cold storage may take longer but is less expensive.
 
 ## Types of Databases
 
