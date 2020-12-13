@@ -56,7 +56,7 @@ Find out more about scale [here](https://medium.com/better-programming/scaling-s
 
 ## Pros and Cons
 
-The main pro of a relational database is the structure. We know what to expect in terms of the data and because of this can use more complicated queries than a non-relational database where we are unsure of what is stored within it. As mentioned above we can also set constraints so that when inputing data, we can achieve consistency.
+The main pro of a relational database is the structure. We know what to expect in terms of the data and because of this can use more complicated queries than a non-relational database where we are unsure of what is stored within it. As mentioned above we can also set constraints so that when inputing data, we can achieve consistency. SQL databases are best fit for transactional applications.
 
 Non-relational databases are useful for hierarchical data storage and big data as it's easier to scale. It's more dynamic than an SQL database when it comes to changing requirements.
 
