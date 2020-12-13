@@ -4,7 +4,7 @@ Simply put a database is a collection of structured information generally held a
 
 ## Why use Databases?
 
-Storing data is an important part of many modern applications. This could mean user information, stock availability or your latest social post. 
+Storing data is an important part of many modern applications. This could mean user information, stock availability or your latest social post. It allows us to persist information, which we can later access, manage, update and organise. 
 
 This information can be stored in a local database on your personal computer but as the data grows this becomes impractical and counter productive. Nowadays most databases are stored away from local machines in distributed systems, on large servers or the cloud, and accesses via the internet. Some companies still manage their own servers but often they leave it up to to a provider, which comes with many added benefits such as being easier to scale, leaving the maintenance of the servers up to that provider and reduced cost through economies of scale.
 
