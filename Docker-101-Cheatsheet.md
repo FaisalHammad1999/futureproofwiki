@@ -105,7 +105,7 @@ You can also specify which ports will be mapped where by extended our run comman
 ### Start a stopped Container
 - `docker start <container-name-or-id>`
 - `-d`: for detached mode
-- `-it`: for interactive mode
+- `-i`: for interactive mode
 
 ### Attach to a running detached container
 - `docker attach <container-name-or-id>`
