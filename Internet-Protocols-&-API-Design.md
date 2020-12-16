@@ -1,4 +1,4 @@
-The internet relies heavily on protocols - sets of rules which aid in the implementation of consistent patterns. HTTP and HTTPS are two protocols which websites on the world wide web must adhere to for transmission of information. When designing APIs there are a couple of implementation options.
+The internet relies heavily on protocols - sets of rules which aid in the implementation of consistent patterns. HTTP and HTTPS are two protocols which websites on the world wide web must adhere to for transmission of information. When designing APIs there are a couple of implementation options. Having said that, they are rather different and despite it being a choice, you might say that it's comparing apples to oranges. Check out this [infographic from SoapUI](https://www.soapui.org/resources/infographic/api-testing/soap-vs-rest-infographic/) to see more about them side by side.
 
 ### SOAP
 *Examples courtesy of [W3Schools](https://www.w3schools.com/xml/xml_soap.asp)*
