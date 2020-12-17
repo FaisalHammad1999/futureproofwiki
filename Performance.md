@@ -68,14 +68,12 @@ The number of operations increases quadratically (squares). \
 This is a type of polynomial algorithm (eg. O(n<sup>3</sup> / O(n<sup>4</sup>))
 ```js
 function doThatNTimes(n){
-    let finalResults = []
     for (let i = 0; i < n; i++) {
         console.log(`${i}: Processing ${n}...`)
         for (let j = 0; j < n; j++) {
             console.log(`${j}: ${n}!`)
         }
     }
-    return results
 }
 ```
 
