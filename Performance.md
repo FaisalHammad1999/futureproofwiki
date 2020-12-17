@@ -54,7 +54,7 @@ function addThreeTo(n){
 ```
 
 **Linear:** O(n) \
-The number of operations increases in proportion to n
+The number of operations increases linearly in proportion to n
 ```js
 function doThisNTimes(n){
     for (let i = 0; i < n; i++) {
