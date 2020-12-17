@@ -88,6 +88,8 @@ function logThis(n) {
 }
 ```
 
+A graph visual is [available here](https://www.desmos.com/calculator/kgwiv5zizm).
+
 ### Search Algorithms
 
 Consider the algorithmic complexity (number of steps taken) for the following problem:
