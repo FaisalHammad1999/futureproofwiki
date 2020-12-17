@@ -42,6 +42,54 @@ These refer to the size of an algorithm's input. The size of its input will alwa
 
 Why is it called 'Big O'? Well, my favourite online answer for this comes courtesy of FreeCodeCamp who say *'It’s called Big O notation because you put a “big O” in front of the number of operations.'* and [MIT](https://web.mit.edu/16.070/www/lecture/big_o.pdf) explain further: *'The letter O is used because the growth rate of a function is also referred to as the order of the function'*
 
+### Common notations
+**Constant:** O(1) \
+No matter what n is, the same number of operations occurs.
+```js
+function addThreeTo(n){
+    return n + 3
+}
+```
+
+**Linear:** O(n) \
+The number of operations increases in proportion to n
+```js
+function doThisNTimes(n){
+    for (let i = 0; i < n; i++) {
+        console.log(`${i}: ${n}!`)
+    }
+}
+```
+
+**Quadratic:** O(n<sup>2</sup>) \
+The number of operations increases quadratically (squares). \
+This is a type of polynomial algorithm (eg. O(n<sup>3</sup> / O(n<sup>4</sup>))
+```js
+function doThatNTimes(n){
+    let finalResults = []
+    for (let i = 0; i < n; i++) {
+        console.log(`${i}: Processing ${n}...`)
+        for (let j = 0; j < n; j++) {
+            console.log(`${j}: ${n}!`)
+        }
+    }
+    return results
+}
+```
+
+**Logarithmic** O(log n) \
+The number of operations increases logarithmically. \
+In Big O, unless specified, the base of a log is 2. ie. if `n=10`: 1, `n=20`: 2, `n=40`: 3
+```js
+function logThis(n) {
+    for (let i = 0; i < n; i*=2) {
+        console.log(`${i}: ${n}!`);  
+    }
+}
+```
+
+### Search Algorithms
+
 Consider the algorithmic complexity (number of steps taken) for the following problem:
 1. Player 1 chooses a number between 1 and 10
 2. Player 2 makes a guess at the number
@@ -97,5 +145,6 @@ function allPossiblePairings(students){
 const students = ["Bob", "Midna", "Alex", "Darryl", "Lexie"];
 ```
 - How many operations have to happen for each item in the input array?
+- How would we simplify that to a common Big O formula?
 - What if we had an additional nested loop? 
 - How scalable is this?
