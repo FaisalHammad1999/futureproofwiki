@@ -59,7 +59,7 @@ Genie.find_by_initial('J') #=> ['Jonathan', 'Jeannie']
 Static methods are also called directly on the class but they do not receive the class itself as an argument. If you find yourself writing an instance or class method but not referencing `self` or `cls` in the body, a static method is what you need!
 ```python
 @staticmethod
-def about(cls):
+def about():
     return 'Genies are awesome, in the dictionary definition of the word.'
 
 Genie.about() #=> 'Genies are awesome, in the dictionary definition of the word.'
