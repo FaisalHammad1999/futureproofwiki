@@ -52,7 +52,8 @@ class StuffError(Exception):
     pass
 
 def how_many_sweets(sweets, people):
-    if not people: raise StuffError('We need some people to share sweets with!')
+    if not people:
+        raise StuffError('We need some people to share sweets with!')
     return len(sweets) / len(people)
 ```
 
@@ -110,7 +111,7 @@ def greeting(name):
 def test_cli(capsys):
     stuff.greeting('Aki')
     out, err = capsys.readouterr()
-    assert out == 'Hello, Aki!\'
+    assert out == 'Hello, Aki!\n'
 ```
 
 #### monkeypatch
