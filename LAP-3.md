@@ -7,6 +7,7 @@ In LAP 3 we bring everything together by looking at databases, both relational a
 * [NoSQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/NoSQL)
 * [SQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/SQL)
 * [Connecting WebApps to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Connecting-Webapps-to-Databases)
+* [Authentication and Authorisation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Authentication-and-Authorisation)
 * [Performance](https://github.com/getfutureproof/fp_guides_wiki/wiki/Performance)
 * [Intro to Cybersecurity](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Cybersecurity)
 
