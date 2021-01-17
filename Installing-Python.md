@@ -20,4 +20,5 @@ There are multiple ways to manage your Python versions. This guide looks at just
 - Install a Python version with pyenv: `pyenv install 3.8.5` (use `pyenv install -l` to see all the options!)
 - See your installed Python version: `pyenv versions`
 - Switch to a version: `pyenv global <version>` eg. `pyenv global 3.8.5`
+- Close and reopen your terminal app.
 - Confirm success by running `python --version`
