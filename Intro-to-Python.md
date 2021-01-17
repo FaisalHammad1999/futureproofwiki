@@ -187,7 +187,7 @@ We can pass in multiple parameters to our functions.
 
 ```python
 def buying_confirmation(item_name, number):
-    sentence = 'You are buying ' + number + '  ' + item_name + '(s)'
+    sentence = 'You are buying ' + number + ' ' + item_name + '(s)'
     return sentence
 ```
 
