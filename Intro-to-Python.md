@@ -112,7 +112,7 @@ Again, avoid using this method as it is outdated and has been replaced. It's is 
 or
 
 ```python
->>> person = {'name': 'Hilda', 'Occupation': 'Sabrina\'s Aunt'}
+>>> person = {'name': 'Hilda', 'occupation': 'Sabrina\'s Aunt'}
 
 >>> 'Hello, {name}. You are {age}.'.format(name=person['name'], occupation=person['occupation'])
 
