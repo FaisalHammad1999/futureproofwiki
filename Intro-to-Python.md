@@ -114,7 +114,7 @@ or
 ```python
 >>> person = {'name': 'Hilda', 'occupation': 'Sabrina\'s Aunt'}
 
->>> My name is {name} and I am {occupation}.'.format(name=person['name'], occupation=person['occupation'])
+>>> 'My name is {name} and I am {occupation}.'.format(name=person['name'], occupation=person['occupation'])
 
 # My name is Hilda and I am Sabrina's Aunt
 ```
