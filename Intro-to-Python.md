@@ -242,3 +242,17 @@ volume, area = shape_measurements(3, 5, 90)
 A local variable, that is, a variable written inside of a function for example, can only used inside of that function.
 
 A global variable is a variable defined outside of a function and can be used anywhere.
+
+If we are in local scope and we want a variable to be available globally, we can use the `global` keyword to do so:
+
+```python
+def make_ice_cream:
+    global flavour_of_the_day
+    flavour_of_the_day = 'Mint Chocolate Chip'
+
+make_ice_cream()
+
+flavour_of_the_day
+
+# 'Mint Chocolate Chip'
+```
