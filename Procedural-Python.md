@@ -49,7 +49,7 @@ if 'hummus' in fridge:
 Now we can see why it is said Python is very readable! To negate this (see if there is not hummus in the fridge)..
 ```python
 if 'hummus' not in fridge:
-    print('We have hummus!')
+    print('We are out of hummus!!!')
 ```
 
 But what if I want to know how many of an item I have?
