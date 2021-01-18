@@ -27,8 +27,7 @@ There are multiple ways to manage your Python versions. This guide looks at just
 **On Windows**
 
 _Note: if you have previously installed Python on your machine this will likely override pyenv-win and so you should [uninstall this before continuing](https://www.educative.io/edpresso/how-to-uninstall-python)._
-- Install a Python version with pyenv: `pyenv install <latest-version>` (use `pyenv install -l` to see all the options, you will need to replace `<latest-version>` with the actual latest version eg. 3.9.1!)
-- If you do not see all the versions of Python you are expecting you may need to run `pyenv update`.
+- Install a Python version with pyenv: `pyenv install <latest-version>` (use `pyenv install -l` to see all the options. If you do not see all the versions of Python you are expecting you may need to run `pyenv update`. You will need to replace `<latest-version>` with the actual latest version eg. 3.9.1!).
 - See your installed Python version: `pyenv versions`
 - Switch to a version: `pyenv global <version>` eg. `pyenv global 3.9.1`
 - Run `pyenv rehash` to update pyenv with your new settings.
