@@ -57,7 +57,7 @@ new_cat_data = request.get_json()
 ### HTTP Verbs
 Of course, we're likely to want to handle more than just GET requests. We can pass an additional argument to the `route` decorator where we state which HTTP verbs this rule should handle.
 ```python
-@sever.route('/cats', methods=['POST']) 
+@server.route('/cats', methods=['POST']) 
 def create_cat(): # this will run only when a POST request to '/cats' is made
     return 'Have some cats' # this plain-text will be sent in the response
 ```
