@@ -11,6 +11,7 @@ By the end of the first day you will have deployed a website you can share with 
 
 ### Additional Resources
 * [Deployment 101 with Netlify](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploy-101)
+* [Deployment 101 with AWS S3](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deployment-101-with-AWS-S3)
 * [CSS Selectors Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Selectors-Cheatsheet)
 * [git CLI Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/git-CLI-Cheatsheet)
 * [Writing READMEs](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
