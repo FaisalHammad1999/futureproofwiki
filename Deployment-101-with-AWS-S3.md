@@ -21,7 +21,7 @@ You can use S3 to store nigh on anything you like. The storage per bucket is 'un
 
 ## Hosting a Static Site with S3
 1. Create files /
-Given S3s agnostic approach to file types, we can easily upload our entire project folder and it will handle the rest, so go ahead and create a project as normal! futureproof students can access this sample code as an example.
+Given S3s agnostic approach to file types, we can easily upload our entire project folder and it will handle the rest, so go ahead and create a project as normal! If you like, you can use [this sample code](https://github.com/getfutureproof/fp_demo_aws_s3_static_hosting) as an example.
 
 2. Upload files to S3 and configure for static site hosting /
 If you've not already got an AWS account and an IAM user, then **[follow this guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/Basic-AWS-Setup) to get set up and then come back here**.
@@ -36,7 +36,7 @@ You can do the next steps either from the in-browser AWS Management Console or u
     + Name your bucket. _NB: this must be completely unique - you cannot share a name with any other bucket in the world!_
     + Choose your region. _NB: you can choose any but you may consider choosing the location physically closest to you or your main user base. If you don't care about latency, the cheapest regions (once you are past free tier quota) tend to be North Virginia, Ohio and Ireland)_
     + Grant public access by unchecking 'Block _all_ public access' and checking the acknowledgement. _NB: this should only be done when you explicitly wish the public to access these files. In this case we do but bear in mind that in other contexts, this would not be desirable.on
-    + Versioning, tags, encryption and Advanced Settings can be left as default for now.
+    + Versioning, tags, encryption and Advanced Settings can be left as default for now, although Versioning is well worth looking into and enabling!
     + Click 'Create Bucket'
     + On next page, click on the name of your new bucket
 - Add bucket policy to allow access to all objects
@@ -99,6 +99,7 @@ You can do the next steps either from the in-browser AWS Management Console or u
 - Add objects
     + From within project folder, in console, paste the following and update to use your own bucket name:
     + `aws s3 sync ./ s3://my-awsome-bucket-name`
+    + _NB: Just run this again when you want to update your files!_
 - Enable static site hosting
     + In console, paste the following and update to use your own bucket name and, if needed, index & error pages:
     + aws s3 website s3://my-awsome-bucket-name/ --index-document index.html --error-document error.html
