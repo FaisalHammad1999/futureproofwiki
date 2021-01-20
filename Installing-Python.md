@@ -11,9 +11,9 @@ There are multiple ways to manage your Python versions. This guide looks at just
     - If you are not sure, `cd ~`, `ls -lah` and see which one is there!
 
 **On Windows**, there is a [pyenv-win](https://github.com/pyenv-win/pyenv-win) port.
-- Install `pyenv` via [Chocolatey](https://chocolatey.org/): `choco install pyenv-win`
+- Install `pyenv` via [Chocolatey](https://chocolatey.org/): `choco install pyenv-win` _(Do not install `pyenv` via your administrative shell as this will not give you access as a local user)_
 - Close and reopen your terminal app and run `pyenv --version`
-    - If you receive a command not found error, check the [documentation](https://github.com/pyenv-win/pyenv-win) for how to manually set environment variables
+    - If you receive a command not found error, check the [documentation](https://github.com/pyenv-win/pyenv-win#finish-the-installation) for how to manually set environment variables rvrn if you used [Chocolatey](https://chocolatey.org/).
 - Navigate to your home directory and run `pyenv rehash`
 
 ## Basic [pyenv](https://github.com/pyenv/pyenv) / [pyenv-win](https://github.com/pyenv-win/pyenv-win) usage
