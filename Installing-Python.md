@@ -32,4 +32,4 @@ There are multiple ways to manage your Python versions. This guide looks at just
 - Run `pyenv rehash` to update pyenv with your new settings.
 - Confirm success by running `python --version`
 
-_Note: if you have previously installed Python on your machine this may override pyenv-win and so you might have to [uninstall this before pyenv will work](https://www.educative.io/edpresso/how-to-uninstall-python)._
+_Note: if you are running Windows 10 1905 or newer, you made need to disable the built-in Python launcher via Start > "Manage App Execution Aliases" and disabling the "App Installer" aliases for Python **or** you might have to [uninstall this before pyenv will work](https://www.educative.io/edpresso/how-to-uninstall-python)._
