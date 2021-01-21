@@ -31,5 +31,7 @@ There are multiple ways to manage your Python versions. This guide looks at just
 - Switch to a version: `pyenv global <version>` eg. `pyenv global 3.9.1`
 - Run `pyenv rehash` to update pyenv with your new settings.
 - Confirm success by running `python --version`
-
-_Note: if you are running Windows 10 1905 or newer, you made need to disable the built-in Python launcher via Start > "Manage App Execution Aliases" and disabling the "App Installer" aliases for Python **or** you might have to [uninstall this before pyenv will work](https://www.educative.io/edpresso/how-to-uninstall-python)._
+- Note:
+    - If you are running Windows 10 1905 or newer, you made need to disable the built-in Python launcher via Start > "Manage App Execution Aliases" and disabling the "App Installer" aliases for Python.
+    - Failing that you may have to alter your [environment variables](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) so that any `pyenv` paths are higher in the list, and therefore take precedence over any other Python paths _(including other Python package managers such as Anaconda)_. **Remember to restart your machine for changes to take effect.** 
+    - As a last resort you might have to [uninstall Python before pyenv will work](https://www.educative.io/edpresso/how-to-uninstall-python).
