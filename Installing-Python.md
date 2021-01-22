@@ -5,7 +5,7 @@ There are multiple ways to manage your Python versions. This guide looks at just
 ## Installing [pyenv](https://github.com/pyenv/pyenv) / [pyenv-win](https://github.com/pyenv-win/pyenv-win)
 ### On MacOS and Linux 
 **[pyenv](https://github.com/pyenv/pyenv) is a great option for installing multiple versions and being able to switch between them.**
-- Install `pyenv` via homebrew: `brew install pyenv`
+- Install `pyenv` via homebrew: `brew install pyenv` _(it's also optional, bit recommended to also `brew install openssl readline sqlite3 xz zlib`)_
 - Add pyenv init to your shell:
     - `echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.<your-shell-config-file>`
     - Your shell config file may be `.zshrc`, `.bash_profile`, `.bashrc`
