@@ -20,11 +20,12 @@ When using any AWS service it is important to bear in mind costing. AWS Free Tie
 You can use S3 to store nigh on anything you like. The storage per bucket is 'unlimited' - 8 exabytes - good luck filling that! Whether it's images, text, audio files, S3 doesn't care, it just stores it as a new object. In this walkthrough we will use its feature of static site hosting which allows us to define an index page, relate to other content within the bucket and give an elegant(ish) url with which to access it.
 
 ## Hosting a Static Site with S3
-1. Create files /
-Given S3s agnostic approach to file types, we can easily upload our entire project folder and it will handle the rest, so go ahead and create a project as normal! If you like, you can use [this sample code](https://github.com/getfutureproof/fp_demo_aws_s3_static_hosting) as an example.
+1. Create files
+- Given S3s agnostic approach to file types, we can easily upload our entire project folder and it will handle the rest, so go ahead and create a project as normal! If you like, you can use [this sample code](https://github.com/getfutureproof/fp_demo_aws_s3_static_hosting) as an example.
+- ***NB**: If you are using a bundler eg. webpack, ensure that you build the project eg. `yarn build` / `npm build` and upload only the build/dist folder.*
 
-2. Upload files to S3 and configure for static site hosting /
-If you've not already got an AWS account and an IAM user, then **[follow this guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/Basic-AWS-Setup) to get set up and then come back here**.
+2. Upload files to S3 and configure for static site hosting
+- If you've not already got an AWS account and an IAM user, then **[follow this guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/Basic-AWS-Setup) to get set up and then come back here**.
 You can do the next steps either from the in-browser AWS Management Console or using the AWS CLI.
 
 **NB: These instructions look long as they have explanations and detail but once you've done it once, it is a very quick process, so give it a go and get started with this extremely popular platform that clients love to hear that you have experience with!!**
