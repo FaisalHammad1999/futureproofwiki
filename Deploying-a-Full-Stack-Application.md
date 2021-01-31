@@ -6,3 +6,7 @@ If you decide to go down this route before commencing on the building of your ap
 
 - [Static Site Deployment with Netlify](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploy-101)
 - [Deploying-an-Express-API-to-Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-an-Express-API-to-Heroku)
+
+_Note: Once you deploy your server and before you deploy your client, remember to change any request urls to point to your Heroku app's endpoints rather than `localhost`.
+
+However 
