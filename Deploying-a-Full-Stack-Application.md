@@ -11,4 +11,12 @@ _Note: Once you deploy your server and before you deploy your client, remember t
 
 If you did not make the decision to host the front-end and back-end separately before building your app and now have one combined repository, don't worry, there are only a few additional steps.
 
-Firstly you will need to uninitialize the git repository by navigating to the root of the project and running the delete command `rm -rf .git`.
+Firstly you will need to uninitialize the git repository by navigating to the root of the project and running `rm -rf .git`.
+
+If your code is not already in two folders, split the front-end and back-end code so you filetree looks something like:
+
+```markdown
+- App
+    - Client
+    - Server
+```
