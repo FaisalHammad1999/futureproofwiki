@@ -10,3 +10,5 @@ If you decide to go down this route before commencing on the building of your ap
 _Note: Once you deploy your server and before you deploy your client, remember to change any request urls to point to your Heroku app's endpoints rather than `localhost`._
 
 If you did not make the decision to host the front-end and back-end separately before building your app and now have one combined repository, don't worry, there are only a few additional steps.
+
+Firstly you will need to uninitialize the git repository by navigating to the root of the project and running the delete command `rm -rf .git`.
