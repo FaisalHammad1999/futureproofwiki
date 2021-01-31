@@ -20,3 +20,9 @@ If your code is not already in two folders, split the front-end and back-end cod
     - Client
     - Server
 ```
+
+Next you should make both your front-end and back-end folders git repositories by navigating into them and running `git init`.
+
+_Note: If your app repository was connected to GitHub, this connection will have been severed and so it might be worth setting up GitHub repositories for your new front-end and back-end projects._
+
+Make an initial commit, then you can simply follow the guides mentioned above to deploy the separate parts of your app.
