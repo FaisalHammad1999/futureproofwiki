@@ -48,4 +48,6 @@ const client = new Client({
 client.connect();
 ```
 
-If you need to run any migration or seed files, you will need to do so manually by navigating to the folder with this code and running `cat <file_name> | heroku pg:psql`
+If you need to run any migration or seed files, you will need to do so manually by navigating to the folder with this code and running `cat <file_name> | heroku pg:psql`.
+
+Now you have a deployed full stack app to show off!
