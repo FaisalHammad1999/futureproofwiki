@@ -26,3 +26,26 @@ Next you should make both your front-end and back-end folders git repositories b
 _Note: If your app repository was connected to GitHub, this connection will have been severed and so it might be worth setting up GitHub repositories for your new front-end and back-end projects._
 
 Make an initial commit, then you can simply follow the guides mentioned above to deploy the separate parts of your app.
+
+## Adding a Postgres Database
+
+Deploying a database with Postgres is fairly straight-forward with the [Postgres add-on](https://www.heroku.com/postgres).
+
+The first thing you'll need to do is provision your database by running `heroku addons:create heroku-postgresql:hobby-dev` in the root of your project. This will give you access to your database with the config variable `DATABASE_URL`.
+
+You'll then need to add your new database to your app setup, which should look something like the below.
+
+```js
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+client.connect();
+```
+
+If you need to run any migration or seed files, you will need to do so manually by navigating to the folder with this code and running `cat <file_name> | heroku pg:psql`
