@@ -53,6 +53,9 @@ server.listen(port, () => console.log(`Express is running on port ${port}`))
 ```
 We do not necessarily have to know this port number once deployed as you will be able to visit your apps's heroku address without declaring the port.
 
+#### Remove any unnecessary files that don't need to be deployed by adding them to your `.gitignore`. This includes items like node modules, development docker config, etc.
+
+If they have already been added to your git history you can remove them with the command `git rm -r --cached .`
 
 ## Accessing your API
 You can now access your API at the Heroku domain eg `https://fp-express-cats.herokuapp.com/` and your endpoints as expected eg `https://fp-express-cats.herokuapp.com/cats/zelda` 
