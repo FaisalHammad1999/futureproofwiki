@@ -53,7 +53,9 @@ server.listen(port, () => console.log(`Express is running on port ${port}`))
 ```
 We do not necessarily have to know this port number once deployed as you will be able to visit your apps's heroku address without declaring the port.
 
-#### Remove any unnecessary files that don't need to be deployed by adding them to your `.gitignore`. This includes items like node modules, development docker config, etc.
+#### Remove unnecessary files 
+
+Not every file we used in development is needed by Heroku to deploy. Remove any files that don't need to be deployed by adding them to your `.gitignore`. This includes items like node modules, development docker config, etc.
 
 If they have already been added to your git history you can remove them with the command `git rm -r --cached .`
 
