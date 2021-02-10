@@ -75,7 +75,7 @@ To handle our CORS (cross-origin resource sharing), we can use a piece of ***mid
 `npm install cors --save`
 ```js
 // in server.js
-const const = require('cors');
+const cors = require('cors');
 // (after server has been declared)
 server.use(cors());
 ```
