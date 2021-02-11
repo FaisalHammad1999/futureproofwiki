@@ -1,7 +1,9 @@
 Time to deploy your React app? Let's walkthrough setting up for a Netlify deploy.
 
 ## .toml file
-To configure a Netlify deployment, you can use the UI but today we will create a configuration file in our project instead. The netlify.toml file is going to contain the information Netlify needs to build and deploy our app. Create it in the top level of your project folder. `touch netlify.toml`.
+To configure a Netlify deployment, you can use the UI but today we will create a configuration file in our project instead. The netlify.toml file is going to contain the information Netlify needs to build and deploy our app. Create it in the top level of your project folder. 
+- `touch netlify.toml` _(Mac/Linux/GitBash)_
+- `New-Item netlify.toml -type file` _(Powershell)_
 
 ***NB: If you use the UI for configuration, you will still need to define the command and publish settings but the UI will walk you through this***
 
