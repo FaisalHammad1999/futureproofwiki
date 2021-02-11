@@ -72,6 +72,95 @@ router.post('/login', async (req, res) => {
 ## Authorisation options to consider
 With the code above, we can now store user's passwords securely - very important! The next step is to be able to persist a login across multiple requests. The options discussed above of JWT tokens and sessions are both worth looking into. For JWT, look at the [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken) npm library and for sessions in express, [`express-session`](https://www.npmjs.com/package/express-session) is a perfect option. As always, there are many alternatives available so have a look around and see what solution works for you and your application! They can be a little complex but take your time and utilise the many great resources available to both learn and implement.
 
+In this example, see how we've extended our `login` route from above to include the signing a token which is sent back to the client:
+```js
+// Server: login route
+router.post('/login', async (req, res) => {
+    try {
+        const user = await User.findByEmail(req.body.email)
+        if(!user){ throw new Error('No user with this email') }
+        const authed = bcrypt.compare(req.body.password, user.passwordDigest)
+        if (!!authed){
+            // new things start here!
+            const payload = { username: user.username, email: user.email }
+            const sendToken = (err, token) => {
+                if(err){ throw new Error('Error in token generation') }
+                res.status(200).json({
+                    success: true,
+                    token: "Bearer " + token,
+                });
+            }
+            // creating & signing a token that will expire in 1hour (3600 seconds)
+            // the callback of `sendToken` is called only once the token is successfully signed
+            // the second argument, your secret, would be better stored elsewhere, perhaps as an environment variable
+            jwt.sign(payload, 'supersecret-secret', { expiresIn: 3600 }, sendToken);
+        } else {
+            throw new Error('User could not be authenticated')  
+        }
+    } catch (err) {
+        res.status(401).json({ err });
+    }
+})
+```
+
+Once we receive the token on the client, we can decode it with a library such as [`jwt-decode`](https://www.npmjs.com/package/jwt-decode) (also available via [CDN](https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js)). Where you store it a contentious point. `localStorage` is one such hotly debated option! Cookies are another. Each come with their own pros and cons so read up to see what the trade offs are.
+
+Wherever you store it, you can now use it in an authorization header in requests to your server and any routes you wish to be made available only to authorized users, you can guard by ensuring the token provided can be verified. This will check to see if the token is valid and also that it has not expired.
+```js
+// Client: request to a route which requires authorization by token
+async function getAllPosts(){
+    try {
+        const options = { headers: new Headers({'Authorization': localStorage.getItem('token')}) }
+        const response = await fetch('http://localhost:3000/posts', options);
+        const data = await response.json();
+        if(data.err){
+            console.warn(data.err);
+            logout();
+        }
+        return data;
+    } catch (err) {
+        console.warn(err);
+    }
+}
+```
+
+```js
+// Server: /posts router
+const jwt = require('jsonwebtoken');
+
+// I wish to protect the /posts route, note the passing of `verifyToken` as the only slightly 'new' item here
+router.get('/', verifyToken, async (req, res) => {
+    try {
+        const posts = await Post.all
+        res.json(posts)
+    } catch (err) {
+        res.status(500).send({ err })
+    }
+})
+
+function verifyToken(req, res, next){
+    const header = req.headers['authorization'];
+    if (header) {
+        const token = header.split(' ')[1]; // We just need the bit after 'Bearer '
+        // using the `jsonwebtoken` library to verify the received token
+        jwt.verify(token, 'supersecret-secret', async (err, data) => {
+            if(err){
+                // if it cannot be verified, access is forbidden
+                res.status(403).json({ err: 'Invalid token' })
+            } else {
+                // if all went well, continue to the route handler (the next argument to the `router.get` above)
+                next();
+            }
+        })
+    } else {  // if no token is not present, access is forbidden
+        res.status(403).json({ err: 'Missing token' })
+    }
+}
+```
+
+
+If you are a current or past student of futureproof, check out the [demo repo `jwt` branch](https://github.com/getfutureproof/fp_study_notes_authentication/tree/jwt) to see an implementation of the `jsonwebtoken` and `jwt-decode` libraries at work.
+
 *** 
 
 ## Protecting Routes within React
