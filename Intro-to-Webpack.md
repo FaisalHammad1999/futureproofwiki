@@ -32,7 +32,7 @@ We use these to add support for various file types.
 
 We use this to transpile ES6 to ES5.
 
-`npm install @babel/core @babel/preset-env @babel/preset-react`
+`npm install @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime`
 
 This plugin transforms static class properties as well as properties declared with the property initializer syntax.
 
@@ -45,7 +45,7 @@ To configure babel, we need to create a file called `.babelrc` and write in the 
 ```json
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": [["@babel/plugin-proposal-class-properties"]]
+  "plugins": ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-runtime"]
 }
 ```
 
