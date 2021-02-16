@@ -1,6 +1,6 @@
 When creating your own API, you'll want to add in some tests to check that your endpoints are responding in the way you intend when they **receive** a request.
 
-_Note that for testing code that **makes** requests, check out our [Mocking modules with Jest]() guide._
+_Note that for testing code that **makes** requests, check out our [Mocking Modules for Testing with Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-fetch-with-Jest) guide._
 
 For this, we can make use of a library such as [supertest](https://www.npmjs.com/package/supertest). It can be used with any test runner. The examples below are done with [Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Jest) in mind but the majority of the code would be exactly the same if you were using eg. [Mocha](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Mocha-and-Chai).
 
