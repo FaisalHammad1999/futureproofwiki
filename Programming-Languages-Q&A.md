@@ -57,7 +57,8 @@ _Note: many languages allow you to work in more than one paradigm. Often your us
 
 ***
 
-**JavaScript**: weakly, dynamically typed, interpreted language that can be used in all the above paradigms
-**Python**: strongly, dynamically typed, interpreted language that can be used in all the above paradigms
-**Java**: strongly, statically typed, compiled language that can be used in all the above paradigms
+## Examples
+**JavaScript**: weakly, dynamically typed, interpreted language that can be used in all the above paradigms \
+**Python**: strongly, dynamically typed, interpreted language that can be used in all the above paradigms \
+**Java**: strongly, statically typed, compiled language that can be used in all the above paradigms \
 **C**: weakly, statically typed, compiled language that can be used in all the above paradigms
