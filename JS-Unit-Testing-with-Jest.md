@@ -33,7 +33,7 @@ const myFuncs = require('/path/to/my/functions/file')
 
 Since we exported an object in this example, we can access those functions as properties of our object eg. `myFuncs.add`
 
-_Note that when testing client side code, if not using a module bundler such as webpack or browserify, you will get a warning in the browser console that `module` is not defined. This isn't too big of a deal since you only need the exports during test, but to get rid of the console warning, you can wrap the export in a try/catch._
+_Note that when testing client side code, if not using a module bundler such as webpack or [browserify](https://github.com/getfutureproof/fp_guides_wiki/wiki/Browserify), you will get a warning in the browser console that `module` is not defined. This isn't too big of a deal since you only need the exports during test, but to get rid of the console warning, you can wrap the export in a try/catch._
 
 ## Writing your first test using Jest
 Invoke jest's `describe` function which takes two arguments: a string & a function. \
