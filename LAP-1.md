@@ -2,6 +2,7 @@ This LAP is all about learning programming principles through the use of JavaScr
 
 ### Topics
 * [Principles of Programming](https://github.com/getfutureproof/fp_guides_wiki/wiki/Principles-of-Programming)
+* [Programming Languages Q&A](https://github.com/getfutureproof/fp_guides_wiki/wiki/Programming-Languages-Q&A)
 * [Data in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Data-in-JavaScript)
 * [Logic in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Logic-in-JavaScript)
 * [Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript)
