@@ -1,4 +1,4 @@
-There are several libraries to assist with making HTTP requests, one of the most popular being `axios`. To test requests being made with axios or similar, you can [mock the library](). You may find yourself, however, wanting to test a request made using the browser's `fetch` API. For this type of testing, we can use a library such as `jest-fetch-mock` which we will walk through below (note that there is another library, `fetch-mock-jest` which solves the same issue just with different implementation).
+There are several libraries to assist with making HTTP requests, one of the most popular being `axios`. To test requests being made with axios or similar, you can [mock the library](https://github.com/getfutureproof/fp_guides_wiki/wiki/Mocking-Functions-and-Modules-for-Testing-with-Jest). You may find yourself, however, wanting to test a request made using the browser's `fetch` API. For this type of testing, we can use a library such as `jest-fetch-mock` which we will walk through below (note that there is another library, `fetch-mock-jest` which solves the same issue just with different implementation).
 
 ## Setup
 ### Install and configure jest-fetch-mock
