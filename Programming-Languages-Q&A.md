@@ -38,7 +38,7 @@ _Note that 'typed' does not refer to keyboard typing here, but data types!_
 ### Statically vs Dynamically Typed
 As the name suggests, this is also related to data types. It refers to the moment in time that it looks at all the data and makes sure that it is of the expected type. Statically typed languages check for this during compilation. Dynamically typed languages check at runtime.
 
-A good description of Weakly/Strongly/Dynamically/Statically Typed is available [here, courtesy of edspresso](https://www.educative.io/edpresso/statically-v-dynamically-v-strongly-v-weakly-typed-languages)
+A good description of Weakly/Strongly/Dynamically/Statically Typed is available [here, courtesy of edspresso](https://www.educative.io/edpresso/statically-v-dynamically-v-strongly-v-weakly-typed-languages).
 
 ***
 
