@@ -14,6 +14,7 @@ This LAP is all about learning programming principles through the use of JavaScr
 ### Testing Resources
 * [JS Unit Testing with Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Jest)
 * [JS Unit Testing with Mocha & Chai](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Mocha-and-Chai)
+* [DOM Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/DOM-Testing)
 * [API Endpoint Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/API-Endpoint-Testing-with-Supertest)
 * [Mocking Functions & Modules for Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/Mocking-Functions-and-Modules-for-Testing-with-Jest)
 * [Mocking Fetch Requests for Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/Mocking-Fetch-Requests-for-Testing-with-Jest)
