@@ -53,7 +53,7 @@ A good description of Weakly/Strongly/Dynamically/Statically Typed is available 
 
 - **Functional** programming is similar in look to procedural programming but the functions created cannot update the state of a program eg. change variables.
 
-_Note: many languages allow you to work in more than one paradigm. Often your use case is more likely to be the decider when choosing a paradigm._
+_Note: many languages allow you to work in more than one paradigm. Often your use case is more likely to be the decider when choosing a paradigm, although different languages do tend to be more commonly used in certain paradigms._
 
 ***
 
