@@ -157,5 +157,4 @@ alertBanner.setAttribute("style", "color: red; font-weight: bold"
 ***
 
 # Testing
-To test things that usually happen manually in the browser we can use a tool like [Puppeteer]('https://developers.google.com/web/tools/puppeteer') that utilises a headless browser to emulate visits and interactions. \
-Check out the test spec in the demo repo for basic setup.
+Testing the DOM has a reputation of being tricky! Check out our guide to [DOM Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/DOM-Testing) to find some good solutions!
