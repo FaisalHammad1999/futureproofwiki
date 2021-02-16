@@ -2,9 +2,15 @@ _Note: For mocking requests made with the `fetch` API, please see our [Mocking F
 
 The methods mentioned below are just the start of mocking with Jest! To dive deeper, check out the [official documentation](https://jestjs.io/docs/en/mock-functions).
 
+### Start from a clean slate
+We want to ensure that we are starting from the same point with each test. It is good practice to clear out all your mocks before each test. In Jest, a `beforeEach` is a good place for it.
+```js
+beforeEach(() => { fetch.resetMocks() })
+```
+
 ## Mocking Functions
 Let's say we have function we want to test that will receive an array and a callback. Something like:
-```
+```js
 export function doThis(cats, cb){
     cats.forEach(cb)
 }
