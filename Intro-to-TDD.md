@@ -38,3 +38,17 @@ Consider the ice-cream cone antipattern next to this lovely ~~volcano~~ pyramid.
 
 # TDD
 Test Driven Development is an approach where we write failing tests first and then work to get them passing. This means that you will be writing tests very early in your development process if using TDD. Testing does automatically equal TDD.
+
+***
+
+# Tools & Frameworks
+There is a plethora of testing frameworks available for you to choose from including: \
+[Mocha](https://mochajs.org/) | [Tape](https://github.com/substack/tape) | [Jasmine](https://jasmine.github.io/) | [Jest](https://jestjs.io/) and many more...
+
+Check out our walkthroughs for setting up JS Unit tests with two options:
+- [Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Jest)
+- [Mocha & Chai](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Mocha-and-Chai)
+
+
+
+***
