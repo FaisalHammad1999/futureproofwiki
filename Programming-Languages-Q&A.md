@@ -22,7 +22,7 @@ It is worth having a basic understanding of the most common definitions that you
 ### Compiled vs Interpreted
 **Q**: Okay, so if computers only understand 0s and 1s? How will they know how to run my code?
 
-**A**: Absolutely! Regardless of how you wrote your code, it will at some point need to be turned into binary. A compiled language needs to be, well, compiled, before running. The compilation stage will produce a binary translation of your code that any computer can run. An interpreted language can use an interpreter program (yep, that's a program to run your program) which will do the 'translation' in realtime as the code is run.
+**A**: Regardless of how you wrote your code, it will at some point need to be turned into binary. A compiled language needs to be, well, compiled, before running. The compilation stage will produce a binary translation of your code that any computer can run. An interpreted language can use an interpreter program (yep, that's a program to run your program) which will do the 'translation' in realtime as the code is run.
 
 There is a great example of compiled vs interpreted languages using hummus available [here, courtesy of FreeCodeCamp](https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/).
 
