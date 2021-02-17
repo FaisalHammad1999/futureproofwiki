@@ -68,7 +68,7 @@ Although we will use Docker for many things, we will also install node locally f
     + `npm install -g laughs`
     + `ha` - wait for a joke! 
 
-### Get python locally and install a global package
+### Get python locally and discover the Zen of Python
 - **Download and install the latest python version using the [official installers](https://www.python.org/downloads/)**
     + Follow a similar flow as for Node above
 - **Confirm your python installation**
