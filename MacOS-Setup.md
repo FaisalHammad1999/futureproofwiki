@@ -13,7 +13,7 @@ If you hit any issues, download directly from [here](https://developer.apple.com
 The installation can take a little time - at least 5 minutes. Grab yourself a tea.
 
 ### Install Homebrew
-_Note this is not really "essential" but will be very useful!_
+_Note this is not really "essential" but will be very useful!_ \
 [Homebrew](https://brew.sh/) is a popular package manager for Mac & Linux applications.
 - Run `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Get another cup of tea and let it do its thing, this could take a while.
@@ -47,7 +47,7 @@ Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_h
 
 ### Get node locally and install a global package
 Although we will use Docker for many things, we will also install node locally for some global use tools that we may use. [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us install multiple versions of node and switch between them easily.
-- ***Install Node Version Manager**
+- **Install Node Version Manager**
     + In your terminal, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
     + Confirm the install with `nvm ls`
     + If `nvm ls` gives you an error, see [Troubleshooting](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup#Troubleshooting) below
@@ -65,20 +65,25 @@ Although we will use Docker for many things, we will also install node locally f
 ---
 
 ### Get python locally and discover the Zen of Python
-MacOS usually comes with Python 2.7 pre-installed, which is great except that we want Python 3 which is a fair bit different. We will take over control of our Python versions by using a tool called `pyenv`
-- **Download pyenv using Homebrew (see below for installing Homebrew) 
+MacOS usually comes with Python 2.7 pre-installed, which is great except that we want Python 3 which is a fair bit different. \
+We will take over control of our Python versions by using a tool called `pyenv`
+- **Download pyenv using Homebrew**
     + `brew install pyenv`
-- **Install Python 3.9.1 with pyenv**
+- **Update your shell configuration to work with pyenv**
+    + Use the instructions below to locate and open your shell configuration file
+    + Add `eval "$(pyenv init -)"` to the file, save close and reload your shell
+- **Install Python 3.9.1 with pyenv and set it as your global default version**
     + At time of writing 3.9.1 is the latest stable version
     + `pyenv install 3.9.1` (we can easily get other versions later on if you want)
+    + `pyenv global 3.7.3`
 - **Confirm your python installation**
-    + In your chosen shell type `python3 --version`
+    + In your chosen shell type `python --version`
     + If you see a version number eg. `Python 3.9.1` then your install was successful!
-    + You should also get a version number back for `python3 -m pip --version`
+    + You should also get a version number back for `python -m pip --version`
 - **Check out the 'Zen of Python'**
-    + `python3` - to enter a python shell (bye, bash!)
+    + `python` - to enter a python shell (bye, bash!)
     + `import this` - this will show you the Zen of Python!
-    + `exit()` - to get back to bash
+    + `exit()` - to exit the python shell
 
 ***
 
@@ -86,7 +91,7 @@ MacOS usually comes with Python 2.7 pre-installed, which is great except that we
 ### Install Zsh
 - Run: `echo $SHELL` to see if you have Zsh installed. 
 - If it does not output `/bin/zsh` run: `brew install zsh` (see *Install Homebrew* above) and `chsh -s /bin/zsh`
-- Restart your terminal.
+- Restart your shell.
 
 ***
 
@@ -109,20 +114,30 @@ MacOS usually comes with Python 2.7 pre-installed, which is great except that we
 
 ***
 
+## Shell Configuration File
+You may find that you need to add some things to your shell configuration file as you update and evolve your environment over time. The exact name of this file will depend on the shell you have chosen to use. Bash configuration files are usually called `.bashrc` or `.bash_profile` whilst zsh ones are generally `.zshrc`. The dot at the beginning means it is a hidden file!
+
+**To access the file**
+- In your shell run `cd ~` which will take you to your home directory
+- Run `ls -lah` to see all the files (even hidden ones) in the directory
+- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
+    + If it does not exist, create it with `touch <filename>` eg. `touch .bashrc`
+- Open it in a text editor of your choice
+- Make any changes/additions you need
+- After making changes, **make sure you reload your shell** by closing and reopening or running `source ~/<config-filename>` eg `source ~/.zshrc`
+
+***
+
 ## Troubleshooting
 ### NVM Installation
-If the curl command above does not successfully complete the install, you'll need to add some code to your terminal configuration file. To find this file:
-- `cd ~`
-- `ls -lah`
-- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
-- Open whichever of those you find with `code <filename>` eg `code .zshrc`
+If the curl command above does not successfully complete the install, you'll need to add some code to your shell configuration file.
+- See the instructions above on how to locate and open your configuration file.
 - Into that file, paste the following:
 ```
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ```
-- Save the file with <key>Cmd</key>+<key>s</key> and close
-- In your terminal run `source ~/<filename>` eg `source ~/.zshrc`
+- Save the file and reload your shell
 - NVM should now work, test it with `nvm ls`
 
 ### Admin/permissions errors
@@ -132,6 +147,6 @@ If you are getting permissions errors, you may be using an account which does no
     + If you are not sure what your username is, it is usually visible in your terminal prompt
 
 ### zsh compinit errors
-Sometimes zsh gets wrongly suspicious of your files! You can disable this 'feature' by adding the following to your `.zshrc` file (see 'NVM Installation' above)
+Sometimes zsh gets wrongly suspicious of your files! You can disable this 'feature' by adding the following to your `.zshrc` file (see 'Shell Configuration File' above)
 - `ZSH_DISABLE_COMPFIX="true"`
-- Save and close the file and run `source ~/.zshrc` in your terminal
+- Save the file and reload your shell
