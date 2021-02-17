@@ -104,6 +104,7 @@ The anatomy of an alias definition is : `alias <what-i-want-to-use>='<the-actual
 - eg. `alias pip='winpty pip'` (genuinely useful)
 - eg. `alias showstuff='ls'` (genuinely not useful)
 
-After making changes, make sure you save the file and **reload** GitBash before trying out your shiny new aliases!
+**After making changes** \
+Make sure you save the file and **reload** GitBash before trying out your shiny new aliases - or any other changes/additions you may make in this file!
 - Either close and reopen GitBash
 - Or run `source ~/.bashrc`
