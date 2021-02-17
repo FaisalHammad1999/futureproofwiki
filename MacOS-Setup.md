@@ -87,11 +87,17 @@ We will take over control of our Python versions by using a tool called `pyenv`
 
 ***
 
-## Optional: 
-### Install Zsh
-- Run: `echo $SHELL` to see if you have Zsh installed. 
-- If it does not output `/bin/zsh` run: `brew install zsh` (see *Install Homebrew* above) and `chsh -s /bin/zsh`
-- Restart your shell.
+## Shell Configuration File
+You may find that you need to add some things to your shell configuration file as you update and evolve your environment over time. The exact name of this file will depend on the shell you have chosen to use. Bash configuration files are usually called `.bashrc` or `.bash_profile` whilst zsh ones are generally `.zshrc`. The dot at the beginning means it is a hidden file!
+
+**To access the file**
+- In your shell run `cd ~` which will take you to your home directory
+- Run `ls -lah` to see all the files (even hidden ones) in the directory
+- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
+    + If it does not exist, create it with `touch <filename>` eg. `touch .bashrc`
+- Open it in a text editor of your choice
+- Make any changes/additions you need
+- After making changes, **make sure you reload your shell** by closing and reopening or running `source ~/<config-filename>` eg `source ~/.zshrc`
 
 ***
 
@@ -114,17 +120,11 @@ We will take over control of our Python versions by using a tool called `pyenv`
 
 ***
 
-## Shell Configuration File
-You may find that you need to add some things to your shell configuration file as you update and evolve your environment over time. The exact name of this file will depend on the shell you have chosen to use. Bash configuration files are usually called `.bashrc` or `.bash_profile` whilst zsh ones are generally `.zshrc`. The dot at the beginning means it is a hidden file!
-
-**To access the file**
-- In your shell run `cd ~` which will take you to your home directory
-- Run `ls -lah` to see all the files (even hidden ones) in the directory
-- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
-    + If it does not exist, create it with `touch <filename>` eg. `touch .bashrc`
-- Open it in a text editor of your choice
-- Make any changes/additions you need
-- After making changes, **make sure you reload your shell** by closing and reopening or running `source ~/<config-filename>` eg `source ~/.zshrc`
+## Optional: 
+### Install Zsh
+- Run: `echo $SHELL` to see if you have Zsh installed. 
+- If it does not output `/bin/zsh` run: `brew install zsh` (see *Install Homebrew* above) and `chsh -s /bin/zsh`
+- Restart your shell
 
 ***
 
