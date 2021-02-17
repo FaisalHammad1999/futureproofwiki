@@ -105,3 +105,5 @@ The anatomy of an alias definition is : `alias <what-i-want-to-use>='<the-actual
 - eg. `alias showstuff='ls'` (genuinely not useful)
 
 After making changes, make sure you save the file and **reload** GitBash before trying out your shiny new aliases!
+- Either close and reopen GitBash
+- Or run `source ~/.bashrc`
