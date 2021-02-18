@@ -6,7 +6,7 @@
 # Dev Environment Setup: Windows
 
 ### Git & GitBash Setup
-Install the [latest release of git](https://git-scm.com/). Keep the standard options (make sure Git Bash is included in your install).
+Install the [latest release of git](https://git-scm.com/). Keep the standard options (***make sure Git Bash is included in your install***).
 When selecting the various options:
 - your default editor: Visual Studio Code
 - PATH environment: 'Git from the command line and also from 3rd-party software'
@@ -43,8 +43,28 @@ Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_h
 
 ---
 
-### Setup Docker and VSCode Remote - Containers
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
+### Install Chocolatey
+_Note this is not really "essential" but will be very useful!_ \
+The deliciously named [Chocolatey](https://chocolatey.org/) is a popular package manager for Windows applications.
+To install it, we are going to use Command Prompt in an administrative shell. \
+_Note that once you have installed Chocolatey, you can go back to GitBash and interact with it there._
+- **Open Command Prompt in an administrative shell**
+    + Open the Start menu
+    + Type "command" - Command Prompt should come up as the Best Match result
+    + Right click on Command Prompt and click 'Run as administrator'
+    + You may be asked for permission to continue, if so, click "Yes"!
+- **Check your Execution Policy`**
+    + In your admin shell, run `Get-ExecutionPolicy`
+    + If it returns `Restricted` or `Undefined` run: `Set-ExecutionPolicy AllSigned`
+- **Install Chocolatey**
+    + In your admin shell, run `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+    + It may take a minute for the command to complete
+    + If no errors come up, you should be good to go!
+- **Confirm your Chocolatey installation**
+    + **Close your admin shell and return to GitBash**
+    + In GitBash, run `choco --help` and you should be greeting with a help menu
+        
+_Note that to upgrade Chocolatey (recommended before you install anything via Chocolately) run: `choco upgrade chocolately`_
 
 --- 
 
@@ -63,24 +83,39 @@ Although we will use Docker for many things, we will also install node locally f
     + If you see a version number eg. `v12.19.0` then your install was successful!
     + You should also get version numbers back for `npm -v` and `npx -v`
     + **If this does not work** try `winpty node -v`
-    + **If winpty worked** then follow the instructions below to add an alias to a `.bashrc` file
+    + **If winpty worked** then follow the [instructions below](#the-bashrc-file) to add an alias to a `.bashrc` file
 - **Install your first global node package**
     + `npm install -g laughs`
     + `ha` - wait for a joke! 
 
 ### Get python locally and discover the Zen of Python
-- **Download and install the latest python version using the [official installers](https://www.python.org/downloads/)**
-    + Follow a similar flow as for Node above
+To have control of our Python versions we are going to use a tool called `pyenv`. pyenv allows us to easily switch between different Python versions which can be very helpful when working on different projects and with other people.
+- **Download and install pyenv with Chocolately**
+    + In GitBash, run `choco install pyenv-win`
+    + Restart your bash shell and run `pyenv --version` to confirm the installation
+        - If you receive a permission denied or a command not found error, check the [documentation](https://github.com/pyenv-win/pyenv-win#finish-the-installation) for how to manually set environment variables even if you used [Chocolatey](https://chocolatey.org/).
+    + Navigate to your home directory with `cd ~` and run `pyenv rehash`
+- **Install Python 3.9.1 with pyenv and set it as your global default version**
+    + At time of writing 3.9.1 is the latest stable version
+    + `pyenv install 3.9.1` (we can easily get other versions later on if you want)
+    + `pyenv global 3.7.3`
+    + `pyenv rehash`
 - **Confirm your python installation**
-    + After restarting your machine, open GitBash and type `python --version`
+    + `python --version`
     + If you see a version number eg. `Python 3.9.1` then your install was successful!
     + You should also get a version number back for `python -m pip --version`
     + **If this does not work** try `winpty python --version`
-    + **If winpty worked** then follow the instructions below to add an alias to a `.bashrc` file
+        + **If winpty worked** then follow the [instructions below](#the-bashrc-file) to add an alias to a `.bashrc` file
+    + **If you are still having trouble, see the [Troubleshooting](#Troubleshooting) guide below** - _this is more likely if you already have Python installed and/or are running Windows 10 1905 or newer_
 - **Check out the 'Zen of Python'**
     + `python` - to enter a python shell (bye, bash!)
     + `import this` - this will show you the Zen of Python!
-    + `exit()` - to get back to bash
+    + `exit()` - to exit the python shell
+
+---
+
+### Setup Docker and VSCode Remote - Containers
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
 
 ---
 
@@ -108,3 +143,12 @@ The anatomy of an alias definition is : `alias <what-i-want-to-use>='<the-actual
 Make sure you save the file and **reload** GitBash before trying out your shiny new aliases - or any other changes/additions you may make in this file!
 - Either close and reopen GitBash
 - Or run `source ~/.bashrc`
+
+---
+
+## Troubleshooting
+
+### Issues installing Python via `pyenv`
+- If you are running Windows 10 1905 or newer, you made need to disable the built-in Python launcher via Start > "Manage App Execution Aliases" and disabling the "App Installer" aliases for Python.
+- Failing that you may have to alter your [environment variables](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) so that any `pyenv` paths are higher in the list, and therefore take precedence over any other Python paths, including other Python package managers such as Anaconda. _(Remember to restart your machine for changes to take effect.)_
+- As a last resort you might have to [uninstall Python](https://www.educative.io/edpresso/how-to-uninstall-python) before `pyenv` will work.
