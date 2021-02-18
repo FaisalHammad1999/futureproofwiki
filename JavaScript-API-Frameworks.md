@@ -191,28 +191,17 @@ Now we can begin to migrate some of the logic from `server.js` to here and add t
 ```js
 // models/cat.js
 
-const catsData = require('../data');
+static get all() {
+    const cats = catsData.map((cat) => new Cat(cat));
+    return cats;
+}
 
-class Cat{
-
-...
-
-    static get all() {
-        const cats = catsData.map((cat) => new Cat(cat));
-        return cats;
-    }
-
-    static create(cat) {
-        const newCatId = catsData.length + 1;
-        const newCat = new Cat({ id: newCatId, ...cat });
-        catsData.push(newCat);
-        return newCat;
-    }
-
-...
-
-module.exports = Cat
-
+static create(cat) {
+    const newCatId = catsData.length + 1;
+    const newCat = new Cat({ id: newCatId, ...cat });
+    catsData.push(newCat);
+    return newCat;
+}
 ```
 
 To complete the migration we now need to update our server.
@@ -220,13 +209,7 @@ To complete the migration we now need to update our server.
 ```js
 // server.js
 
-const express = require('express');
-
-...
-
 const Cat = require('../models/cat');
-
-...
 
 server.get('/cats', (req, res) => {
     const catsData = Cat.all
@@ -238,8 +221,6 @@ server.post('/cats', (req, res) => {
     const newCat = Cat.create(data);
     res.send({message: `${newCat.name} successfully added to our collection.`});
 });
-
-...
 
 ```
 
