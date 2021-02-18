@@ -46,6 +46,7 @@ Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_h
 ### Install Chocolatey
 _Note this is not really "essential" but will be very useful!_ \
 The deliciously named [Chocolatey](https://chocolatey.org/) is a popular package manager for Windows applications.
+
 To install it, we are going to use Command Prompt in an administrative shell. \
 _Note that once you have installed Chocolatey, you can go back to GitBash and interact with it there._
 - **Open Command Prompt in an administrative shell**
@@ -64,7 +65,7 @@ _Note that once you have installed Chocolatey, you can go back to GitBash and in
     + **Close your admin shell and return to GitBash**
     + In GitBash, run `choco --help` and you should be greeting with a help menu
         
-_Note that to upgrade Chocolatey (recommended before you install anything via Chocolately) run: `choco upgrade chocolately`_
+_Note that to upgrade Chocolatey (recommended before you install anything via Chocolately) run: `choco upgrade chocolatey`_
 
 --- 
 
@@ -87,6 +88,8 @@ Although we will use Docker for many things, we will also install node locally f
 - **Install your first global node package**
     + `npm install -g laughs`
     + `ha` - wait for a joke! 
+
+---
 
 ### Get python locally and discover the Zen of Python
 To have control of our Python versions we are going to use a tool called `pyenv`. pyenv allows us to easily switch between different Python versions which can be very helpful when working on different projects and with other people.
