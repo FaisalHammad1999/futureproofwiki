@@ -144,6 +144,102 @@ You can find the syntax for responding to other HTTP verbs using Express, [here 
 
 ***
 
+### MVC: A Better Structure
+The **M**odel-**V**iew-**C**ontroller pattern is a popular way to structure your code. We will talk about this more further into the course but essentially it's about separation of concerns where each part of the code has a specific role. For a small app you could keep all of the code in the same file, but as it grows this becomes difficult to manage. We are going to apply this to our code early on.
+
+#### Data
+
+The first order of business is to move our data into its own space. It's as easy as creating a file called `data.js` in the root of our project and moving the cats data there. Remember to export this so we can have access to the data from the other parts of our app.
+
+```js
+# data.js
+
+const cats = [
+    { id: 1, name: 'Zelda', age: 3 },
+    { id: 2, name: 'Tigerlily', age: 10 },
+    { id: 3, name: 'Rumble', age: 12 },
+];
+
+module.exports = cats;
+```
+
+#### Model
+
+This is where we can define what our app is all about, it handles the data and the logic. For this we are going to call upon our knowledge of Object-oriented JavaScript to set out a prototype for our cat. 
+
+Create a folder called `models` and within it a file named `cat.js`. The first thing to do is import our cat data, then we can let JavaScript know what a Cat is.
+
+```js
+# models/cat.js
+
+const catsData = require('../data');
+
+class Cat {
+    constructor(data) {
+        this.id = data.id;
+        this.name = data.name;
+        this.age = data.age;
+    }
+}
+
+module.exports = Cat;
+
+```
+
+Now we can begin to migrate some of the logic from `server.js` to here and add them as methods on our Cat. Note that we check that the data conforms with our Cat prototype at each step.
+
+```js
+# models/cat.js
+
+const catsData = require('../data');
+
+class Cat{
+
+...
+
+    static get all() {
+        const cats = catsData.map((cat) => new Cat(cat));
+        return cats;
+    }
+
+    static create(cat) {
+        const newCatId = catsData.length + 1;
+        const newCat = new Cat({ id: newCatId, ...cat });
+        catsData.push(newCat);
+        return newCat;
+    }
+
+...
+
+module.exports = Cat
+
+```
+
+To complete the migration we now need to update our server.
+
+```js
+# server.js
+
+const express = require('express');
+
+...
+
+server.get('/cats', (req, res) => {
+    const catsData = Cat.all
+    res.send(catsData);
+}
+
+server.post('/cats', (req, res) => {
+    const newCat = req.body;
+    const newCatId = cats.length + 1
+    cats.push({ id: newCatId, ...newCat});
+    res.send({message: `${newCat.name} successfully added to our collection.`})
+})
+
+```
+
+ 
+
 ### Particularly useful Express docs
 - [Routing Syntax for all HTTP verbs](http://expressjs.com/en/5x/api.html#routing-methods)
 - [Query Parameters](http://expressjs.com/en/5x/api.html#req.query) (handling `?name=Beth&location=London`)
