@@ -191,16 +191,24 @@ Now we can begin to migrate some of the logic from `server.js` to here and add t
 ```js
 // models/cat.js
 
-static get all() {
-    const cats = catsData.map((cat) => new Cat(cat));
-    return cats;
-}
+class Cat {
+    constructor(data) {
+        this.id = data.id;
+        this.name = data.name;
+        this.age = data.age;
+    }
 
-static create(cat) {
-    const newCatId = catsData.length + 1;
-    const newCat = new Cat({ id: newCatId, ...cat });
-    catsData.push(newCat);
-    return newCat;
+    static get all() {
+        const cats = catsData.map((cat) => new Cat(cat));
+        return cats;
+    }
+
+    static create(cat) {
+        const newCatId = catsData.length + 1;
+        const newCat = new Cat({ id: newCatId, ...cat });
+        catsData.push(newCat);
+        return newCat;
+    }
 }
 ```
 
@@ -209,7 +217,11 @@ To complete the migration we now need to update our server.
 ```js
 // server.js
 
+...
+
 const Cat = require('../models/cat');
+
+...
 
 server.get('/cats', (req, res) => {
     const catsData = Cat.all
