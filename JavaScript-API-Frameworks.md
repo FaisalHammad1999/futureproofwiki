@@ -218,9 +218,13 @@ module.exports = Cat
 To complete the migration we now need to update our server.
 
 ```js
-# server.js
+# server
 
 const express = require('express');
+
+...
+
+const Cat = require('../models/cat');
 
 ...
 
@@ -230,15 +234,15 @@ server.get('/cats', (req, res) => {
 }
 
 server.post('/cats', (req, res) => {
-    const newCat = req.body;
-    const newCatId = cats.length + 1
-    cats.push({ id: newCatId, ...newCat});
-    res.send({message: `${newCat.name} successfully added to our collection.`})
-})
+    const data = req.body;
+    const newCat = Cat.create(data);
+    res.send({message: `${newCat.name} successfully added to our collection.`});
+});
+
 
 ```
 
- 
+***
 
 ### Particularly useful Express docs
 - [Routing Syntax for all HTTP verbs](http://expressjs.com/en/5x/api.html#routing-methods)
