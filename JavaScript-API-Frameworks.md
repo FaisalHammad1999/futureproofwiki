@@ -152,7 +152,7 @@ The **M**odel-**V**iew-**C**ontroller pattern is a popular way to structure your
 The first order of business is to move our data into its own space. It's as easy as creating a file called `data.js` in the root of our project and moving the cats data there. Remember to export this so we can have access to the data from the other parts of our app.
 
 ```js
-# data.js
+// data.js
 
 const cats = [
     { id: 1, name: 'Zelda', age: 3 },
@@ -170,7 +170,7 @@ This is where we can define what our app is all about, it handles the data and t
 Create a folder called `models` and within it a file named `cat.js`. The first thing to do is import our cat data, then we can let JavaScript know what a Cat is.
 
 ```js
-# models/cat.js
+// models/cat.js
 
 const catsData = require('../data');
 
@@ -189,7 +189,7 @@ module.exports = Cat;
 Now we can begin to migrate some of the logic from `server.js` to here and add them as methods on our Cat. Note that we check that the data conforms with our Cat prototype at each step.
 
 ```js
-# models/cat.js
+// models/cat.js
 
 const catsData = require('../data');
 
@@ -218,7 +218,7 @@ module.exports = Cat
 To complete the migration we now need to update our server.
 
 ```js
-# server
+// server.js
 
 const express = require('express');
 
