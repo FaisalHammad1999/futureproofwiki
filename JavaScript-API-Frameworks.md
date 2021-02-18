@@ -125,13 +125,15 @@ That's it! Now you will have access to `req.body` in your routes.
 ```js
 server.post('/cats', (req, res) => {
     const newCat = req.body;
-    cats.push(newCat);
+    const newCatId = cats.length + 1
+    cats.push({ id: newCatId, ...newCat});
     res.send({message: `${newCat.name} successfully added to our collection.`})
 })
 ```
+Note that we have added in some logic to create an id for each new cat. It's better that we handle this on the server side as we have access to all the cat data, rather than expect our client to provide an id. We've added the id we created to the `req.body` from the client which should contain the cat name and age.
 ```js
 // You can test it with this snippet in browser console
-const newCat = JSON.stringify({ id: 4, name: "Flora" age: 5 })
+const newCat = JSON.stringify({ name: "Flora" age: 5 })
 fetch('http://localhost:3000/cats', {method: 'POST', body: newCat, headers: {'Content-Type': 'application/json'}).then(r => r.json()).then(console.log)
 ```
 
