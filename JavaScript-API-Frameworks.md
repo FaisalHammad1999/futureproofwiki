@@ -87,9 +87,13 @@ This will enable access for all routes from any origin, check [the docs](https:/
 #### GET
 Let's make our first route. It will respond to a `GET` request made to `/cats` by sending some data we have on cats:
 ```js
-const cats = ["Zelda", "Tigerlily", "Rumble"];
+const cats = [
+    { id: 1, name: 'Zelda', age: 3 },
+    { id: 2, name: 'Tigerlily', age: 10 },
+    { id: 3, name: 'Rumble', age: 12 },
+];
 
-server.get('/cats', (req, res) => res.send({cats});
+server.get('/cats', (req, res) => res.send(cats);
 ```
 Restart your server and visit or curl `http://localhost:3000` - you should get some cats!
 Here's a snippet to quickly paste if you want to test it with `fetch` in the browser console or your own client-side code base.
@@ -121,13 +125,13 @@ That's it! Now you will have access to `req.body` in your routes.
 ```js
 server.post('/cats', (req, res) => {
     const newCat = req.body;
-    cats.push(newCat.name);
+    cats.push(newCat);
     res.send({message: `${newCat.name} successfully added to our collection.`})
 })
 ```
 ```js
 // You can test it with this snippet in browser console
-const newCat = JSON.stringify({ name: "Flora"})
+const newCat = JSON.stringify({ id: 4, name: "Flora" age: 5 })
 fetch('http://localhost:3000/cats', {method: 'POST', body: newCat, headers: {'Content-Type': 'application/json'}).then(r => r.json()).then(console.log)
 ```
 
