@@ -22,7 +22,7 @@ _Note this is not really "essential" but will be very useful!_ \
 
 ### Connect git to GitHub
 - Run: `git version` to see if you have git installed.
-- You probably do but if not run: `brew install git` (this is using Homebrew - see above)
+- You probably do but if not run: `brew install git` (this is using Homebrew - see [above](#install-homebrew))
 - To configure it to connect to your GitHub account run:\
   `git config --global user.email “your@emailadd.com”`\
   `git config --global user.name “yourGithubUsername”`
@@ -40,17 +40,12 @@ Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_h
 
 ---
 
-### Setup Docker and VSCode Remote - Containers
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
-
----
-
 ### Get node locally and install a global package
 Although we will use Docker for many things, we will also install node locally for some global use tools that we may use. [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) is a great tool that lets us install multiple versions of node and switch between them easily.
 - **Install Node Version Manager**
     + In your terminal, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
     + Confirm the install with `nvm ls`
-    + If `nvm ls` gives you an error, see [Troubleshooting](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup#Troubleshooting) below
+    + If `nvm ls` gives you an error, see [Troubleshooting](#Troubleshooting) below
     + Install a version of node with `nvm install <version>` eg. `nvm install 12.19.0`
     + Make it your default version with `nvm alias default <version>` eg. `nvm alias default 12.19.0` and restart your shell
     + You can install as many different versions of node as you like and switch between them with `nvm use <version>` or update your default as shown above
@@ -68,9 +63,9 @@ Although we will use Docker for many things, we will also install node locally f
 MacOS usually comes with Python 2.7 pre-installed, which is great except that we want Python 3 which is a fair bit different. \
 We will take over control of our Python versions by using a tool called `pyenv`
 - **Download pyenv using Homebrew**
-    + `brew install pyenv`
+    + `brew install pyenv` (this is using Homebrew - see [above](#install-homebrew))
 - **Update your shell configuration to work with pyenv**
-    + Use the instructions below to locate and open your shell configuration file
+    + Use the [instructions below](#Shell-Configuration-File) to locate and open your shell configuration file
     + Add `eval "$(pyenv init -)"` to the file, save close and reload your shell
 - **Install Python 3.9.1 with pyenv and set it as your global default version**
     + At time of writing 3.9.1 is the latest stable version
@@ -84,6 +79,11 @@ We will take over control of our Python versions by using a tool called `pyenv`
     + `python` - to enter a python shell (bye, bash!)
     + `import this` - this will show you the Zen of Python!
     + `exit()` - to exit the python shell
+
+***
+
+### Setup Docker and VSCode Remote - Containers
+Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
 
 ***
 
@@ -131,7 +131,7 @@ You may find that you need to add some things to your shell configuration file a
 ## Troubleshooting
 ### NVM Installation
 If the curl command above does not successfully complete the install, you'll need to add some code to your shell configuration file.
-- See the instructions above on how to locate and open your configuration file.
+- See the [instructions above]((#Shell-Configuration-File)) on how to locate and open your configuration file.
 - Into that file, paste the following:
 ```
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
