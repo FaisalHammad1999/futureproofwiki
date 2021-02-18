@@ -243,6 +243,57 @@ server.post('/cats', (req, res) => {
 
 ```
 
+#### Controller
+
+This is where a user can interact with our app so any requests to the server can start here and the controller will pass it to the appropriate model or view.
+
+Let's start by creating a folder called `controllers` and a file called `cats.js`. We are then going to make use of the [express router](https://expressjs.com/en/guide/routing.html) middleware to help us create a module where we can define our routes to then import and use it in our main server. Remember to import our Cat model too.
+
+```js
+// controllers/cats.js
+
+const express = require('express');
+const router = express.Router();
+
+const Cat = require('../models/cat');
+
+router.get('/', (req, res) => {
+    const catsData = Cat.all
+    res.send(catsData);
+});
+
+router.post('/', (req, res) => {
+    const data = req.body;
+    const newCat = Cat.create(data);
+    res.send({message: `${newCat.name} successfully added to our collection.`});
+});
+
+module.exports = router;
+
+```
+
+With the router setup we can condense our server file so that it only contains the basic logic we need to get up and running, with the bulk of the logic and the requests handled in the appropriate places.
+
+```js
+// server.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const server = express();
+server.use(bodyParser.json());
+server.use(cors());
+
+const port = 3000;
+
+const catRoutes = require('./controllers/cats');
+server.use('/cats', catRoutes);
+
+server.listen(port, () => console.log(`Express departing now from http://localhost:${port}`!))
+
+```
+
 ***
 
 ### Particularly useful Express docs
