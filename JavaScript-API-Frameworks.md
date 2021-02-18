@@ -294,6 +294,10 @@ server.listen(port, () => console.log(`Express departing now from http://localho
 
 ```
 
+#### Views
+
+This is where we could build code that presents our data, which at the moment we are going to leave to a client but can be as basic as an HTML file.
+
 ***
 
 ### Particularly useful Express docs
