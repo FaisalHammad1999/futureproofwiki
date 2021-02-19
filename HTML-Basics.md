@@ -47,13 +47,13 @@ Attributes enable us to add extra information to tags, such an `#id` or a `.clas
 _**It's important to rememebr that IDs are unique and classes are not as they can be used to label a group of tags!**_
 
 ```HTML
-<div id=newsfeed class=blue-border>
+<div id="newsfeed" class="blue-border">
 ```
 
 An attribute can also be used to provide data such as the `src` of an image tag or the value of an input tag.
 
 ```HTML
-<img src='image.png' alt='An image'/>
+<img src="image.png" alt="An image"/>
 ```
 
 ### Comments
