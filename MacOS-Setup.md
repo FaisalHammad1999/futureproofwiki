@@ -93,7 +93,7 @@ You may find that you need to add some things to your shell configuration file a
 **To access the file**
 - In your shell run `cd ~` which will take you to your home directory
 - Run `ls -lah` to see all the files (even hidden ones) in the directory
-- In the printed list of files, you are looking for a file called `.zshrc`, `.bashrc`, `.bash_profile` or `.profile`
+- In the printed list of files, you are looking for a file called something like `.zshrc`, `.bashrc`, `.bash_profile`, `.zprofile` or `.profile`
     + If it does not exist, create it with `touch <filename>` eg. `touch .bashrc`
 - Open it in a text editor of your choice
 - Make any changes/additions you need
@@ -131,7 +131,7 @@ You may find that you need to add some things to your shell configuration file a
 ## Troubleshooting
 ### NVM Installation
 If the curl command above does not successfully complete the install, you'll need to add some code to your shell configuration file.
-- See the [instructions above]((#Shell-Configuration-File)) on how to locate and open your configuration file.
+- See the [instructions above](#Shell-Configuration-File) on how to locate and open your configuration file.
 - Into that file, paste the following:
 ```
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
