@@ -1,8 +1,10 @@
 ## Expressions and Functions
-When we write lines of code, each line does a specific thing, it completes an action for us. \
+When we write lines of code, each line does a specific thing, it completes an action for us.
+
 We call a fragment of code that produces a value an ***expression*** but when we group these together we can call them a ***function***.
 We create functions because often, to complete one action, we cannot do this in a one-liner expression.
-Another reason to write a function is if we are writing the same code multiple times. If we find ourselves doing this we might group that code together and give it a name. This means our code is easier to read. Writing a function is a bit like writing a load of code, and giving it a name so that we can easily access it later. \
+Another reason to write a function is if we are writing the same code multiple times. If we find ourselves doing this we might group that code together and give it a name. This means our code is easier to read. Writing a function is a bit like writing a load of code, and giving it a name so that we can easily access it later.
+
 There is an art to naming functions - for now, keep it simple and descriptive.
 
 ## Types of Functions
