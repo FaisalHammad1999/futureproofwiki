@@ -22,8 +22,8 @@ This LAP is all about learning programming principles through the use of JavaScr
 
 
 ### Additional Resources
-* [Deploying an Express API with Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-an-Express-API-to-Heroku)
-* [Deploying a Full Stack Application](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Full-Stack-Application)
 * [Publishing an NPM package](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package)
 * [Browserify: `require` on the client side](https://github.com/getfutureproof/fp_guides_wiki/wiki/Browserify)
 * [Watchify: A Simple Solution for a Client Side Dev Server](https://github.com/getfutureproof/fp_guides_wiki/wiki/Simple-Client-Side-Dev-Server)
+* [Deploying an Express API with Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-an-Express-API-to-Heroku)
+* [Deploying a Full Stack Application](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Full-Stack-Application)
