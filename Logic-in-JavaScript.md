@@ -146,7 +146,7 @@ for (const key in catData) {
 ```js
 let cats = ["Zelda", "Rumble", "Sam"];
 
-for (const catName in cats) {
+for (const catName of cats) {
   console.log(`This cat's name is ${catName}`);
 }
 ```
