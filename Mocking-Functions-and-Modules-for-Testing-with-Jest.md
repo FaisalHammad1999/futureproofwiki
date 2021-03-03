@@ -2,12 +2,6 @@ _Note: For mocking requests made with the `fetch` API, please see our [Mocking F
 
 The methods mentioned below are just the start of mocking with Jest! To dive deeper, check out the [official documentation](https://jestjs.io/docs/en/mock-functions).
 
-### Start from a clean slate
-We want to ensure that we are starting from the same point with each test. It is good practice to clear out all your mocks before each test. In Jest, a `beforeEach` is a good place for it.
-```js
-beforeEach(() => { fetch.resetMocks() })
-```
-
 ## Mocking Functions
 Let's say we have function we want to test that will receive an array and a callback. Something like:
 ```js
@@ -70,5 +64,31 @@ describe('pizzaPlease', () => {
         helpers.pizzaPlease(testPizza, testSize)
         expect(dominos.Order).toHaveBeenCalledWith({ pizza: 'margherita', size: 'large' })
     })
+})
+```
+
+### We can use this with our own modules too!
+```js
+// in easterEgg.js
+const helpers = require('./helpers')
+
+const secretMessage(code){
+    if(code === 'open sesame'){
+        helpers.updateHeader('Come inside!')
+    }
+}
+
+module.exports = { secretMessage }
+```
+```js
+// in test file
+const eggs = require('./easterEgg')
+const helpers = require('./helpers')
+
+jest.mock('./helpers')
+
+test('secret message calls update header if correct code given', () => {
+    eggs.secretMessage('open sesame')
+    expect(helpers.updateHeader).toHaveBeenCalledWith('Come inside!')
 })
 ```
