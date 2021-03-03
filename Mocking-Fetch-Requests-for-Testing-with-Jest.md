@@ -19,25 +19,25 @@ beforeEach(() => { fetch.resetMocks() })
 ### Test to see if fetch was called
 ```js
 // In this example `githubHelpers` is an imported module
-test('it makes a fetch call to the given user\'s github api url', () => {
-    githubHelpers.getGitHubUserInfo('gingertonic')
+test('it makes a fetch call to the given user\'s github api url', async () => {
+    await githubHelpers.getGitHubUserInfo('gingertonic')
     expect(fetch).toHaveBeenCalled()
 })
 ```
 
 ### Test to see what was passed to a fetch call
 ```js
-test('it makes a fetch call to the given user\'s github api url', () => {
-    githubHelpers.getGitHubUserInfo('gingertonic')
+test('it makes a fetch call to the given user\'s github api url', async () => {
+    await githubHelpers.getGitHubUserInfo('gingertonic')
     expect(fetch).toHaveBeenCalledWith('https://api.github.com/users/gingertonic')
 })
 ```
 
 ### Test to see what happens to the response data on success
 ```js
-test('it makes a fetch call to the given user\'s github api url', () => {
+test('it makes a fetch call to the given user\'s github api url', async () => {
     fetch.mockResponse(JSON.stringify({ "public_repos": 100 }))
-    const returnVal = githubHelpers.getGitHubUserInfo('gingertonic')
+    const returnVal = await githubHelpers.getGitHubUserInfo('gingertonic')
     expect(returnVal).toBe(100)
 })
 ```
