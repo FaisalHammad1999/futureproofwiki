@@ -40,6 +40,18 @@ LAP | Week(s) | Overview |
 ***
 
 * [LAP 2](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-2)
+    + [Intro to System Architecture](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-System-Architecture)
+    + [Intro to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Databases)
+    + [Internet Protocols & API Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Internet-Protocols-&-API-Design)
+    + [NoSQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/NoSQL)
+    + [SQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/SQL)
+    + [Connecting WebApps to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Connecting-Webapps-to-Databases)
+    + [Performance](https://github.com/getfutureproof/fp_guides_wiki/wiki/Performance)
+    + [Intro to Cybersecurity](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Cybersecurity)
+
+***
+
+* [LAP 3](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-3)
     + [Object Orientation in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
     + [Intro to Webpack](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Webpack)
     * [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
@@ -50,18 +62,6 @@ LAP | Week(s) | Overview |
     * [React Component Lifecycle](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Component-Lifecycle-Methods)
     * [Redux](https://github.com/getfutureproof/fp_guides_wiki/wiki/Redux)
     * [Intro to DevOps](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-DevOps)
-
-***
-
-* [LAP 3](https://github.com/getfutureproof/fp_guides_wiki/wiki/LAP-3)
-    + [Intro to System Architecture](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-System-Architecture)
-    + [Intro to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Databases)
-    + [Internet Protocols & API Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Internet-Protocols-&-API-Design)
-    + [NoSQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/NoSQL)
-    + [SQL](https://github.com/getfutureproof/fp_guides_wiki/wiki/SQL)
-    + [Connecting WebApps to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Connecting-Webapps-to-Databases)
-    + [Performance](https://github.com/getfutureproof/fp_guides_wiki/wiki/Performance)
-    + [Intro to Cybersecurity](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Cybersecurity)
 
 ***
 
