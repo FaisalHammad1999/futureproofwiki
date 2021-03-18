@@ -43,7 +43,7 @@ These refer to the size of an algorithm's input. The size of its input will alwa
 Why is it called 'Big O'? Well, my favourite online answer for this comes courtesy of FreeCodeCamp who say *'It’s called Big O notation because you put a “big O” in front of the number of operations.'* and [MIT](https://web.mit.edu/16.070/www/lecture/big_o.pdf) explain further: *'The letter O is used because the growth rate of a function is also referred to as the order of the function'*
 
 ### Common notations
-A graph visual is [available here](https://www.desmos.com/calculator/kgwiv5zizm).
+A graph visual is [available here](https://www.desmos.com/calculator/dejlayrlqc).
 
 **Constant:** O(1) \
 No matter what n is, the same number of operations occurs.
