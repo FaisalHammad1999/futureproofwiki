@@ -51,13 +51,12 @@ router.post('/', (req, res) => {
 
 ### Prepare your connection
 ```js
+// eg. dbConfig.js
 const { Pool } = require("pg");
 
 const pool = new Pool({ database: process.env.PGDATABASE})) // You can add additionl options here to specify host, password, etc. It will default to the standard pg localhost port.
 
-function run(q, values, callback){
-    return pool.query(q, values, callback)
-}
+module.exports = pool
 ```
 
 ### Craft a query
@@ -67,8 +66,10 @@ const create = `INSERT INTO dogs (name, age) VALUES ($1, $2) RETURNING *`;
 
 ### Call your query from a route!
 ```js
+const db = require('dbConfig.js')
+
 router.post('/', (req, res) => {
-    db.run(create, [req.body.name, req.body.age])
+    db.query(create, [req.body.name, req.body.age])
         .then(resp => {
             const dog = resp.rows[0]
             res.status(201).json(dog)
