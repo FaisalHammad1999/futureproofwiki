@@ -64,11 +64,6 @@ router.post('/login', async (req, res) => {
 
 ***
 
-### Extending our options with Passport
-[Passport](https://www.npmjs.com/package/passport) is a flexible library that enables us to offer users the ability to log in with a variety of services eg. Google, Facebook, Twitter, as well our our own local solution. 
-
-***
-
 ## Authorisation options to consider
 With the code above, we can now store user's passwords securely - very important! The next step is to be able to persist a login across multiple requests. The options discussed above of JWT tokens and sessions are both worth looking into. For JWT, look at the [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken) npm library and for sessions in express, [`express-session`](https://www.npmjs.com/package/express-session) is a perfect option. As always, there are many alternatives available so have a look around and see what solution works for you and your application! They can be a little complex but take your time and utilise the many great resources available to both learn and implement.
 
@@ -160,6 +155,37 @@ function verifyToken(req, res, next){
 
 
 If you are a current or past student of futureproof, check out the [demo repo `jwt` branch](https://github.com/getfutureproof/fp_study_notes_authentication/tree/jwt) to see an implementation of the `jsonwebtoken` and `jwt-decode` libraries at work.
+
+***
+
+### Extending our options with OAuth
+[OAuth](https://oauth.net/) is an open standard protocol for authorisation between services. It is very common now to give one service you are logged in to, limited access to another service. Perhaps you have given Instagram access to your Twitter account for automatic cross posting or allowed Netlify access to certain repositories on GitHub.
+
+**Taking the second example, our character list is:** \
+Protected Resource: repositories on GitHub \
+Resource Owner: User _(with access to both services, thus in a position to grant access)_ \
+Resource Server: GitHub servers _(where the repositories are stores)_ \
+Client: Netlify - this use of the word 'client' can get a bit confusing if we are not clear that we are talking about OAuth at the time! \
+Authorisation Server: A service to handle authorisation checks
+
+**A full OAuth flow 'conversation' goes something like:** \
+Resource Owner: 'Hey client, get my protected resource!' \
+Client: 'Hey authorisation server, I need these protected resources please' \
+Auth Server: 'Hey resource owner, client says they want access to this protected resource, is that okay?' \
+Resource Owner: 'Yes, no problem, please give client access to the protected resource' \
+Authorisation Server: 'Hey client, here's a an authorisation token, please send it back to confirm receipt...' \
+Client: 'Thanks for the auth token, auth server. Here it is, safe and sound. Now please can I have access to those resources we were talking about..?' \
+Authorisation Server: 'Thanks client, I trust you now. Here's a token you can use in the future to get those resources you asked for' \
+Client: 'Hey resource server, I have an access token for these protected resources, please can I have them?' \
+Resource Server: 'Hey auth server, can you just take a look at this access token and make sure it's legit?' \
+Auth Server: 'Yep that looks good' \
+Resource Server: 'Okay client, everything checks out, here are those protected resources you wanted' 
+
+Simplified flows can be utilised and depending on the level of security required, may be suitable in some cases. If your access tokens are going to expire quite soon then you are more likely to use a simplified flow.
+
+OAuth actually uses JWT so the flows might feel quite familiar once you get started.
+
+How many services have you 'logged in' to with your Google or Facebook account? The OAuth protocol can also be integrated into an authentication flow. There are many third party library implementations to check out for this including [OAuth.io](https://docs.oauth.io/), [Passport](https://www.npmjs.com/package/passport), [Okta](https://developer.okta.com/code/nodejs/) and many more! 
 
 *** 
 
