@@ -210,6 +210,15 @@ import { screen, within } from '@testing-library/react';
 {/* ... */}
 ``` 
 
+**queryBy...** \
+`getBy...` selectors will throw an error if no matches are found which is usually okay but something we want to test for absence! In this case, replace `get` with `query` eg.
+```js
+    test("loads with no featured story", () => {
+        const article = screen.queryByRole('article', { name: 'featured story'})
+        expect(article).not.toBeInTheDocument();
+    });
+```
+The run would fail with a potentially false negative if we had used `getByRole`
 ---
 
 ### Making assertions on selected elements
