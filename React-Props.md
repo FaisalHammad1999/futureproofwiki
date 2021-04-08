@@ -6,7 +6,7 @@ Let's say we have some TV show data stored in state that we want to pass to a Sh
 const [ faveShow, setFaveShow ] = useState({title: 'The Good Place', seasons: 4})
 
 // in return
-<ShowCard show={faveShow}/>
+    <ShowCard show={faveShow}/>
 ```
 
 ### Receiving props
