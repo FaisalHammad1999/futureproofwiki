@@ -142,6 +142,19 @@ const Greeting = () => {
 
 This is useful as it means we can constantly adapt and update our frontend based on data.
 
+**Conditional Rendering** \
+Conditional rendering is extremely useful. With our JSX tags we can inject our familiar JS logic such as the `&&` operator and ternary statements.
+
+```jsx
+return (
+    <>
+    <h3>Hi there, {username ? username : 'friend'}!</h3> {/* Ternary Statement */}
+    { chosenStory && <StoryCard /> } {/* && Operator */}
+    </>
+)
+```
+
+_**Note the comment syntax in JSX of `{/* */}`**_
 
 ## Working with duplicate elements
 
