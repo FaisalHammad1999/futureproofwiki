@@ -50,10 +50,15 @@ We'll start with React itself, we're sure to need that across the board!
 import React from 'react';
 ```
 
-There are a couple functions from these testing libraries that we may want to use across many, if not all, of our test suites - let's bring them in too.
+There are a couple of functions from these testing libraries that we may want to use across many, if not all, of our test suites - let's bring them in too.
 ```js
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+```
+
+We will also import the jest-dom library to get access to more assertions
+```js
+import '@testing-library/jest-dom/extend-expect';
 ```
 
 To make these available for the duration of our test runs, across all our test files.
