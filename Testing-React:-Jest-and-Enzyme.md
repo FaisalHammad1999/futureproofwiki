@@ -1,4 +1,7 @@
 This is a walkthrough for adding unit tests to a React project using [Jest](https://jestjs.io/), [Enzyme](https://enzymejs.github.io/enzyme/) and, optionally, [Sinon](https://sinonjs.org/). These tools are not specific to React (except Enzyme) and there are many alternative options. `create-react-app` (CRA) generated projects need less setup but your file structure may not match the one given below (you can change it if you like!)
+
+_**If you are looking for a walkthrough using React Testing Library instead of Enzyme, check out [our guide here](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library).**_
+
 ***
 ### CRA Setup
 **Install Dependencies** \
