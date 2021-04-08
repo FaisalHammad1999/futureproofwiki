@@ -1,4 +1,4 @@
-Passing data between parent and child components in a React app can be achieved with React Props (properties). \
+Passing data between parent and child components in a React app can be achieved with React Props (properties).
 
 ### Passing props
 Let's say we have some TV show data stored in state that we want to pass to a ShowCard component.
@@ -11,6 +11,8 @@ const [ faveShow, setFaveShow ] = useState({title: 'The Good Place', seasons: 4}
 
 ### Receiving props
 In our `ShowCard` component, we can access the received props in one of two ways, depending on whether it is a class or a functional component:
+
+**Functional Component**
 ```jsx
 // In a functional component, props are accessed as a parameter
 const ShowCard = (props) => {
@@ -23,6 +25,7 @@ const ShowCard = ({show: { title, seasons }) => {
 };
 ```
 
+**Class Component**
 ```jsx
 // In a Class Component, props can be accessed with `this.props`
 class ShowCard extends Component {
