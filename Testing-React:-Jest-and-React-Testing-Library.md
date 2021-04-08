@@ -124,28 +124,6 @@ describe('App', () => {
 })
 ```
 
----
-
-## Anatomy of a Jest test suite
-In a `describe` block, multiple `test`s can be defined:
-```js
-describe('App', () => {
-    beforeEach(() => {
-       // some pre-test setup
-    });
-
-    test("what test 1 tests for", () => {
-        // how we test it
-    });
-
-    test("what test 2 tests for", () => {
-        // how we test it
-    });
-})
-```
-
----
-
 ### A Mindset Shift
 It is tempting to test each piece of inner workings of our components but this does not usually give a good simulation of how a user will interact with our application. When testing components, we want to replicate the user interaction as much as possible. This means selecting elements in ways users will find them and testing functionality by simulating user events.
 
