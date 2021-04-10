@@ -3,6 +3,16 @@ _If you are looking for a walkthrough using Enzyme instead of RTL, check out [ou
 
 ---
 
+- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library)
+- [Mindset](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library)
+- [Selectors](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#selecting-elements-in-the-dom-with-screen--bonus-accessibility-enhancements)
+- [Simulating Events](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#simulate-an-event)
+- [Handling Props](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#stubbing-out-props)
+- [Handling Side Effects](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#handling-side-effects)
+- [Coverage](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#displaying-test-coverage)
+
+---
+
 **A note on CRA**
 `create-react-app` (CRA) generated projects need less setup but your file structure may not match the one given below (you can change it if you like!). The core dependencies for testing with Jest and RTL are included.
 
@@ -218,7 +228,9 @@ import { screen, within } from '@testing-library/react';
         expect(article).not.toBeInTheDocument();
     });
 ```
-The run would fail with a potentially false negative if we had used `getByRole`
+
+_The run would fail with a potentially false negative if we had used `getByRole`_
+
 ---
 
 ### Making assertions on selected elements
@@ -309,6 +321,85 @@ test('it calls props.likeDog when clicking on like button', () => {
     expect(likeDog.mock.calls.length).toBe(1) // checks how many times likeDog was called
     expect(likeDog.mock.calls[0][0].toEqual('Mochi') // checks to see if likeDog was called with argument of 'Mochi'
 }
+```
+
+---
+
+## Handling Side Effects
+Often we might be wanting to test that eg. a component loads, makes a call to an API and renders the retrieved data. Given this scenario, there are two things to consider here - 1. how will we render the component for test without making the API call? 2. How will we tell our test that it needs to wait until that has been made.
+
+Let's say we want to test the following component:
+```jsx
+const Headlines = () => {
+    const [ stories, setStories ] = useState([])
+
+    useEffect(() => {
+        const fetchHeadlines = async () => {
+            try {
+                let { data } = await axios.get('https://futureproof-news.herokuapp.com/articles');
+                setStories(data)
+            } catch(err) {
+                console.warn(err);
+            }
+        }
+        fetchHeadlines()
+    }, [])
+
+    return (
+        <ul>
+            { stories.map(st => <li key={st.id}}>{st.headline}</li>) }
+        </ul>
+    )
+}
+```
+
+We will need to [mock axios](https://github.com/getfutureproof/fp_guides_wiki/wiki/Mocking-Functions-and-Modules-for-Testing-with-Jest#mocking-modules) and make sure that we are not looking for headlines before they have a chance to be rendered. \
+Looking at the test below you will notice that we are not mocking useEffect but we are mocking axios so we can avoid calling the actual API and also have control over what response(s) we wish to test our component's behaviour with.
+
+Also note the use of `act` to wrap the behaviour that we need to wait for. [Act is a helper](https://testing-library.com/docs/react-testing-library/api/#act) that ensures all updates have been applied before we make any assertions. Try running a version of this test without the act wrapper and see what happens.
+
+```jsx
+import axios from 'axios';
+jest.mock('axios');
+
+describe('Headlines', () => {
+  beforeEach(() => jest.resetAllMocks())
+
+  const stubStories = [
+    { id: 2468, headline: 'Test Story 1', snippet: 'Testing, testing'},
+    { id: 4151, headline: 'Test Story 2', snippet: '1, 2, 3'}
+  ]
+
+  test('it makes a request to the api on load and renders returned headlines', async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stubStories }));
+    await act(() => render(<Headlines />));
+    expect(axios.get).toHaveBeenCalledWith(expect.stringMatching(/articles/));
+    const firstHeadline = screen.getAllByRole('listitem')[0];
+    expect(firstHeadline.textContent).toBe('Test Story 1')
+  })
+
+  
+  test('it renders no stories on failed api request', async () => {
+    axios.get.mockImplementationOnce(() => Promise.reject(new Error('Bad Things')));
+    await act(() => render(<Headlines />));
+    expect(screen.queryByRole('listitem')).toBeFalsy();
+  })
+    
+}
+```
+
+---
+
+When testing components that create side effects, we may find that we need to more frequently find ways to handle usages of eg. `setInterval`. Jest has built in functionality called `useFakeTimers` that can really help with this. Just add it in any test suites that will need to render components that use `setInterval`, `clearInterval`, `setTimeout` or `clearTimeout`.
+
+```js
+beforeEach(() => jest.useFakeTimers())
+    // ...
+    test('it starts an 10 second interval on mount', () => {
+        render(<Jokes />);
+        expect(setInterval).toHaveBeenCalledWith(expect.any(Function), 10000);
+    })
+    // ...
 ```
 
 ---
