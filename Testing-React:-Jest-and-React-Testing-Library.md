@@ -9,6 +9,7 @@ _If you are looking for a walkthrough using Enzyme instead of RTL, check out [ou
 - [Simulating Events](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#simulate-an-event)
 - [Handling Props](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#stubbing-out-props)
 - [Handling Side Effects](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#handling-side-effects)
+- [Wrapped Components](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#wrapped-components)
 - [Coverage](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React%3A-Jest-and-React-Testing-Library#displaying-test-coverage)
 
 ---
@@ -396,11 +397,26 @@ When testing components that create side effects, we may find that we need to mo
 beforeEach(() => jest.useFakeTimers())
     // ...
     test('it starts an 10 second interval on mount', () => {
-        render(<Jokes />);
+        act(() => render(<Jokes />));
         expect(setInterval).toHaveBeenCalledWith(expect.any(Function), 10000);
     })
     // ...
 ```
+
+---
+
+## Wrapped Components
+Often our components have been wrapped and need access to the wrapper data to run. For simple wrappers, a second argument can be passed to the `render` eg. `render(<MyComponent />, { wrapper: TheWrapper })`
+
+When testing components that need basic access to a React Router, we can use `MemoryRouter`:
+```js
+import { MemoryRouter } from 'react-router-dom';
+    // ...
+    render(<News />, { wrapper: MemoryRouter })
+    // ...
+```
+
+For more control over testing components that use React Router, check out [the documentation](https://testing-library.com/docs/example-react-router/)
 
 ---
 
