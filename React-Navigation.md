@@ -2,6 +2,14 @@ As React is used to create SPAs (Single Page Applications) we can be tempted to 
 
 [`react-router-dom`](https://reactrouter.com/web/guides/quick-start) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
 ***
+
+- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
+- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routes)
+- [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#creating-links)
+- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
+- [Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
+
+---
 ### Setup
 As high up as possible in your app, wrap your app in a Router. Generally I like to do this in my `index.js` file.
 ```jsx
@@ -64,18 +72,85 @@ import { NavLink } from `react-router-dom`;
 
 **NB**: *At time of writing, a conflicting dependency version of the `path-to-regexp` module can cause the path to not be matched. If you are having trouble with this, in your `webpack.config.js` file, add the following `alias` key to `config.resolve` and restart your dev server:*
 ```js
+const ROOT_DIRECTORY = path.join(__dirname, '../');
+
 const config = {
     ...,
     resolve: {
         alias: {
-            'path-to-regexp': path.resolve(__dirname, 'node_modules', 'react-router', 'node_modules', 'path-to-regexp')
+            'path-to-regexp': path.resolve(ROOT_DIRECTORY, 'node_modules', 'react-router', 'node_modules', 'path-to-regexp')
         },
         ...
     },
     ...
 }
 ```
-***
+
+---
+
+## Accessing Routing Data
+To give your components access to data about the routing, you can either use the [hooks provided by React Router](https://reactrouter.com/web/api/Hooks) **or** you can use their Higher Order Component, [`withRouter`](https://reactrouter.com/web/api/withRouter).
+
+***When using functional components, we recommend using the hooks where possible.***
+
+### Hooks
+#### `useHistory`
+`useHistory` gives us access to the [history instance](https://reactrouter.com/web/api/history)
+
+Two common uses are the `goBack` function:
+```jsx
+import { useHistory } from 'react-router-dom';
+
+const BackButton = () => {
+    const history = useHistory();
+
+    return <button id="back-button" onClick={history.goBack}>Back</button>
+}
+```
+
+and programmatic navigation:
+```js
+    const history = useHistory();
+
+    addStudent = e => {
+        e.preventDefault();
+        const newStudent = { id: students.length + 1, name: nameInput }
+        setStudents(prev => [...prev, newStudent])
+        // Redirecting to the new student's show page after submission
+        history.push(`/students/${newStudent.id}`)
+    }
+```
+
+---
+
+#### `useLocation`
+`useLocation` gives us access to the [location object](https://reactrouter.com/web/api/location)
+
+---
+
+#### `useParams`
+`useParams` gives us access to the [params object](https://reactrouter.com/web/api/Hooks/useparams)
+
+---
+
+#### `useRouteMatch`
+`useRouteMatch` gives us programatic access to the same [match](https://reactrouter.com/web/api/Hooks/useroutematch) logic that is used when matching for `<Route>`s
+
+---
+
+### Testing
+When testing components that need basic access to a React Router, we can use MemoryRouter:
+```js
+import { MemoryRouter } from 'react-router-dom';
+    // ...
+    render(<News />, { wrapper: MemoryRouter })
+    // ...
+```
+For more control over testing components that use React Router, check out the [documentation](https://testing-library.com/docs/example-react-router/).
+
+
+---
+
 ### withRouter
 `withRouter` is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that comes with `react-router-dom`. We can use it to wrap a Component and give it access to our router props of `match`, `history` and `location`. There is quite a bit to explore in those but here are some of the most common uses:
 
@@ -128,14 +203,7 @@ const CatCard = ({allCats, match}) => {
 }
 
 export default withRouter(CatCard);
-```
-***
 
-**NB** *When testing any component that is wrapped in a HOC (Higher Order Component), remember to let the test know with [`WrappedComponent`](https://github.com/getfutureproof/fp_guides_wiki/wiki/TDD-in-React#accessing-components-with-wrappers) and stub out any of the props the HOC is passing that you'll be using in that test.*
-```js
-    beforeEach(() => {
-        stubRouterHistory = { goBack: jest.fn() }
- 
-        component = shallow(<BackButton.WrappedComponent history={stubRouterHistory}/>)
-    })
 ```
+
+---
