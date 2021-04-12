@@ -1,12 +1,14 @@
-The React documentation on Hooks is excellent and we encourage you to work through this short but thorough intro and guide:
-- [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
+The React documentation on Hooks is excellent and we encourage you to work through this short but thorough intro and guide: [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
 
-## Why?
-Until Hooks, functional components could not have a concept of state nor ability to handle side effects. This can lead to unnecessarily bloated code and, when using Higher Order Components, 'wrapper hell'! Hooks are an OPTIONAL feature of React that are worth getting to know. **HOOKS ARE NOT A REPLACEMENT FOR CLASS COMPONENTS!**
+## Why Hooks?
+Until Hooks, functional components could not have a concept of state nor ability to handle side effects. \
+This led to a dependence on complex class component lifecycle methods, bloated code and the dreaded Wrapper Hell(!)
 
-***I recommend a cup of tea and a sit down with Sophie and Dan to get you up to speed on why Hooks were created:***
+***I recommend a cup of tea and a sit down with [Sophie, Dan and Ryan](https://www.youtube.com/watch?v=dpw9EHDh2bM) to get you up to speed on why Hooks were created:*** 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dpw9EHDh2bM/0.jpg)](https://www.youtube.com/watch?v=dpw9EHDh2bM)
+---
+
+[![Link to React Hooks intro talk](https://img.youtube.com/vi/dpw9EHDh2bM/0.jpg)](https://www.youtube.com/watch?v=dpw9EHDh2bM)
 
 
 ## Two Common React Hooks
@@ -41,7 +43,7 @@ const loseALife = () => setLives(prevLives => prevLives - 1);
 #### useEffect
 Functional components do not have access to class Component lifecycle methods. We can, however, achieve some similar behaviour with [`useEffect`](https://reactjs.org/docs/hooks-effect.html) which allows us to handle side effects.
 
-`useEffect` hooks take two arguments - a function (the 'effect') and an optional dependency array. It is important to consider what you need (if anything) in your dependency array. By default, your effect will run everytime a render or re-render is triggered but usually we will only want it to run if something changes. By passing an empty dependency array, the effect will run once only and never again as it has no dependencies. By passing a populated array, the effect will run only if that attribute has changed since the last render.
+`useEffect` hooks take two arguments - a function (the 'effect') and an optional dependency array. It is important to consider what you need (if anything) in your dependency array. By default, your effect will run every time a render or re-render is triggered but usually we will only want it to run if something changes. By passing an empty dependency array, the effect will run once only and never again as it has no dependencies. By passing a populated array, the effect will run only if that attribute has changed since the last render.
 
 This runs only once thanks to the empty dependencies array - it is not listening for any changes:
 ```js
@@ -154,7 +156,7 @@ import React from 'react';
 import { usePigFlyStatus } from '../customHooks';
 
 const MyFunctionalComponent = ({ theSkyIsGreen }) => {
-    const [ pigsCanFly, setPigsCanFly ] = usePigFlyStatus(theSkyIsGreen);
+    const pigsCanFly = usePigFlyStatus(theSkyIsGreen);
 
     return <h1>{pigsCanFly ? 'Flying Pigs!' : 'No flying here!'}</h1>
 };
