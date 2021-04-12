@@ -429,10 +429,10 @@ When running tests, adding the `--watch` flag will `watch` which means your test
 For coverage we can create a new script in the `package.json`: \
 **No CRA**
 ```js
-"coverage": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
+"coverage": "jest --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false"
 ```
 **CRA Setup**
 ```js
-"coverage": "react-scripts test --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
+"coverage": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false"
 ```
 This can be called with `npm run coverage` and will run the test suite, display the coverage and exit.
