@@ -174,4 +174,4 @@ function Header(){
 }
 ```
 
-_**futureproof students can see a full authentication solution using `useContext` and custom hooks in [the demo repo](https://github.com/getfutureproof/fp_study_notes_advanced_hooks)**_
+_**futureproof students can see a full auth solution using `useContext` and custom hooks in [the demo repo](https://github.com/getfutureproof/fp_study_notes_advanced_hooks)**_
