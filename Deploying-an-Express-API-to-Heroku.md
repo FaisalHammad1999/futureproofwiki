@@ -63,3 +63,25 @@ If they have already been added to your git history you can remove them with the
 You can now access your API at the Heroku domain eg `https://fp-express-cats.herokuapp.com/` and your endpoints as expected eg `https://fp-express-cats.herokuapp.com/cats/zelda` 
 
 We've deployed this without any client side code so we are only getting the raw data being sent back from our API. You could host your whole app on the same Heroku dyno but given the limitations, it might be better to host your client side separately. Wherever you host your client, make sure your fetch requests are pointing to your new Heroku domain!
+
+## Adding a basic client
+
+If you do want to add a basic client to your app you can make use of some SSR (server side rendering).
+
+In your express app you simply need to define the folder location of your `index.html`. If you had it stored in a folder called `public`, the code would look like the below.
+
+```js
+const path = require('path');
+
+...
+
+app.use(express.static(path.join(__dirname, 'public')));
+```
+
+You can then use the root route to send your html to the browser.
+
+```js
+app.get('/', (req, res) => res.send('public/index.html'));
+```
+
+As mentioned above this has some limitations but is useful for a single page application.
