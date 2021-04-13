@@ -14,6 +14,10 @@ _If you are looking for a walkthrough using Enzyme instead of RTL, check out [ou
 
 ---
 
+_**[This great article](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library) from the creator of React Testing Library, Kent C. Dodds, points out some best practices to be aware of!**_
+
+---
+
 **A note on CRA**
 `create-react-app` (CRA) generated projects need less setup but your file structure may not match the one given below (you can change it if you like!). The core dependencies for testing with Jest and RTL are included.
 
