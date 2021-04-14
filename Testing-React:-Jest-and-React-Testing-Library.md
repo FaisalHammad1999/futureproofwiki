@@ -361,7 +361,7 @@ const Headlines = () => {
 We will need to [mock axios](https://github.com/getfutureproof/fp_guides_wiki/wiki/Mocking-Functions-and-Modules-for-Testing-with-Jest#mocking-modules) and make sure that we are not looking for headlines before they have a chance to be rendered. \
 Looking at the test below you will notice that we are not mocking useEffect but we are mocking axios so we can avoid calling the actual API and also have control over what response(s) we wish to test our component's behaviour with.
 
-Also note the use of `act` to wrap the behaviour that we need to wait for. [Act is a helper](https://testing-library.com/docs/react-testing-library/api/#act) that ensures all updates have been applied before we make any assertions. Try running a version of this test without the act wrapper and see what happens.
+Also note the use of `await screen.findBy[...]` queries which will keep looking for a match until updates are complete 
 
 ```jsx
 import axios from 'axios';
@@ -376,18 +376,19 @@ describe('Headlines', () => {
   ]
 
   test('it makes a request to the api on load and renders returned headlines', async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve({ data: stubStories }));
-    await act(() => render(<Headlines />));
+    axios.get.mockResolvedValue({ data: stubStories });
+    render(<Headlines />);
     expect(axios.get).toHaveBeenCalledWith(expect.stringMatching(/articles/));
-    const firstHeadline = screen.getAllByRole('listitem')[0];
-    expect(firstHeadline.textContent).toBe('Test Story 1')
+    const headlines = await screen.findAllByRole('listitem')
+    expect(headlines[0].textcontent).toBe('Test Story 1')
   })
 
   
-  test('it renders no stories on failed api request', async () => {
-    axios.get.mockImplementationOnce(() => Promise.reject(new Error('Bad Things')));
-    await act(() => render(<Headlines />));
-    expect(screen.queryByRole('listitem')).toBeFalsy();
+  test('it renders an error on failed api request', async () => {
+    axios.get.mockRejectedValue(new Error('Bad Things'));
+    render(<Headlines />);
+    const error = await screen.findByRole('alert')
+    expect(error).toBeInTheDocument()
   })
     
 }
@@ -421,6 +422,39 @@ import { MemoryRouter } from 'react-router-dom';
 ```
 
 For more control over testing components that use React Router, check out [the documentation](https://testing-library.com/docs/example-react-router/)
+
+---
+
+## Custom Renders
+If you end up with multiple wrappers, you may want to create a custom render function
+```js
+// in setupTests.js
+import { render } from '@testing-library/react'
+import { ThemeProvider } from '../contexts/theme'
+import { AuthProvider } from '../contexts/auth'
+import { MemoryRouter } from 'react-router-dom';
+
+const WrapProviders = ({ children }) => {
+  return (
+    <MemoryRouter>
+        <AuthProvider>
+            <ThemeProvider>
+                {children}
+            </ThemeProvider>
+        </AuthProvider>
+    </MemoryRouter>
+  )
+}
+
+const renderWithProviders = (ui, options) => render(ui, { wrapper: WrapProviders, ...options })
+
+global.renderWithProviders = renderWithProviders
+
+// in a test suite
+...
+    renderWithProviders(<MyComponent />)
+...
+```
 
 ---
 
