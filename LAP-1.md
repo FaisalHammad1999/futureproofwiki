@@ -9,6 +9,7 @@ This LAP is all about learning programming principles through the use of JavaScr
 * [JavaScript in the Browser](https://github.com/getfutureproof/fp_guides_wiki/wiki/JavaScript-in-the-Browser)
 * [Forms & APIs](https://github.com/getfutureproof/fp_guides_wiki/wiki/Forms-and-APIs)
 * [Asynchronous Processes & Promises](https://github.com/getfutureproof/fp_guides_wiki/wiki/Asynchronous-Processes-and-Promises)
+* [Object Orientation in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Object-Orientation-in-JavaScript)
 * [JavaScript as a Backend](https://github.com/getfutureproof/fp_guides_wiki/wiki/JavaScript-as-a-Backend)
 * [JavaScript API Frameworks](https://github.com/getfutureproof/fp_guides_wiki/wiki/JavaScript-API-Frameworks)
 
@@ -27,3 +28,4 @@ This LAP is all about learning programming principles through the use of JavaScr
 * [Watchify: A Simple Solution for a Client Side Dev Server](https://github.com/getfutureproof/fp_guides_wiki/wiki/Simple-Client-Side-Dev-Server)
 * [Deploying an Express API with Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-an-Express-API-to-Heroku)
 * [Deploying a Full Stack Application](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Full-Stack-Application)
+* [call vs apply vs bind](https://github.com/getfutureproof/fp_guides_wiki/wiki/Call-vs-Apply-vs-Bind)
