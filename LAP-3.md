@@ -4,6 +4,7 @@ React and building a slick user interface is the main focus of this LAP. We'll c
 * [Intro to Module Bundlers & Webpack Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Module-Bundlers-and-Webpack)
 * [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React)
 * [Testing React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React:-Jest-and-React-Testing-Library)
+* [Intro to React Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React-Hooks)
 * [React State & Eventing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Functional-Components))
 * [React Props](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props)
 * [React useEffect](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-useEffect)
@@ -13,8 +14,6 @@ React and building a slick user interface is the main focus of this LAP. We'll c
 * [Intro to DevOps](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-DevOps)
 
 ### Additional Resources
-* [Call vs. Apply vs. Bind](https://github.com/getfutureproof/fp_guides_wiki/wiki/Call-vs-Apply-vs-Bind)
-* [Intro to React Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React-Hooks)
 * [Deploying a React Client with Netlify](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Deploy-with-Netlify)
 
 ---
