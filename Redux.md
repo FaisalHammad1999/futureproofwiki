@@ -132,9 +132,62 @@ ReactDOM.render(
 
 ***
 
-### Read and write data from the store
-Once your app is wrapped, any child components can now gain access to your store with the help of the [`connect`](https://react-redux.js.org/api/connect) function. \
-Connect can receive up to 4 arguments, we will look at the first, most common, two.
+# Read and write data from the store
+Once your app is wrapped, any child components can now gain access to your store with the help of either [`connect`](https://react-redux.js.org/api/connect), or the Redux hooks. \
+
+
+---
+
+## Redux Hooks
+If you are using React hooks in your project, we might as well be consistent and use the new(ish) Redux hooks too! We have `useSelector` for reading data from the global state, and `useDispatch` to get access to the dispatch method so we can dispatch actions to the reducer whenever we like. Usual hooks rules apply!
+
+### Reading store data with `useSelector`
+```jsx
+import { useSelector } from 'react-redux';
+
+function Doggos(){
+    const theDogs = useSelector(state => state.doggos)
+    const loading = useSelector(state => state.loading)
+
+    const renderDoggos = () => theDogs.map(dog => <li>dog.name</li> />)
+
+    return (
+        <section id="doggos">
+            { loading ? 'Loading ...' : renderDoggos() }
+        </section>
+    )
+}
+
+export default Doggos
+```
+
+### Dispatching actions with `useDispatch`
+`useDispatch` exposes the `dispatch` function for us to use at anytime. Remember we can only dispatch actions (ie. POJOs with a key of `type`) so make sure to either pass one explicitly, or pass it an invoked function which returns an action object...
+
+```jsx
+import { useDispatch } from 'react-redux';
+import { fetchDoggos } from './actions';
+
+function FetchButton(){
+    const dispatch = useDispatch();
+
+    const handleClick = () => dispatch(fetchDoggos())
+
+    return (
+        <button onClick={handleClick} aria-label="refresh">    
+            fetch!
+        </button>
+    )
+}
+
+export default App;
+```
+
+---
+## connect() HOC
+An alternative to using the `useDispatch` and `useSelector` hooks is to wrap your component in `connect` - a feature also from the Redux library. `connect can` receive up to 4 arguments, we will look at the first, most common, two. 
+- a function that receives the global state and maps it to props
+- another function or object which receives the dispatch method and also creates new props that trigger the dispatch.
 
 #### Reading data with mapStateToProps
 We are going to extract the parts of the data we need from the store and map them out as additional props for our component. To do this we will make a `mapStateToProps` function to pass as the first argument to connect. You can call this function whatever you like (I often shorten to `mSTP` but in docs and errors, it will refer to this first argument as `mapStateToProps`). Your mSTP function will receive the state object from the store. The keys of the object that your mSTP returns will be the names of your new props and the values of that object will be the value of that newly created prop.
@@ -287,19 +340,15 @@ const catsReducer = (state=initState, action) => {
 export default catsReducer;
 
 // in CatsContainer.js
-import { fetchAllCats, changeFavouriteCat } from '../action/catActions.js';
+import { fetchAllCats, changeFavouriteCat } from '../actions/catActions.js';
 
-class CatsContainer extends Component {
-    componentDidMount(){
-        this.props.fetchAllCats()
-    }
+const CatsContainer = () => {
+    const dispatch = useDispatch()
 
-    render(){
-        // etc
-    }
+    useEffect(() => dispatch(fetchAllCats())
+
+    return //...
 }
 
-const mSTP = state => ({ allCats: state.all })
-
-export default connect(mSTP, { fetchAllCats, changeFavouriteCat })
+export default CatsContainer
 ```
