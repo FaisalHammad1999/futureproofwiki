@@ -315,11 +315,15 @@ You might use this to eg. toggle a 'loading' key in your store.
 ```js
 // in actions/catActions.js
 export default addAllCats = () => {
-    return dispatch => {
-        dispatch({ type: "STARTING_FETCH" })
-        fetch('https://awesomecatapi.com/cats')
-            .then(resp => resp.json())
-            .then(cats => dispatch({ type: "ADD_ALL_CATS", payload: cats }))
+    return aysnc (dispatch) => {
+        try {
+            dispatch({ type: "STARTING_FETCH" })
+            const resp = await fetch('https://awesomecatapi.com/cats')
+            const data = await resp.json()
+            dispatch({ type: "ADD_ALL_CATS", payload: cats }))
+        } catch (err) {
+            dispatch({ type: "SET_ERROR", payload: err }))
+        }     
     };
 };
 
@@ -331,7 +335,9 @@ const catsReducer = (state=initState, action) => {
         case "STARTING_FETCH":
             return { ...state, loading: true };
         case "ADD_ALL_CATS":
-            return { allCats: action.payload.cats, loading: false }
+            return { ...state, allCats: action.payload.cats, loading: false, error: false }
+        case "SET_ERROR":
+             return { ...state, loading: false, error: action.payload }
         default:
             return state
     }
@@ -344,10 +350,15 @@ import { fetchAllCats, changeFavouriteCat } from '../actions/catActions.js';
 
 const CatsContainer = () => {
     const dispatch = useDispatch()
+    const error = useSelector(state => state.error)
 
     useEffect(() => dispatch(fetchAllCats())
 
-    return //...
+    return (
+        <>
+            { error && <div role="alert">{error.message}</div> }
+        </>
+    )
 }
 
 export default CatsContainer
