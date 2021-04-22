@@ -25,7 +25,7 @@ ReactDOM.render(
 ```
 ***
 ### Defining Routing
-What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Switch` and `Route` components from `react-router-dom` for this. The `Route` can either receive a `render` prop or a `component` prop to define what should be shown when that route is visited. Note the differences below.
+What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Switch` and `Route` components from `react-router-dom` for this. The `Route` can wrap around child elements (***NB: this is the preferred option when using hooks***) or can receive a `render` prop or a `component` prop to define what should be shown when that route is visited. Note the differences below. The render or component props approach is more likely to be found in routes that render Class Components.
 ```jsx
 // anywhere you need routing
 import { Switch, Route } from 'react-router-dom';
@@ -34,12 +34,18 @@ import { Switch, Route } from 'react-router-dom';
 <Switch>
     {/* pass render a function that returns some jsx */}
     <Route exact path="/" render={() => <h1 id="welcome">Welcome</h1>} />
+
+    {/* wrap the Route around a component PREFERRED APPROACH WHEN USING HOOKS */}
+    <Route path="/schools"><Schools select={selectSchool} /></Route>
+
     {/* pass a component as a prop */}
     <Route path="/instructors" component={InstructorsContainer} />
+
     {/* pass render a function that receives props as an argument and injects them into the returned component */}
     <Route path="/students" render={props => <StudentsContainer {...props} students={this.state.allStudents}/>} />
+
     {/* if the url path doesn't match any this will run */}
-    <Route component={NotFound404} />
+    <Route><NotFound404 /></Route>
 </Switch>
 ```
 ***
@@ -48,9 +54,14 @@ Note that the `Switch` is checking the Route paths top to bottom to find a match
 ```jsx
 <Switch>
     {/* If we switched these two Routes around, /new would get caught as an :id segment */}
-    <Route path={`students/new`} render={() => <StudentForm handleSubmit={this.addStudent}/>}/>
-    <Route path={`students/:id`} render={() => <PersonCard getPerson={this.getStudentByName}/>}/>
+    <Route path={`/students/new`}><StudentForm handleSubmit={this.addStudent}/></Route>
+    <Route path={`/students/:id`}><PersonCard getPerson={this.getStudentByName}/></Route>
 </Switch>
+```
+
+You can also have optional dynamic segments by adding the `?` after the optional segment. The below Route will render its children if the path is "/profile" and also if it has a dynamic segment eg. "/profile/futureproof".
+```jsx
+<Route path="/profile/:username?"><Pages.Profile /></Route>
 ```
 ***
 ### Creating Links
