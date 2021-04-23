@@ -2,6 +2,8 @@ One of the greatest benefits of the internet is the ability to communicate and s
 So far we have made apps that request information but sometimes we also want to receive information without explicitly asking.
 Whilst we are not quite at 0 latency yet, there are some helpful tools that will allow us to open up direct channels of communication between different points.
 
+***NB: The snippets below demonstrate the client side using React with Class Components. You can use socketIO with any client eg. vanilla HTML/CSS/JS and the core concepts discussed below will remain the same. If using React Hooks, check out [this article](https://css-tricks.com/build-a-chat-app-using-react-hooks-in-100-lines-of-code/) for some code snippets.***
+
 ### HTTP
 Our bread and butter communication protocol
 - Client makes a request
