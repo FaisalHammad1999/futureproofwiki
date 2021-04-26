@@ -1,14 +1,14 @@
 ## What is Python?
 
-Python is a high-level, object-oriented programming language created by Guido van Rossum between 1989 and 1991.
+Python is a programming language first created by Guido van Rossum between 1989 and 1991.
 
-It can be used for building web applications, data analysis, data visualisation and machine learning to name a few. It is used not only by Software Engineers but also Mathematicians and Data Analysts amongst others.
+It can be applied in may use-cases including building web applications, data analysis, data visualisation and machine learning to name a few. It is used not only by Software Engineers but also Mathematicians and Data Analysts amongst others.
 
 Python is popular as it can be used to solve complex problems but has a beginner friendly, easy-to-learn syntax. Due to this it has a large community as well as a substantial ecosystem of libraries, frameworks and tools. It's also open source, aka free.
 
 ## Who uses it?
 
-Many of the biggest tech companies in the world reply heavily on Python as one of, or their main language.
+Many of the biggest tech companies in the world reply heavily on Python as one of their key languages.
 
 Netflix for example, uses Python for its machine learning capabilities, to recommend films and tv that you may enjoy based on past preferences. Dropbox is another, which has used Python to scale rapidly, even hiring its creator Guido van Rossum to work with them for a while. Other notable users includes Google and Spotify. [Paypal](https://github.com/paypal/Checkout-Python-SDK) and [NASA](https://github.com/nasa/apod-api) also use Python, have a look at their APIs.
 
@@ -18,11 +18,11 @@ A more comprehensive list of the companies that use Python can be found [here](h
 
 _Python is dead. Long live Python!_
 
-Your machine (looking at you Mac users) may have Python 2 already installed, however as of 1st January 2020, Python 2 is depreciated and no longer supported by the Python Software Foundation. 
+Your machine (looking at you Mac users) may have Python 2 already installed, however as of 1st January 2020, Python 2 is deprecated and no longer supported by the Python Software Foundation. 
 
 ⚠️ **We are going to be using Python 3.** ⚠️
 
-Make sure you have this installed. Use `$ python --version` to make sure you have the latest release.
+Make sure you have this installed. Use `$ python --version` to check your current version.
 
 To get started we can simply type `$ python` (Mac) or `$ py` (Windows) into the command line to open up the Python interpreter. We can use this to run commands - try `print("Hello world")`.
 
@@ -41,7 +41,7 @@ Some of the most important rules when writing variables in Python include:
 
 ## Data Types
 
-In Python we can use **Integers, Floats, Strings and Booleans** just like JavaScript. However there are some new data types fto be aware of.
+In Python we can use **Integers, Floats, Strings and Booleans** just like JavaScript. However there are some new data types to be aware of.
 
 ### Lists 
 
@@ -61,7 +61,7 @@ seasons_of_the_year = ('Winter', 'Spring', 'Summer', 'Autumn')
 
 ### Dictionaries
 
-These are reminiscent of JavaScript objects, key-value pairs. They are unordered and referenced by their key, dictionaries are **mutable**.
+These are reminiscent of JavaScript objects, key-value pairs. They are unordered and referenced by their key. Dictionaries are **mutable**.
 
 ```python
 my_ship = {
@@ -172,7 +172,7 @@ def function_name (arguments):
      return return_value
 ```
 
-Take the note of the  indentation. These indents are how Python knows where a specific block of code starts and ends. This enables python to be more readable as we don’t have all the additional punctuation we have in other languages.
+Take the note of the  indentation. These indents are how Python knows where a specific block of code starts and ends. This enables python to be more readable as we don’t have all the additional punctuation we have in other languages. Python is very strict with indentation and will get confused if you mix tabs and spaces! Just be consistent and you will be okay! Tools are available to automatically 'translate' one to the other if you want to make sure!
 
 ### Basic function
 
@@ -207,6 +207,7 @@ Try to:
 - Run `shape_volume(3, 4, 5)` (arguments without their keywords)
 - Run `shape_volume(depth = 3, height = 6, width = 10)` (changed order)
 - Run `shape_volume(width = 9, height = 4)` (missing argument)
+
 
 We can store the result of calling a function as a new variable to be reused
 
@@ -256,3 +257,27 @@ flavour_of_the_day
 
 # 'Mint Chocolate Chip'
 ```
+
+## Modules
+To use a module (built-in, installed or custom), use the `import` statement:
+```python
+import math
+
+factorialOf6 = math.factorial(6)
+```
+
+You can bring in named imports
+```python
+from math import factorial
+
+factorialOf6 = factorial(6)
+```
+
+Or rename an imported library
+```python
+import math as number_things
+
+factorialOf6 = number_things.factorial(6)
+```
+
+PEP8 advises to use absolute paths as a preferred option although this is not always viable. For more on imports, check out [this guide](https://realpython.com/absolute-vs-relative-python-imports/) 
