@@ -172,7 +172,7 @@ def function_name (arguments):
      return return_value
 ```
 
-Take the note of the  indentation. These indents are how Python knows where a specific block of code starts and ends. This enables python to be more readable as we don’t have all the additional punctuation we have in other languages. Python is very strict with indentation and will get confused if you mix tabs and spaces! Just be consistent and you will be okay! Tools are available to automatically 'translate' one to the other if you want to make sure!
+Take note of the  indentation. These indents are how Python knows where a specific block of code starts and ends. This enables python to be more readable as we don’t have all the additional punctuation we have in other languages. Python is very strict with indentation and will get confused if you mix tabs and spaces! Just be consistent and you will be okay! Tools are available to automatically 'translate' one to the other if you want to make sure! Technically 4 spaces is the official python indentation.
 
 ### Basic function
 
