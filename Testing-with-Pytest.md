@@ -148,7 +148,7 @@ def test_add_fruit(fruits_test_data):
 ## Coverage
 To see pytest coverage, we will need to install [pytest-cov](https://pypi.org/project/pytest-cov/)
 - `pipenv install --dev pytest-cov`
-- `pytest --cov <location-to-check>`
+- `pytest --cov-report <options> --cov=<location-to-check>` eg. `pytest --cov-report term-missing --cov=.`
 
 ***
 
