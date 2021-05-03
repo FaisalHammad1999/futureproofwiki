@@ -86,6 +86,30 @@ def advice(self):
     print(f'Yesterday I told myself:, "{self._note_to_self()}"')
 ```
 
+To follow the pillars of OOP, we usually like to keep most of our properties private by default and create explicit getters and setters for the ones we want to grant access to from the outside world. There are several ways to do this but the most 'pythonic' way is considered to be the use of the `@property` decorator. Any item with a @property decorator can also make use of the `@<property>.setter` decorator too.
+
+```python
+class Character():
+    def __init__():
+        self._name
+        self._location = None
+
+    @property
+    def name(self):
+        return self._name.capitalize()
+
+    @property
+    def location(self):
+         return self._location
+
+    @location.setter
+    def location(self, new_location):
+        if new_location not in ['here', 'there', 'everywhere']:
+            raise Exception('Not a valid location!')
+        self._location = new_location
+    
+```
+
 ## Dunder methods
 The more glamorous term for a dunder method is a 'magic' method. As fancy as these sound, they are simply pre-defined methods that you can add to Python classes to extend their functionality. A great one is `__str__` in which you can change how the instance is displayed as a string. By default, this will look something like `<__main__.Genie object at 0x10be5ed68`. By adding a `__str__` you can make this as approachable/sassy/silly as you like! The full list is documented [here](https://docs.python.org/3/reference/datamodel.html#special-method-names).
 ```python
