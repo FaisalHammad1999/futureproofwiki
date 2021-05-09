@@ -1,7 +1,10 @@
-When doing pure data handling in Python, a very popular tool is [Jupyter Lab](https://jupyter.org/about), a browser based enviroment with REPL capabilites that can be especially useful when piecing together smaller chunks of logic. It is something of an industry standard in the field of data so today we will be using it too!
+When doing pure data handling in Python, a very popular tool is [Jupyter Lab](https://jupyter.org/about), a browser based enviroment with REPL capabilites that can be especially useful when piecing together smaller chunks of logic. It is something of an industry standard in the field of data so you can useit too!
 
 - `pipenv install jupyterlab`
 - `jupyter lab`
+
+
+If you have trouble installing some of the libraries locally, online tools such as [Google Colabatory](https://colab.research.google.com/) is a great option for a Cloud-based environment. A huge additional benefit of these tools is access to remote processing power for heavier calculations. As you work with larger datasets and are crunching bigger data, the free GPU access is very welcome! Colab is actually a wrapper around Jupyter with some additional features so you are using the same industry tools in the cloud environment.
 
 ***
 
@@ -17,7 +20,7 @@ Import the JSON Module:
 ```python
 import json
 ```
-- ```json.loads(x)``` converts JSON to Python resulting in a Python dictionary
+- ```json.loads(x)``` converts JSON to Python
 ```python
 json.loads('Some_JSON')
 ``` 
@@ -34,7 +37,7 @@ type(my_string)
 ```
 
 ##  CSV 
-We might not always have our data in a JSON structure, many times it will be in a [tabular](https://en.wikipedia.org/wiki/Table_(information)) format. Formats such as '.csv' and '.tsv' are commonly used to transfer tabular data. These are textual files and stand for comma separated values and tab seperated values. Commas or tabs delimit the data values in each row. 
+We might not always have our data in a JSON structure, many times it will be in a [tabular](https://en.wikipedia.org/wiki/Table_(information)) format. Formats such as '.csv' and '.tsv' are commonly used to transfer tabular data. These are textual files and stand for comma separated values and tab separated values. Commas or tabs delimit the data values in each row. 
 Data is more easily stored and in such files. 
 
 Example textual CSV file:
@@ -101,7 +104,7 @@ There's quite a bit going on here so let's break it down:
 - Finally the for loop takes each element in the reader object (currently a series of lists), and prints the elements in these lists joined by the comma character with ```', '.join``` which returns the ouput in the cell above the breakdown.
 
 ***Note** from docs:  "If csvfile is a file object, it should be opened with newline=' '  
-If newline=' ' is not specified, newlines embedded inside quoted fields will not be interpreted correctly, and on platforms that use \r or \n linendings on write, an extra \r will be added".  
+If newline=' ' is not specified, newlines embedded inside quoted fields will not be interpreted correctly, and on platforms that use \r or \n line endings on write, an extra \r will be added".  
 
 # NumPy
 
@@ -248,7 +251,7 @@ random_x * 3
 #=> array([[1.99027245, 1.19826312, 1.57476374, 1.59400892],
 #       [1.49106529, 2.7262598 , 0.33947507, 1.07524947]])
 
-ten_fold_x = x / 0.1
+ten_fold_x = random_x / 0.1
 ten_fold_x
 #=> array([[6.63424151, 3.99421041, 5.24921248, 5.31336308],
 #       [4.97021764, 9.08753266, 1.13158358, 3.58416491]])
@@ -587,3 +590,21 @@ data.fillna(x)
 
 You are strongly encouraged to look into the various [cleaning methods](https://realpython.com/python-data-cleaning-numpy-pandas/) at your disposal using Pandas and NumPy!
 
+---
+
+### Visualising DataFrames
+You can use matplotlib for a pandas dataframe for a basic plot eg.
+```python
+plt.scatter('Years','Sales', data=sales_and_years)
+```
+
+Try annotating the points with annotate:
+```python
+for i, text in enumerate(sales_and_years.index):
+  plt.annotate(text, (sales_and_years['Years'][i], sales_and_years['Sales'][i]))
+```
+
+For more functionality, pandas has its own wrapper around matplotlib. Try out the following and experiment further with the help of the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)!
+```python
+sales_and_years.plot('Years', 'Sales', kind='scatter', s=sales_and_years['Sales']/100000, c="Sales", colormap='viridis', title='NES')
+```
