@@ -19,7 +19,7 @@ This is important! You won't be able to connect to your database without it!
 - Click `Add New Database User` button
 - Choose an auth method - we'll go with Password for this walkthrough
 - Enter a username and a password (recommended to use the Autogenerate Secure Password) and make note of them, you'll need them soon!
-- For user privileges, go for Read and write to any database (you can set up an Atlas admin if you like but for your app to access, read and write is sufficient)
+- For user privileges, go for `Read and write to any database` (you can set up an Atlas admin if you like but for your app to access, read and write is sufficient)
 - Keep restrictions and temporary user settings switched off
 - Click `Add User`
   
