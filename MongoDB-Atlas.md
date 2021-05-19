@@ -59,4 +59,4 @@ This optional sample data set can be useful for testing out your new cluster
 **Connect from your own app**
 Once you've confirmed you have access, try connecting from your own application.
 - Whereever your connection string belongs (check your driver docs for this!) use the following format:
-    - :arrow_right: `mongodb+srv://<username>:<password>@futureproof.fra7q.mongodb.net/<db-name>?retryWrites=true&w=majority`
+    - :arrow_right: `mongodb+srv://<username>:<password>@<cluster-name>.fra7q.mongodb.net/<db-name>?retryWrites=true&w=majority`
