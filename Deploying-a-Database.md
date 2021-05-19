@@ -14,7 +14,8 @@ offers 6 services that can be used to manage a variety of relational databases [
 is AWS' serverless NoSQL offering. [This video walkthrough](https://resources.awscloud.com/aws-builders-online-series/aws-amplify-donnie-prakoso?trk=em_builder_series20q3_od&trkcampaign=builders-online-series) is an excellent starting point for connecting to a DynamoDB using Amplify.
 
 ### [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-Once you've made a MongoDB Atlas cluster, you can [connect to it from nigh on anywhere](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/).
+Once you've made a MongoDB Atlas cluster, you can [connect to it from nigh on anywhere](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/). \
+Find our own walkthrough [here](https://github.com/getfutureproof/fp_guides_wiki/wiki/MongoDB-Atlas)
 
 ### [FaunaDB](https://fauna.com/)
 FaunaDB is a very user friendly, serverless, collection-document database service. Fauna uses it's own query language, [FQL](https://docs.fauna.com/fauna/current/start/fql_for_sql_users.html). For a walkthrough on adding it to a Netlify-deployed app, [give this a go](https://medium.com/@bethmschofield/adding-faunadb-to-a-netlify-deployed-react-app-47753d6de1c9). Netlify Functions actually harnesses the same [AWS Lambda](https://aws.amazon.com/lambda/) service as Amplify just with some limitations.
