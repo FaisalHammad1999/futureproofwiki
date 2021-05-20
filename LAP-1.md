@@ -28,4 +28,5 @@ This LAP is all about learning programming principles through the use of JavaScr
 * [Watchify: A Simple Solution for a Client Side Dev Server](https://github.com/getfutureproof/fp_guides_wiki/wiki/Simple-Client-Side-Dev-Server)
 * [Deploying an Express API with Heroku](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-an-Express-API-to-Heroku)
 * [Deploying a Full Stack Application](https://github.com/getfutureproof/fp_guides_wiki/wiki/Deploying-a-Full-Stack-Application)
+* [Deploying serverless functions with AWS Lambda](https://github.com/getfutureproof/fp_guides_wiki/wiki/AWS-Lambda)
 * [call vs apply vs bind](https://github.com/getfutureproof/fp_guides_wiki/wiki/Call-vs-Apply-vs-Bind)
