@@ -5,7 +5,7 @@ AWS Lambda is a serverless function solution. Perfect for if you have a small ac
 ## Getting Started
 - Go to the [Lambda console](https://console.aws.amazon.com/lambda/home)
 - Click `Create function`
-- Name your function something descriptive and choose your runtime eg. Node.js 14.x
+- Name your function something descriptive and choose your runtime(s) eg. Node.js 14.x
 - The default permissions and settings are fine for our purpose today but feel free to take a look!
 - Click `Create function` and wait for it...
 
@@ -14,13 +14,13 @@ AWS Lambda is a serverless function solution. Perfect for if you have a small ac
 ## Dependencies
 
 ### Creating layers
-To 'install' dependencies, you'll need to add layers. Let's walkthrough making a layer for the `axios` npm module
+Rather than 'install' dependencies, you'll need to add layers. Let's walkthrough making a layer for the [`axios`](https://www.npmjs.com/package/axios) npm module.
 - In your local environment, create a directory for your new layer eg. `mkdir myLayer` and `cd` into it
 - In here, `mkdir nodejs && cd nodejs`
 - Run `npm init -y` (inside `nodejs` folder)
 - Install your dependency eg. `npm i axios`
-- `cd ..` out of your layer directory
-- Zip up the layer directory `zip -r myLayer.zip myLayer`
+- `cd ../` out of your nodejs directory
+- Zip up the layer directory eg. `zip -r myLayer.zip ./*`
 
 ### Uploading new layers
 - Click back to the Lambda Dashboard
