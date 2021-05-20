@@ -142,7 +142,7 @@ There are many ways a function can be triggered! We will walk through setting up
 - Click `Add` and you will be redirected to your Triggers list
 - Expand the `Details` for your API Gateway and copy the API endpoint, you'll need it to call your function!
 
-**Enable CORS**
+**Enable CORS** \
 To enable CORS on our new REST API:
 - Click on the name of your API Gateway in your triggers list, new tab will open with the API  settings
 - Click the name of your function in the Resources tree, click the `Actions` button and select `Enable CORS` 
@@ -153,7 +153,7 @@ To enable CORS on our new REST API:
 - Click `Deploy`!
 - Finally, make sure your response objects have the Access-Control-Allow-Origin header (see example code above)
 
-**Call your function from your app**
+**Call your function from your app** \
 Now you can access you function as you would any other API eg.
 ```js
 async function getUserData(username){
