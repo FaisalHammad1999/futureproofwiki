@@ -33,11 +33,13 @@ _Note this is not really "essential" but will be very useful!_ \
 - Visit the [GitHub SSH keys settings page](https://github.com/settings/keys) in your browser and click ‘New SSH Key’
 - Give it a title (anything you want to indicate the machine this key is for) and paste in your key.
 
-### Two Factor Authentication
-We recommend that you set up [two factor authentication (2FA)](https://github.com/settings/security) for your GitHub account - and any other accounts for that matter! \
+### Generate Personal Access Token
+We strongly recommend that you set up [two factor authentication (2FA)](https://github.com/settings/security) for your GitHub account - and any other accounts for that matter! \
 If you do, you will however need to take one more step when setting up CLI access.
+**NB: From August 21st 2021, all users regardless of auth setup will require a PAT instead of password for CLI access**
 - Generate new [Personal Access Token](https://github.com/settings/tokens) - *make sure to copy it!*
 - Use this instead of your password on prompt when making your first interaction with GitHub from the CLI (should only happen once)
+- If you are not being prompted for a password, run `git config --global --unset user.password` and try again!
 
 ---
 
