@@ -40,6 +40,7 @@ If you do, you will however need to take one more step when setting up CLI acces
 - Generate new [Personal Access Token](https://github.com/settings/tokens) - *make sure to copy it!*
 - Use this instead of your password on prompt when making your first interaction with GitHub from the CLI (should only happen once)
 - If you are not being prompted for a password, run `git config --global --unset user.password` and try again!
+- Alternatively Mac users may need to follow [this guide](https://docs.github.com/en/github/getting-started-with-github/getting-started-with-git/updating-credentials-from-the-macos-keychain).
 
 ---
 
