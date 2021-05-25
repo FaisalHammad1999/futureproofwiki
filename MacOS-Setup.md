@@ -33,6 +33,12 @@ _Note this is not really "essential" but will be very useful!_ \
 - Visit the [GitHub SSH keys settings page](https://github.com/settings/keys) in your browser and click ‘New SSH Key’
 - Give it a title (anything you want to indicate the machine this key is for) and paste in your key.
 
+### Two Factor Authentication
+We recommend that you set up two factor authentication (2FA) for your GitHub account - and any other accounts for that matter!
+If you do, you will however need to take one more step when setting up CLI access.
+- Generate new [Personal Access Token](https://github.com/settings/tokens) - *make sure to copy it!*
+- Use this instead of your password on prompt when making your first interaction with GitHub from the CLI (should only happen once)
+
 ---
 
 ### Test run GitHub!
@@ -70,7 +76,7 @@ We will take over control of our Python versions by using a tool called `pyenv`
 - **Install Python 3.9.1 with pyenv and set it as your global default version**
     + At time of writing 3.9.1 is the latest stable version
     + `pyenv install 3.9.1` (we can easily get other versions later on if you want)
-    + `pyenv global 3.7.3`
+    + `pyenv global 3.9.1`
 - **Confirm your python installation**
     + In your chosen shell type `python --version`
     + If you see a version number eg. `Python 3.9.1` then your install was successful!
