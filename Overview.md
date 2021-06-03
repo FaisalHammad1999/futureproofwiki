@@ -16,11 +16,11 @@ LAP | Week(s) | Overview |
 ![futureproof favicon](https://res.cloudinary.com/getfutureproof/image/upload/v1595323158/favicon_r7jazg.png)
 
 * [Pre-work](https://github.com/getfutureproof/fp_guides_wiki/wiki/Pre-work)
-    + [MacOS Basic Environment Setup]()
-    + [Windows Basic Environment Setup]() 
-    + [Linux / WSL Basic Environment Setup]() 
-    + [Dev Containers with VSCode]() 
-    + [Installing Python]()
+    + [MacOS Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/MacOS-Setup)
+    + [Windows Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Windows-Setup)
+    + [Linux / WSL Basic Environment Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Linux-and-WSL-Setup)
+    + [Dev Containers with VSCode](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)
+    + [Installing Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Installing-Python)
 
 ***
 
