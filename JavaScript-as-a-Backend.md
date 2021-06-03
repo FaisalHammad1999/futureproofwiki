@@ -42,7 +42,7 @@ const port = 8000 // this can be any unused port you like. 8000 and 8080 are jus
 ```
 
 We have the essential elements now, we're just missing the actual server. Let's use the `createServer` method and pass it our `requestListener` function.
-Finally we well tell the server we created to `listen`. The three arguments of port, host and cb function (run when the server has successfully started) are optional but it's good to know what you're getting.
+Finally we will tell the server we created to `listen`. The three arguments of port, host and cb function (run when the server has successfully started) are optional but it's good to know what you're getting.
 ```js
 const server = http.createServer(requestListener);
 server.listen(port, host, () => console.log(`All cylinders now firing on http://${host}:${port}!`))
