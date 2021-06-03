@@ -1,7 +1,7 @@
 ## The DOM
 The ***Document Object Model*** is a representation of the HTML document that is received by a browser when a webpage has been requested. \
 Since this is merely a representation, we are free to make changes to it without actually altering the HTML. \
-We can also consider this to be a level of abstraction - the DOM being an abstraction of some text. This will be become more of a talking point when we get into React!
+We can also consider this to be a level of abstraction - the DOM being an abstraction of some text. This will become more of a talking point when we get into React!
 
 ## Loading your JavaScript
 If you only need a tiny piece of JS and you don't want to make a file for it, you can also write JS within `<script>` tags. As you can imagine, you don't want this to get out of hand so try not to overuse this.
