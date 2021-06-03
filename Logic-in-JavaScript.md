@@ -180,7 +180,7 @@ cats.some(catName => catName.endsWith("a")); //=> true
 ### filter
 filter's callback will also need to return a boolean value but this time it will be run for all items in the collection and any that make the condition return `true` will be placed into a new array that will become the return value of the `filter`.
 ```js
-let cats = ["Zelda", "Rumble", "Sam"];
+let cats = ["Zelda", "Rumble", "Sam", "Flora"];
 
 cats.filter(catName => catName.endsWith("a")); //=> ["Zelda", "Flora"]
 ```
