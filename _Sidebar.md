@@ -1,7 +1,7 @@
 <ul>
-<li><a href="https://github.com/getfutureproof/fp_guides_wiki/wiki/Pre-work">Pre-work</a></li>
-
 <li><a href="https://github.com/getfutureproof/fp_guides_wiki/wiki/Overview">Overview</a></li>
+
+<li><a href="https://github.com/getfutureproof/fp_guides_wiki/wiki/Pre-work">Pre-work</a></li>
 
 <li><a href="https://github.com/getfutureproof/fp_guides_wiki/wiki/Warm-Up-Week">Warm Up</a></li>
 
