@@ -11,6 +11,7 @@ By the end of the first day you will have deployed a website you can share with 
 | [Responsive Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Responsive-Design) | How to create designs that work across various devices, including a discussion of what is meant by 'Mobile-First'. | HTML - CSS |
 | [Just Enough JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Just-Enough-JavaScript) | Core JavaScript principles including data types, variables and logical operators. | JavaScript |
 | [Intro to TDD](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-TDD) | Overview of what is meant by TDD, types of testing and some of the tools available to get started. | JavaScript - Jest - Mocha - Chai |
+| [JS Unit Testing with Jest](https://github.com/getfutureproof/fp_guides_wiki/wiki/JS-Unit-Testing-with-Jest) | Introduction to the concept of unit testing with examples using Jest. | JavaScript - Jest |
 
 ### Additional Resources
 * [Basic AWS Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Basic-AWS-Setup)
