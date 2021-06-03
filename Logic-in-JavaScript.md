@@ -135,7 +135,7 @@ The difference between looping and iteration is subtle and you can deep dive int
 
 ### for ... in / for ... of 
 for ... in and for ... of are newer tools but very handy ones! \
-We us for ... in when working with objects and for ... of when working with arrays. (*Think 'for-in object'!*)
+We use for ... in when working with objects and for ... of when working with arrays. (*Think 'for-in object'!*)
 ```js
 let catData = { name: "Zelda", age: 3, markings: "calico" };
 
