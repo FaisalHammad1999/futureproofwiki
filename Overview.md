@@ -22,6 +22,8 @@ LAP | Week(s) | Overview |
     + [Dev Containers with VSCode]() 
     + [Installing Python]()
 
+***
+
 * [Warm Up](https://github.com/getfutureproof/fp_guides_wiki/wiki/Warm-Up-Week)
     + [HTML Basics](https://github.com/getfutureproof/fp_guides_wiki/wiki/HTML-Basics)
     + [CSS Basics](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Basics)
