@@ -107,7 +107,7 @@ innerHTML will replace the HTML inside the selected element with whatever we ass
 const header = document.querySelector('header');
 header.innerHTML = "<h1>Hello JavaScript!</h1>";
 ```
-Avoid using this to insert just text content, especially if it has come from you user! `innerHTML` will parse the string as HTML so leaves you open to injection attacks.
+Avoid using this to insert just text content, especially if it has come from your user! `innerHTML` will parse the string as HTML so leaves you open to injection attacks.
 ### textContent
 textContent is the appropriate way to update the text in an element.
 ```js
