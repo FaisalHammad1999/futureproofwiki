@@ -1,6 +1,9 @@
 In LAP 2 we look at databases, both relational and non-relational. You'll learn to work with them, as well as connect them to apps by starting to build some APIs of your own. We'll also cover some important Computer Science concepts here by discussing Systems Architecture, Performance and Cybersecurity.
 
 ### Topics
+
+| Topic | Description | Technologies |
+|-------|-------------|:------------:|
 | [Intro to System Architecture](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-System-Architecture) | Overview of application scaling, architecture and design patterns. | N/A |
 | [Intro to Databases](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Databases) | High level discussion of the different types of databases, relational and non-relational, as well as key considerations when using one. | N/A |
 | [Internet Protocols & API Design](https://github.com/getfutureproof/fp_guides_wiki/wiki/Internet-Protocols-&-API-Design) | Considering SOAP and REST protocals, as well as the principles of good API design. | N/A |
