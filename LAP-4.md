@@ -10,8 +10,8 @@ The final LAP revolves around transferring what you have learned in the previous
 | [Python as a Backend: Flask](https://github.com/getfutureproof/fp_guides_wiki/wiki/Flask) | Creating a basic Python application using the Flask framework. | Python - Flask |
 | [Python as a Backend: Django](https://github.com/getfutureproof/fp_guides_wiki/wiki/Django) | Creating a basic Python application using the Django framework. | Python - Django |
 | [Testing with Pytest](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-with-Pytest) | Setup and writing tests in Python. | Python - Flask - Pytest |
-| [Data Manipulation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Data-Manipulation) | Handling data with Python, including visualisation and cleaning. | Python |
-| [Intro to Data Science](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Data-Science) | Getting started with models and machine learning. | Python |
+| [Data Manipulation](https://github.com/getfutureproof/fp_guides_wiki/wiki/Data-Manipulation) | Handling data with Python, including visualisation and cleaning. | Python - Jupyter - NumPy - Pandas |
+| [Intro to Data Science](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Data-Science) | Getting started with models and machine learning. | Python - Sklearn |
 
 ### Additional Resources
 * [Installing Python](https://github.com/getfutureproof/fp_guides_wiki/wiki/Installing-Python)
