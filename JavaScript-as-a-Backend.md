@@ -7,7 +7,7 @@
 **Frontend** refers to what a user sees and how they interact with it. Code related to this may be client-side or server-side. \
 **Backend** refers to anything that runs ***server-side*** that isn't directly related to what the user experiences.
 
-As an heavy over-generalisation, one might say that the frontend is what your user sees and the backend is how it works.
+As a heavy over-generalisation, one might say that the frontend is what your user sees and the backend is how it works.
 
 So far, aside from our test suites, we have been writing frontend code and mostly been working with JavaScript in the browser. \
 Now we're going to setup our own backend server!
