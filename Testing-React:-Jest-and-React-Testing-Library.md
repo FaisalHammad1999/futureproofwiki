@@ -86,7 +86,7 @@ global.userEvent = userEvent;
 Don't worry if you're not sure what these are for yet - all will be revealed below!
 
 ### test script
-We want to make sure that this setup file is run each time we run our tests. CRA will do this for us is the file is at the top level of the `src` folder but if you want to store it elsewhere or if you are not using CRA, you can add the location using a flag on your test script: \
+We want to make sure that this setup file is run each time we run our tests. CRA will do this for us in the file is at the top level of the `src` folder but if you want to store it elsewhere or if you are not using CRA, you can add the location using a flag on your test script: \
 **In CRA**
 ```js
 // in package.json "scripts"
