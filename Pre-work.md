@@ -1,4 +1,4 @@
-The main aim of the pre-work is to get you ready to hit the ground running on the first day of the course. It contains tasks to set up your local environment and install the technologies we will be using on the course.
+The main aim of the pre-work is to get you ready to hit the ground running on the first day of the course. It contains tasks to set up your local environment and install the technologies we will be using on the course. You only need to complete the environment setup for your specific operating system plus the Dev Containers and Python lessons.
 
 ### Topics
 
