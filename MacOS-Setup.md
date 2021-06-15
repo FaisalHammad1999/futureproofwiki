@@ -55,7 +55,7 @@ Although we will use Docker for many things, we will also install node locally f
     + In your terminal, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash`
     + Confirm the install with `nvm ls`
     + If `nvm ls` gives you an error, see [Troubleshooting](#Troubleshooting) below
-    + Install a version of node with `nvm install <version>` eg. `nvm install 12.19.0`
+    + Install a version of node with `nvm install v<version>` eg. `nvm install v12.19.0`
     + Make it your default version with `nvm alias default <version>` eg. `nvm alias default 12.19.0` and restart your shell
     + You can install as many different versions of node as you like and switch between them with `nvm use <version>` or update your default as shown above
 - **Confirm your node installation**
