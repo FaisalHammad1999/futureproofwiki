@@ -38,7 +38,7 @@ When working on different operating systems, our line endings may end up getting
 
 ---
 
-###Generate Personal Access Token
+### Generate Personal Access Token
 We strongly recommend that you set up [two factor authentication (2FA)]
 (https://github.com/settings/security) for your GitHub account - and any other accounts for that matter!
 \
