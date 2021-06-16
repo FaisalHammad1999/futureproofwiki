@@ -69,7 +69,7 @@ _Note that once you have installed Chocolatey, you can go back to GitBash and in
     + You may be asked for permission to continue, if so, click "Yes"!
 - **Check your Execution Policy`**
     + In your admin shell, run `Get-ExecutionPolicy`
-    + If it returns `Restricted` or `Undefined` run: `Set-ExecutionPolicy AllSigned`
+    + If it returns `Restricted` or `Undefined` run: `Set-ExecutionPolicy Unrestricted`
 - **Install Chocolatey**
     + In your admin shell, run `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
     + It may take a minute for the command to complete
