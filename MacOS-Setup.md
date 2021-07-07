@@ -6,6 +6,10 @@
 # Dev Environment Setup: MacOS
 _Please note this is designed for MacOS Catalina. If you are on a different version, you may need to refer to external materials if you come across any issues!_
 
+### VS Code
+There are plenty of options for code editors and you are welcome to use any alternatives. Your instructors will be using VS Code which is a very popular and extendable offering.
+- Download and install [VS Code](https://code.visualstudio.com/download)
+
 ## Preparing: 
 ### Install Xcode Command Line Tools
 In your terminal run: `xcode-select --install` 
@@ -45,7 +49,8 @@ If you do, you will however need to take one more step when setting up CLI acces
 ---
 
 ### Test run GitHub!
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+Add yourself to your cohort roster in [this repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+Note that this repo is used to power our [cohorts website](http://cohorts.getfutureproof.co.uk/) so add your name as you would like it to appear on there!
 
 ---
 
@@ -91,8 +96,9 @@ We will take over control of our Python versions by using a tool called `pyenv`
 
 ***
 
-### Setup Docker and VSCode Remote - Containers
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
+### Install Docker
+- Download [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- Test your install from the command line by running `docker run hello-world`
 
 ***
 
