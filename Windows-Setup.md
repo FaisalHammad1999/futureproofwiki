@@ -5,6 +5,10 @@
 
 # Dev Environment Setup: Windows
 
+### VS Code
+There are plenty of options for code editors and you are welcome to use any alternatives. Your instructors will be using VS Code which is a very popular and extendable offering.
+- Download and install [VS Code](https://code.visualstudio.com/download)
+
 ### Git & GitBash Setup
 Install the [latest release of git](https://git-scm.com/). Keep the standard options (***make sure Git Bash is included in your install***).
 When selecting the various options:
@@ -49,8 +53,9 @@ If you do, you will however need to take one more step when setting up CLI acces
 
 ---
 
-### Test run your git setup with GitHub!
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+### Test run GitHub!
+Add yourself to your cohort roster in [this repo](https://github.com/getfutureproof/fp_study_notes_hello_github). Roll call!
+Note that this repo is used to power our [cohorts website](http://cohorts.getfutureproof.co.uk/) so add your name as you would like it to appear on there!
 
 ---
 
@@ -128,8 +133,9 @@ To have control of our Python versions we are going to use a tool called `pyenv`
 
 ---
 
-### Setup Docker and VSCode Remote - Containers
-Complete [this practice repo](https://github.com/getfutureproof/fp_study_notes_hello_docker) using the [accompanying walkthrough](https://github.com/getfutureproof/fp_guides_wiki/wiki/Setting-up-Containers-with-VS-Code)!
+### Install Docker
+- Download [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- Test your install from the command line by running `docker run hello-world`
 
 ---
 
