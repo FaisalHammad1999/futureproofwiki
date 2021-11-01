@@ -117,7 +117,7 @@ To have control of our Python versions we are going to use a tool called `pyenv`
 - **Install Python 3.9.1 with pyenv and set it as your global default version**
     + At time of writing 3.9.1 is the latest stable version
     + `pyenv install 3.9.1` (we can easily get other versions later on if you want)
-    + `pyenv global 3.7.3`
+    + `pyenv global 3.9.1`
     + `pyenv rehash`
 - **Confirm your python installation**
     + `python --version`
