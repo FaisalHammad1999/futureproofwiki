@@ -19,7 +19,7 @@ To use Webpack we need to go through some setup.
 Begin by creating a project repository and running the standard `git init` and `npm init`.
 
 ### Install Webpack
-`npm install webpack webpack-cli webpack-dev-server html-webpack-plugin --save-dev`
+`npm install webpack webpack-dev-server html-webpack-plugin --save-dev`
 
 We use the `--save-dev` flag as we only need these for development and not production. _(NB: You can shorten `npm install --save-dev` to `npm i -D`)_
 
@@ -34,15 +34,14 @@ We use this to transpile ES6 to ES5. Install the following dependencies:
 - `@babel/core`: the core babel library 
 - `@babel/preset-env`: allows us to target specific environments
 - `@babel/plugin-transform-runtime`: if you get regenerator runtime errors you may have forgotten this one!
-- `@babel/plugin-proposal-class-properties`: optional - recommended if you will be using ES6 class syntax
 - `@babel/preset-react`: only add if creating an app that uses React
 
-To configure babel, we need to create a file called `.babelrc` and define any presets and plugins that you've installed. If you use all of the ones above, your `.babelrc` will look like this: 
+To configure babel, we need to create a file called `.babel.config.js` and define any presets and plugins that you've installed. If you use all of the ones above, your `.babel.config.js` will look like this: 
 
-```json
-{
+```js
+module.exports = {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-runtime"]
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
 ```
 
@@ -72,7 +71,7 @@ const config = {
     filename: 'bundle.js', // the file name of the compiled code
     publicPath: '/', // specifies the base path for all the assets within your application.
   },
-  mode: 'development', // tells webpack to use its built-in optimisations according to the mode
+  mode: 'development', // tells webpack to use its built-in optimizations according to the mode
   resolve: {
     // instructions on how to resolve modules
     modules: [path.resolve('node_modules'), 'node_modules'], // tells webpack where to look for node_modules
@@ -91,8 +90,16 @@ const config = {
   module: {
     // helpers we want webpack to use
     rules: [
-      // specific instructions for each helper
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }, // transpile JavaScript files
+      {
+        test: /\.(js|jsx)$/,
+        resolve: {
+          extensions: [".js", ".jsx"]
+        },
+        exclude: /nodeModules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
@@ -114,17 +121,13 @@ We also create a configuration file with extra instructions specifically for use
 Use the following as a starting point. Read through it and if there's anything you don't quite understand, use your search engine of choice to get more info!
 
 ```js
-const path = require('path');
 const config = require('./webpack.config.js');
 
 config.devServer = {
   historyApiFallback: true, //serve a previous page on a 404 error
-  contentBase: path.resolve('src'), // location of the source code
   port: 8080, // use this port for the server
-  hot: true, // refresh the browser when changes are saved
+  liveReload: true // refresh the browser when changes are saved
   open: true, // open the project in the browser when the server starts
-  host: '0.0.0.0', // make server accessible externally
-  watchContentBase: true, // watch for changes to static files
 };
 
 config.devtool = 'inline-source-map'; // a tool to find errors in the compiled code, but show them against the source code for easier debugging
@@ -145,7 +148,7 @@ Finally we should add some scripts to our `package.json`.
 
 ```json
   "scripts": {
-    "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
+    "dev": "webpack serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js"
   },
 ```
