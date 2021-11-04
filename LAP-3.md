@@ -7,6 +7,7 @@ React and building a slick user interface is the main focus of this LAP. We'll c
 | [Intro to Module Bundlers & Webpack Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-Module-Bundlers-and-Webpack) | Setting up and using the Webpack module bundler. | Webpack - Babel |
 | [Intro to React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React) | Getting started with a basic React app and file structure. | React - JavaScript - JSX - HTML |
 | [Testing React](https://github.com/getfutureproof/fp_guides_wiki/wiki/Testing-React:-Jest-and-React-Testing-Library) | Adding tests to a React project. | React - JavaScript - JSX - Jest - React Testing Library |
+| [CDD & StorybookJS](https://github.com/getfutureproof/fp_guides_wiki/wiki/CDD-&-Storybook-JS) | Component Driven Development with Storybook JS | React - StorybookJS - Jest |
 | [Intro to React Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/Intro-to-React-Hooks) | Introduction on how to implement basic hooks. | React - JavaScript |
 | [React State & Eventing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Functional-Components)) | The useState hook and controlled forms. | React - JavaScript - JSX |
 | [React Props](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Props) | Passing props between components. | React - JavaScript - JSX |
