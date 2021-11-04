@@ -20,4 +20,4 @@ By the end of the first day you will have deployed a website you can share with 
 * [CSS Selectors Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/CSS-Selectors-Cheatsheet)
 * [git CLI Cheatsheet](https://github.com/getfutureproof/fp_guides_wiki/wiki/git-CLI-Cheatsheet)
 * [Writing READMEs](https://github.com/getfutureproof/fp_guides_wiki/wiki/Writing-READMEs)
-*[Pnpm guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/Pnpm)
+* [Pnpm guide](https://github.com/getfutureproof/fp_guides_wiki/wiki/Pnpm)
