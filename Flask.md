@@ -9,8 +9,15 @@ Lets make a file for our server to live eg. `server.py`
 - Create the server with `server = Flask(__name__)`
 - Write the command that will run the server `server.run()` (add argument of `debug=True` for auto restart on file changes)
 
+
+- In some cases, the default server that flask offers is not powerful enough or doesn't meet the requirements you need. In that case you will want to use WSGI
+- WSGI is a simple calling convention for web servers to forward requests to web applications or frameworks written in the Python programming language
+- Some of the advantages of WSGI are: more flexibility, scalability, speed and a reusable middleware. 
+- In a Linux or MAC machine we recommend using 'gunicorn'. In a Windows machine 'waitress'. Feel free to explore other options!
+- To be able to use wsgi you will want to install the wsgi server of your choice you will only need to create the 'wsgi.py' file, import app and get the app to run. 
+
 ## Starting your server
-Now you have a file, run it from your terminal with `python server.py`
+Now you have a file, run it from your terminal with `python server.py` or with the script that you have decided for your wsgi.py file. You can use either. 
 - Visit the given port (usually 5000 by default with flask)
 - Note that 'the requested URL was not found on the server'
 - So the server is running, but it does not have any routes
