@@ -22,9 +22,15 @@ Your machine (looking at you Mac users) may have Python 2 already installed, how
 
 ⚠️ **We are going to be using Python 3.** ⚠️
 
-Make sure you have this installed. Use `$ python --version` to check your current version.
+Make sure you have this installed. Use `$ python --version` in your terminal to check your current version.
 
 To get started we can simply type `$ python` (Mac) or `$ py` (Windows) into the command line to open up the Python interpreter. We can use this to run commands - try `print("Hello world")`.
+
+When using your IDE make sure that your project is actually running on the version of python 3 that you actually need (i.e. Python 3.10). 
+
+Python 3.10 has added several new features that won't run in previous versions or they might even raise errors. With Visual Studio Code you can know the version looking at the bottom left of your IDE window. If it's not the version you want / need, click there and look for it. 
+
+If it's not there, go to the command pallete and type "Python Select Interpreter". Then look for the version you need. 
 
 ## Variables
 
