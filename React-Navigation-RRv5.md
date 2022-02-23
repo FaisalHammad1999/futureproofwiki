@@ -3,11 +3,11 @@ As React is used to create SPAs (Single Page Applications) we can be tempted to 
 [`react-router-dom`](https://reactrouter.com/web/guides/quick-start) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
 ***
 
-- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
-- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routes)
-- [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#creating-links)
-- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
-- [Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
+- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5#setup)
+- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5#defining-routing)
+- [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5#creating-links)
+- [Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5#hooks)
+- [Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5#testing)
 
 ---
 ### Setup
