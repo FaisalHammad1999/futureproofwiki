@@ -1,6 +1,9 @@
 As React is used to create SPAs (Single Page Applications) we can be tempted to ignore actual browser navigation but this is not very fair on users who may want to bookmark a view on your app or use their browser navigation system (foward, back, history etc).
 
 [`react-router-dom`](https://reactrouter.com/web/guides/quick-start) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
+
+_Note that React Router had a major update in 2021 to v6. You might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
+
 ***
 
 - [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
