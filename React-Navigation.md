@@ -1,16 +1,20 @@
 As React is used to create SPAs (Single Page Applications) we can be tempted to ignore actual browser navigation but this is not very fair on users who may want to bookmark a view on your app or use their browser navigation system (foward, back, history etc).
 
-[`react-router-dom`](https://reactrouter.com/web/guides/quick-start) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
+[`react-router-dom`](https://reactrouter.com/docs/en/v6/) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
 
-_Note that React Router had a major update in 2021 to v6. You might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
+_Note that React Router had a major update in 2021 to v6 which is what this page will cover. You might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
 
 ***
 
 - [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
-- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routes)
+- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routing)
 - [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#creating-links)
-- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
 - [Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
+- [Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#testing)
+---
+### Installation
+To ensure you are working with v6, install to your project with: \
+`npm i react-router-dom@6`
 
 ---
 ### Setup
@@ -28,18 +32,21 @@ ReactDOM.render(
 ```
 ***
 ### Defining Routing
-What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Switch` and `Route` components from `react-router-dom` for this. The `Route` can wrap around child elements (***NB: this is the preferred option when using hooks***) or can receive a `render` prop or a `component` prop to define what should be shown when that route is visited. Note the differences below. The render or component props approach is more likely to be found in routes that render Class Components.
+What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Routes` and `Route` components from `react-router-dom` for this.
+
+`Routes` acts as a container for all our `Route` elements.
+
+`Route` elements commonly take props of `path` and `element`.
+
+
 ```jsx
-// anywhere you need routing
-import { Switch, Route } from 'react-router-dom';
+// wherever you are defining your routing
+import { Routes, Route } from 'react-router-dom';
 
 // in render/return
-<Switch>
+<Routes>
     {/* pass render a function that returns some jsx */}
     <Route exact path="/" render={() => <h1 id="welcome">Welcome</h1>} />
-
-    {/* wrap the Route around a component PREFERRED APPROACH WHEN USING HOOKS */}
-    <Route path="/schools"><Schools select={selectSchool} /></Route>
 
     {/* pass a component as a prop */}
     <Route path="/instructors" component={InstructorsContainer} />
@@ -49,7 +56,7 @@ import { Switch, Route } from 'react-router-dom';
 
     {/* if the url path doesn't match any this will run */}
     <Route><NotFound404 /></Route>
-</Switch>
+</Routes>
 ```
 ***
 ### Dynamic Segments
