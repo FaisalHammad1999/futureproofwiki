@@ -7,9 +7,8 @@ As React is used to create SPAs (Single Page Applications) we can be tempted to 
 ***
 
 - [Install & Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#installation)
-- [Routing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routing)
-- [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#creating-links)
-- [Navigation & More](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
+- [Routing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#routing)
+- [Navigation & Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#navigation)
 - [Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#testing)
 ---
 ## Installation
@@ -343,12 +342,7 @@ For more info check out the [`useNavigate`](https://reactrouter.com/docs/en/v6/a
 
 ---
 
-### More...
-THere are plenty more awesome things to discover about React Router v6, check out the [documentation](https://reactrouter.com/docs/en/v6/api)!
-
----
-
-### Testing
+## Testing
 When testing components that need basic access to a React Router, we can use MemoryRouter:
 ```js
 import { MemoryRouter } from 'react-router-dom';
@@ -359,3 +353,5 @@ import { MemoryRouter } from 'react-router-dom';
 For more control over testing components that use React Router, including creating a fake history to navigate through, check out the [documentation](https://testing-library.com/docs/example-react-router/).
 
 ---
+
+> There are plenty more awesome things to discover about React Router v6, check out the [documentation](https://reactrouter.com/docs/en/v6/api)!
