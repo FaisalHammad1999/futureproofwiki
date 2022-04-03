@@ -2,7 +2,7 @@ As React is used to create SPAs (Single Page Applications) we can be tempted to 
 
 [`react-router-dom`](https://reactrouter.com/docs/en/v6/) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
 
-> _Note that React Router had a major update in 2021 to v6 which is what this page will cover. v6 does require React 16.8 or above and you might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
+> _Note that React Router had a major update in 2021 to v6 which is what this page will cover. v6 does require React 16.8 or above and you might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation-RRv5) version of this guide._
 
 ***
 
