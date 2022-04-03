@@ -2,22 +2,22 @@ As React is used to create SPAs (Single Page Applications) we can be tempted to 
 
 [`react-router-dom`](https://reactrouter.com/docs/en/v6/) is an extremely popular library to handle navigation in React. Here are some of the key features to get you up and running.
 
-_Note that React Router had a major update in 2021 to v6 which is what this page will cover. You might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
+> _Note that React Router had a major update in 2021 to v6 which is what this page will cover. v6 does require React 16.8 or above and you might well still see v5 in use out there but fear not - you can always check out our original [React Router v5](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-State-and-Eventing-(Class-Components)) version of this guide._
 
 ***
 
-- [Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#setup)
-- [Routes](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routing)
+- [Install & Setup](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#installation)
+- [Routing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#defining-routing)
 - [Links](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#creating-links)
-- [Hooks](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
+- [Navigation & More](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#hooks)
 - [Testing](https://github.com/getfutureproof/fp_guides_wiki/wiki/React-Navigation#testing)
 ---
-### Installation
+## Installation
 To ensure you are working with v6, install to your project with: \
 `npm i react-router-dom@6`
 
 ---
-### Setup
+## Setup
 As high up as possible in your app, wrap your app in a Router. Generally I like to do this in my `index.js` file.
 ```jsx
 // in index.js
@@ -31,8 +31,10 @@ ReactDOM.render(
 );
 ```
 ***
-### Defining Routing
-What we are going to add is essentially a fancy `switch` statement to decide which view to show based on the url path. We'll use the `Routes` and `Route` components from `react-router-dom` for this.
+## Routing
+
+### Routing basics
+What we are going to add is essentially a very intelligent `switch` statement to decide which view to show based on the url path. We'll use the `Routes` and `Route` components from `react-router-dom` for this.
 
 `Routes` acts as a container for all our `Route` elements.
 
@@ -43,53 +45,212 @@ What we are going to add is essentially a fancy `switch` statement to decide whi
 // wherever you are defining your routing
 import { Routes, Route } from 'react-router-dom';
 
-// in render/return
+// in return
 <Routes>
-    {/* pass render a function that returns some jsx */}
-    <Route exact path="/" render={() => <h1 id="welcome">Welcome</h1>} />
-
-    {/* pass a component as a prop */}
-    <Route path="/instructors" component={InstructorsContainer} />
-
-    {/* pass render a function that receives props as an argument and injects them into the returned component */}
-    <Route path="/students" render={props => <StudentsContainer {...props} students={this.state.allStudents}/>} />
-
-    {/* if the url path doesn't match any this will run */}
-    <Route><NotFound404 /></Route>
+    <Route path="/" element={<Landing />} />
+    <Route path="cohorts" element={<Cohorts />} />
+    <Route path="news" element={<News />} />
+    <Route path="about" element={<About />} />
+    <Route path="*" element={<NotFound />} />
 </Routes>
 ```
-***
-### Dynamic Segments
-Note that the `Switch` is checking the Route paths top to bottom to find a match. This is especially important when handling nested routing with dynamic segments.
+
+### Nested routes and the `index` route
+> _If you are coming from React Router v5, prepare to be excited because this looks a lot neater and leaner in v6!_
+
+`Route` components can be placed within other `Route` components for nested routing.
+In a `Route` that has multiple children, we can assign one of them the `index` attribute to indicate what to render when the URL is not extended. Check out the example below and see if you can spot this happening twice.
+
+
 ```jsx
-<Switch>
-    {/* If we switched these two Routes around, /new would get caught as an :id segment */}
-    <Route path={`/students/new`}><StudentForm handleSubmit={this.addStudent}/></Route>
-    <Route path={`/students/:id`}><PersonCard getPerson={this.getStudentByName}/></Route>
-</Switch>
+<Routes>
+    // EVERY path will render the Layout
+    <Route path="/" element={<Layout />}>
+        // the `/` path will render the `Landing` component
+        <Route index element={<Landing />} />
+
+        // EVERY path that starts `/cohorts` will render the `CohortsContainer`
+        <Route path="cohorts" element={<CohortsContainer />}>
+            // the `/cohorts` path will render the `CohortsIndex` component
+            <Route index element={<CohortsIndex />}/>
+            // the `/cohorts/:cohortName` path will render the `Cohort` component
+            <Route path=":cohortName" element={<Cohort />} />
+            // the `/cohorts/new` path will show the `NewCohortForm` component
+            <Route path="new" element={<NewCohortForm />}/>
+        </Route>
+
+        <Route path="news" element={<News />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+    </Route>
+</Routes>
 ```
 
-You can also have optional dynamic segments by adding the `?` after the optional segment. The below Route will render its children if the path is "/profile" and also if it has a dynamic segment eg. "/profile/futureproof".
+> :bulb: _If you're wondering how `/cohorts/new` can go after the dynamic `/cohorts/:cohortName` route, good question! The v6 `Routes` logic is more advanced than in the v5 `Switch` component and will always look for the closest match so we can be more relaxed about the order._
+
+#### Rendering nested routes
+Now the logic of **what** to render is neatly placed together, how will we state **where** to render the nested elements?
+
+The key is in the [`Outlet`](https://reactrouter.com/docs/en/v6/api#outlet) component provided in React Router v6. Based on the routing example given above, we might expect to see something like this in our `Layout` component:
+
 ```jsx
-<Route path="/profile/:username?"><Pages.Profile /></Route>
+import { Outlet } from "react-router-dom";
+import { Header, Footer } from "./my-custom-components"
+
+function Layout() {
+  return (
+    <Header />
+    <main>
+        // depending on the path, this Outlet will render either the Landing, CohortsContainer, News, About or NotFound component
+        <Outlet />
+    </main>
+    <Footer />
+  );
+}
 ```
+
+And perhaps our `CohortsContainer` would look something like this:
+```jsx
+import { Outlet } from "react-router-dom";
+
+function CohortsContainer() {
+  return (
+    <h1>futureproof Cohorts</h1>
+    // depending on the path, this Outlet will render either the CohortsIndex, Cohort or NewCohortForm component
+    <Outlet />
+  );
+}
+```
+
+
+#### Dynamic Segments
+In our routing example above we have a `<Route path=":cohortName" element={<Cohort />} />`.
+
+The `:` syntax states that this is a dynamic segment / URL parameter and implies that this `Cohort` element is likely to render different content depending on the `:cohortName`. To access this segment so we can decide what to do with it, we can harness the given `useParams` hook.
+
+`useParams` returns an object where the keys are any defined dynamic segment names and the value is... the value!
+
+In our example here, if our user navigates to `/cohorts/lytical`, `useParams()` would return an object of `{ cohortName: "lytical" }`.
+
+```jsx
+import { useParams } from "react-router-dom";
+
+function Cohort() {
+    let params = useParams();
+
+    return (
+        <h1>Meet the ${params.cohortName} cohort!</h1>
+    )
+}
+```
+
+A very common use case might be to read the param, request some data based on that and update the page accordingly. Read through the following example carefully and follow the logic.
+```jsx
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+import { Headshot, Banner } from "../my-custom-components";
+
+function Cohort() {
+    let { cohortName } = useParams(); // optional use of object destructuring
+    let [loading, setLoading] = useState();
+    let [error, setError] = useState();
+    let [studentList, setStudentList] = useState();
+
+    useEffect(() => {
+        const fetchCohortData = async () => {
+            try {
+                setLoading(true);
+                let { students } = await fetch(`https://ourapi.com/cohorts/${cohortName}`);
+                if(!students){ throw new Error("Cohort not found")};
+                setCohortData(data);
+                setLoading(false);
+            } catch (e) {
+                setLoading(false);
+                setError(e.message);
+            }
+        }
+    }, [cohortName])
+
+    const renderStudents = () => studentList.map(st => <Headshot key={st.id} student={st}/>)
+
+    const renderError = () => <span class="error"> Oops! {error} </span>
+
+    return (
+        { error ? <Banner type="error" msg={error} />: null }
+
+        <section id="students">
+            { loading ? <h1>Loading cohort...</h1> : renderStudents() }
+        </section>
+    )
+}
+```
+
+
 ***
-### Creating Links
-We can use normal `<a>` tags to create links but using `react-router-doms`'s `Link` and `NavLink` components give us more integrated control over our navigation handling.
+## Navigation
+
+### User navigation
+Whilst you technically can use normal `<a>` tags to create your internal links, using `react-router-dom`'s `Link` and `NavLink` components give us much more integrated control over our navigation handling.
 ```jsx
 import { Link } from `react-router-dom`;
 
-// in render/return
+// in return
 <Link to="/contact">Visit our contact page</Link>
 ```
-`NavLink` gives an nice bonus of an `activeClassName` prop. When we are on that page, the class will added for us.
+
+
+`NavLink` is very similar to a `Link` but has awareness of its "active" state - ideal for styling and accessibilty on nav bars and the like.
+By default, an active NavLink will receive a class of `active`.
+
 ```jsx
 import { NavLink } from `react-router-dom`;
 
-// in render/return
-<NavLink to="/treasure" activeClassName="current">Here Be Treasure</NavLink>
-<NavLink to="/cats" activeClassName="current">Cats</NavLink>
+// in return
+<nav>
+    <NavLink to="/treasure">Here Be Treasure</NavLink>
+    <NavLink to="/cats">Cats</NavLink>
+</nav>
 ```
+
+```css
+nav a {
+    font-weight: normal;
+}
+
+nav a.active {
+    font-weight: bold;
+}
+```
+
+You can customise this further by using the boolean `isActive` value which is received by a function that can be assigned to a `NavLink`'s `style` or `className` prop:
+
+```jsx
+<nav>
+    <NavLink
+        to="/treasure"
+        className={({ isActive }) => isActive ? "discovered" : "undiscovered" } >
+            Here Be Treasure
+    </NavLink>
+
+    <NavLink
+        to="/cats"
+        style={({ isActive }) => isActive ? ({ textDecoration: "underline" }) : ({ textDecoration: "none" }) }>
+        Cats
+    </NavLink>
+</nav>
+```
+
+```css
+    nav a.undiscovered {
+        color: grey;
+    }
+
+    nav a.discovered {
+        color: gold;
+    }
+```
+
 
 **NB**: *At time of writing, a conflicting dependency version of the `path-to-regexp` module can cause the path to not be matched. If you are having trouble with this, in your `webpack.config.js` file, add the following `alias` key to `config.resolve` and restart your dev server:*
 ```js
@@ -107,55 +268,83 @@ const config = {
 }
 ```
 
----
+### Programmatic navigation
+Sometimes we want to navigate programatically. The provided `useNavigate` hook return a function that allows exactly this.
 
-## Accessing Routing Data
-To give your components access to data about the routing, you can either use the [hooks provided by React Router](https://reactrouter.com/web/api/Hooks) **or** you can use their Higher Order Component, [`withRouter`](https://reactrouter.com/web/api/withRouter).
 
-***When using functional components, we recommend using the hooks where possible.***
-
-### Hooks
-#### `useHistory`
-`useHistory` gives us access to the [history instance](https://reactrouter.com/web/api/history)
-
-Two common uses are the `goBack` function:
+We can specify a number of steps to take based on the history being racked up by our Router:
 ```jsx
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const BackButton = () => {
-    const history = useHistory();
+function BackButton() {
+  let navigate = useNavigate(); // navigate is a more common name for the returned function than goTo!
 
-    return <button id="back-button" onClick={history.goBack}>Back</button>
+    return <button onClick={() => navigate(-1)}>Back</button>
 }
 ```
 
-and programmatic navigation:
-```js
-    const history = useHistory();
+Or can request a specific path:
+```jsx
+import { useNavigate } from "react-router-dom";
 
-    addStudent = e => {
-        e.preventDefault();
-        const newStudent = { id: students.length + 1, name: nameInput }
-        setStudents(prev => [...prev, newStudent])
-        // Redirecting to the new student's show page after submission
-        history.push(`/students/${newStudent.id}`)
-    }
+function ContactForm() {
+  let goTo = useNavigate(); // Name it anything you like, I'm a fan of "goTo" as that's what it lets you do!
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await submitForm(e.target);
+    goTo("../thankyou");
+  }
+
+  return <form onSubmit={handleSubmit}>{/* ... */}</form>;
+}
 ```
 
+An optional second argument of an options object can be passed with keys of `replace` to overwrite the last history entry and/or `state` to pass some data along with the navigation.
+
+To access any passed `state` at the next location, use the `useLocation` hook. In the example below, when our contact form is submitted, it navigates to `/thankyou` and sends along the first name value from the form.
+
+```jsx
+import { useNavigate } from "react-router-dom";
+
+function ContactForm() {
+    let goTo = useNavigate(); 
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await submitForm(e.target);
+        goTo("/thankyou", { replace: true, state: {name: e.target.firstName.value} });
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+        // this form should really be controlled!
+            <input type="text" id="firstName" />
+            <input type="text" id="lastName" />
+            <textarea id="message" rows="4" cols="50" />
+            <input type="submit" />
+        </form>
+    );
+}
+
+import { useLocation } from "react-router-dom";
+
+function Thankyou() {
+    let location = useLocation(); 
+
+    return (
+        <h1>Thanks for getting in touch, {location.state.firstName}</h1>
+    );
+}
+```
+
+For more info check out the [`useNavigate`](https://reactrouter.com/docs/en/v6/api#usenavigate) and [`useLocation`](https://reactrouter.com/docs/en/v6/api#uselocation) docs.
+
+
 ---
 
-#### `useLocation`
-`useLocation` gives us access to the [location object](https://reactrouter.com/web/api/location)
-
----
-
-#### `useParams`
-`useParams` gives us access to the [params object](https://reactrouter.com/web/api/Hooks/useparams)
-
----
-
-#### `useRouteMatch`
-`useRouteMatch` gives us programatic access to the same [match](https://reactrouter.com/web/api/Hooks/useroutematch) logic that is used when matching for `<Route>`s
+### More...
+THere are plenty more awesome things to discover about React Router v6, check out the [documentation](https://reactrouter.com/docs/en/v6/api)!
 
 ---
 
@@ -167,64 +356,6 @@ import { MemoryRouter } from 'react-router-dom';
     render(<News />, { wrapper: MemoryRouter })
     // ...
 ```
-For more control over testing components that use React Router, check out the [documentation](https://testing-library.com/docs/example-react-router/).
-
-
----
-
-### withRouter
-`withRouter` is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that comes with `react-router-dom`. We can use it to wrap a Component and give it access to our router props of `match`, `history` and `location`. There is quite a bit to explore in those but here are some of the most common uses:
-
-```jsx
-import { withRouter } from `react-router-dom`;
-
-class CatsContainer extends Component  {
-    state = { allCats: [ { name: 'Zelda', age: 3 }, { name: 'Ziggy', age: 2 } ] };
-
-    addCat = e => {
-        e.preventDefault();
-        const { name, age } = e.target;
-        const newCat = { name: name.value, age: age.value };
-        conset allCats = [ ...this.state.allCats, newCat ];
-        this.setState({ allCats });
-        // Redirecting to the new cat's show page after submission using history prop
-        this.props.history.push(`/cats/${newCat.name}`)
-    }
-
-    render(){
-        <>
-            <button>
-                {   {/* Checking current full path with location prop */}
-                    this.props.location.pathname !== '/cats/new' ?
-                        {/* Accessing the base path with match prop */}
-                        <Link to={`${this.props.match.url}/new`}>Add a Student</Link>
-                        {/* Programatically going back a page in browser history with history prop */}
-                        : <span onClick={this.props.history.goBack}>Back</span>
-                }
-            </button>
-        </>
-    };
-}
-
-export default withRouter(CatsContainer); // here is where we pass our CatsContainer component to withRouter. Check out the dev tools to see the result!
-```
-```jsx
-// rendered on a page with path of `/cats/:name`
-import { withRouter } from `react-router-dom`;
-
-const CatCard = ({allCats, match}) => {
-    // Extracting specific route parameter with match prop
-    const cat = allCats.find(cat => cat.name === match.params.name)
-
-    const renderUnknown = <p>I'm sorry we don't have a cat called {match.params.id} here!</p>
-
-    const renderCat = () => <p>{cat.name} is {cat.age} years old</p>
-
-    return ({ cat ? renderCat() : renderUnknown })
-}
-
-export default withRouter(CatCard);
-
-```
+For more control over testing components that use React Router, including creating a fake history to navigate through, check out the [documentation](https://testing-library.com/docs/example-react-router/).
 
 ---
