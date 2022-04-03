@@ -189,7 +189,7 @@ cats.filter(catName => catName.endsWith("a")); //=> ["Zelda", "Flora"]
 reduce is a notoriously tricky one to grasp but once you've got it, it can be very handy. It allows to keep a 'running total' of kinds (does not have to be numerical) and will pass it as an additional argument to the callback function to be operated on and returned. The final time, that running total becomes the return value of our `reduce`.
 ```js
 const prices = [2.99, 4.75, 5.00, 12.99];
-prices.reduce((runningTotal, nextValue); => runningTotal + nextValue) // 25.73
+prices.reduce((runningTotal, nextValue) => runningTotal + nextValue) // 25.73
 ```
 reduce can take an optional second argument of a custom 'starting point' for the running total. If no second argument is given, the first item will be used as the starting point.
 As with all of the similar methods above, the callback can be defined elsewhere.
