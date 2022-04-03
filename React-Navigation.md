@@ -17,7 +17,7 @@ To ensure you are working with v6, install to your project with: \
 
 ---
 ## Setup
-As high up as possible in your app, wrap your app in a Router. Generally I like to do this in my `index.js` file.
+As high up as appropriate in your app, wrap your app in a Router. Generally I like to do this in my `index.js` file.
 ```jsx
 // in index.js
 import { BrowserRouter } from 'react-router-dom';
