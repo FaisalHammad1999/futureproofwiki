@@ -5,7 +5,7 @@ To configure a Netlify deployment, you can use the UI but today we will create a
 - `touch netlify.toml` _(Mac/Linux/GitBash)_
 - `New-Item netlify.toml -type file` _(Powershell)_
 
-***NB: If you use the Netlify UI for configuration, you will still need to define these settings settings but the UI will walk you through this***
+***NB: If you use the Netlify UI for configuration, you will still need to define these settings but the UI will walk you through this***
 
 ## Build
 Whatever you use to deploy your React app, you'll need to build it first. Netlify can do this for us if we give it the right information in the toml file.
